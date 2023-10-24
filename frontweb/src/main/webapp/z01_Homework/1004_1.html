@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	//# javascript
+// [개념] 1. 선언적 함수과 변수형함수의 차이점을 예제를 통해서 설명하세요.
+		<!-- 개념 그대로 함수를 선언하고 처리하는 선언형 함수와
+		한번에 선언까지 해버리는 변수형 함수가 있습니다. 
+		
+		function fun01() { alert('함수 A'); }  // 선언형 함수
+		
+		var fun03 = function(){
+            alert("변수형 함수")
+        } -->
+
+// [확인] 2. 선언적 함수로 매개변수로,
+//		구구단의 시작단수와 마지막단수를 입력받아 console.log로 구구단을 출력하세요.
+
+		function f01 () {
+			var a = Number(prompt("구구단의 시작 숫자를 입력하세여",""))
+			var b = Number(prompt("구구단의 마지막 숫자를 입력하세여",""))
+			for (var i = a; i <= b; i++) {
+				         for (var  = 1; j <= 9; j++) {
+			              console.log(`${a}x${b}=${a*b}`)
+				         }
+				        
+				    }
+				
+				   
+		}
+
+
+
+// [개념] 3. js의 함수의 매개변수와 리턴값을 기본예제를 만들어 설명하세요.
+		function f02 (x,y) {
+			return a*b
+		} alert(f02(2,3))
+		처럼 매개변수를 설정해놓고 리턴값을 받아와 바로 출력할 수 있다. 
+
+// [개념] 4. js의 arguments는 어떤 때 사용되는지 기본예제를 통해서 설명하세요
+
+		여러가지 매개변수가 나열되어 있는경우 , VAR sumAll("김길동","홍길동","최길동")
+		변수들을 배열로 가지고 와서 처리할 수 있다
+		argument = ["김길동","홍길동","최길동"]
+		console.log()
+
+
+</body>
+</html>

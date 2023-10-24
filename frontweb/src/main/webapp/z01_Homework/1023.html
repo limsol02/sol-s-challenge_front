@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!--
+        /*
+[1단계:개념] 1. html태그에서 &XXX; 를 사용하는 이유는 무엇인가? 예제를 통해 설명하세요.
+
+        - 그냥 글을 입력하게되면, 줄바꿈이나 공백, 특수문자 처리를 인식을 못하게 되는데
+        이떄 &xxx를 이용하면 이를 인식하여 원하는 기호나 줄바꿈 , 공백란을 사용할 수 있게된다.
+
+        그냥 일반적으로 
+        안녕하세요. 
+        임솔             입니다.
+        라고 쓰게되면 출력은 안녕하세요.임솔입니다. 라고만 나오는 반면
+        
+        안녕하세요.<br>
+        임솔 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;입니다. 라고 입력하게 되면
+        
+        출력창에서는
+        안녕하세요.
+        임솔     입니다. 라고 출력되게 됩니다. 
+
+
+
+z[1단계:개념] 5. 블럭태그와 인라인 태그의 차이점을 기본예제와 함께 기술하세요.
+        블럭태그는 말 그대로 블럭 자체를 독점해서 사용하는데 h1과 같이 한 줄을 그냥
+        다 사용해버립니다. 블럭태그는 넓이와 높이를 css로 변경할 수 있지만
+        인라인 태그는 블럭 안에 있는 일부에 대한 태크이며 높이등을 지정할 수 없습니다. 
+        전체적으로
+        <h2 style="background:red">안녕하세요 </h2> 라고 하면 안녕하세요 한줄의
+        뒷면에 전체적으로 빨간색 배경이 칠해지고 사용자가 의도하면 넓이나 높이를 키울수 
+        있는 반면
+
+        <div style = "background : black"> ==> 블럭태그
+        <span style ="color:red">ㅋㅋㅋ</span>아 배고프다
+        라고 입력할 시 span 안에 있는 ㅋㅋㅋ만 빨간색으로 표시되는 
+        인라인 태크의 예제가 있습니더ㅏ.
+
+    -->
+    <!--[1단계:확인] 2. 아래와 같이 기능버튼에 따라 출력되게, 처리하세요.
+    안녕하세요
+    공백
+    줄바꿈처리
+    ----------(사선)
+	<p></p>
+	위 명령을 클릭시마다, 화면에 위 명령내용 출력 및 처리 출력-->
+
+    <p>
+    <h2 onclick="addblank(this)">안녕하세요. </h2>
+    </p>
+    <script>
+        var addblank = function (obj) {
+            obj.innerHTML += "&nbsp;&nbsp;&nbsp;&nbsp;<br>-----------"
+        }
+    </script>
+
+    <!--[1단계:개념] 3. img의 속성을 기술하고, 
+
+    img의 속성에는 src에 주소를 넣어 여러 이미지를 표현할 수 있습니다. 
+    img 안에는 src, width, height, alt 가 있으며
+    src는 이미지 파일의 위치를 나타내고 필수로 들어가는 속성이며 
+	alt는 이미지가 없거나 속성되는 등 이미지를 출력할 수 없는 경우 출력되는 문자열이며 필수 속성입니다.
+	wifth 는 이미지의 폭, height는 이미지의 높이입니다.
+	
+좋아하는 풍경이미지를 동적으로 크졌다 작아졌다 변경되었다하게 처리하세요.-->
+    <img src="https://t1.daumcdn.net/cfile/tistory/9946A4505F5817A60D" ; alt="풍경사진" ; width="100" height="100">
+
+    <h2 onclick="big()">커져라!</h2>
+    <h2 onclick="small()">작아져라!</h2>
+
+    <script>
+        var imgOb = document.querySelector("img")
+        function big() { imgOb.width += 20; imgOb.height += 20; }
+        function small() { imgOb.width -= 20; imgOb.height -= 20; }
+    </script>
+
+
+
+    <!--[1단계:확인] 4. 주사위 이미지(1~6)를 복사해서 현재 폴드에 넣고,
+ 클릭시 마다 주사위의 번호가 바뀌게 처리하세요.-->
+    <img src="dice/1.png" ; id="dice" width="150" height="200" alt="dice">
+    <h2 onclick="ch()">주사위굴리기</h2>
+    <script>
+        var imgObj = document.querySelector("#dice")
+        var imgs = ["1.png", "2.png", "3.png", "4.png", "5.png", "6.png"];
+
+
+        var idx = 0;
+        function ch() { imgObj.src = "dice/" + imgs[idx++ % 6] }
+
+
+    </script>
+
+</body>
+
+</html>

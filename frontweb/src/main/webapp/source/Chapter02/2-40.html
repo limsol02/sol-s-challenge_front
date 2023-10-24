@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+    
+    // # 입력 처리해주는 내장함수
+    // 1. prompt("타이틀","초기값")
+    //     확인: 입력된 데이터를 리턴해서 받는다
+    //     취소: null를 받는다.
+
+    //     var retVal = prompt("타이틀","초기값")
+    //     확인을 클릭시 retVal에 데이터를 할당할 수 있다.
+    //     문자열 데이터를 입력받는다.
+    //     --> 숫자형(연산)이 필요할땐,  Number(prompt("",""))
+
+    // 2. comfirm("타이틀")
+    //     확인: true을 리턴 받는다
+    //     취소: false를 리턴 받는다
+
+    //     var isInsert = confirm("등록하시겠습니까?")
+    //     if(isInsert){
+    //         alert("등록되었습니다")
+    //         확인을 눌렀을때 .. true 일때 처리할 내용
+    //     } else{
+    //          alert("등록이 취소되었습니다")
+    //          취소를 눌렀을때 처리할내용
+    //     }
+    
+    
+
+
+        // 변수를 선언합니다.
+        // js에서 데이터 입력 함수
+        // prompt("메세지내용","입력초기값") : 리턴값이 할당된 데이터
+        var input = prompt('Message', 'DefStr');
+        // 출력합니다.
+        alert(input);
+        var pname = prompt("물건명을 입력 ", "사과[default]")
+        alert('입력한물건: '+pname)
+        // ex) 학생명, 국어, 영어, 수학점수를 입력하고, 출력하세요.
+        var name = prompt("학생명을 입력하세요","임솔")
+        var kor = prompt("국어점수을 입력하세요","80")
+        //"80"대신 "0"으로 초기값 설정해서 입력받아도 된다
+        var eng = prompt("영어점수을 입력하세요","75")
+        var math = prompt("수학점수을 입력하세요","70")
+        //  var show = "학생명 "+name+"\n"
+        //  show+= "국어 : "+ kor +"\n"
+        //  show+= "영어 : "+ eng +"\n"
+        //  show+= "수학 : "+ math 
+        //  alert (show) 
+        alert("입력한 학생 정보는 학생명 : "+name+
+        "\n국어점수 : "+kor+",영어점수 : "+eng+",수학점수 : "+math )
+        // 확인 : 입력값, 취소 : null 로 할당된다
+        // 입력된 데이터는 기본적으로 string 타입이다. 
+        </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    // 변수형 함수
+    var plus = function(num01, num02){
+        alert(num01+'+'+num02+'='+(num01+num02))
+    }
+    plus(50,5)
+
+    // ex) 물건 가격, 물건 갯수를 전달하여 
+    //      물건가격 @@@, 물건갯수 : @@
+    //      총비용 @@@
+
+    var price01 = function(price,cnt){
+        alert(`물건가격 : ${price}
+               물건갯수 : ${cnt}
+               총비용 : ${price*cnt}`)
+    }
+    price01(3000,2)
+
+    var buyProduct = function(name, price, cnt){
+        alert(`
+        물건명 : ${name}
+        물건가격 : ${price}
+        물건갯수 : ${cnt}
+        물건총계 : ${cnt*price}
+        `)
+    }
+    // buyProduct('딸기',5000,2)
+
+    // 선언적 함수 
+    function login(id,pass){
+        var result = "로그인 실패"
+        if(id=='himan'&&pass=='7777'){
+            result = "로그인 성공"
+        }
+        return result;
+    }
+    // var id = prompt("아이디 : ","")
+    // var pass = prompt("비밀번호 : ","")
+
+    // var logResult = login(id,pass);
+    // alert("로그인결과  :"+login('himan','7777')) 
+    // alert("로그인 결과 : "+logResult)
+
+
+    // ex) 매개변수로 밑면과 높이를 전달해서 
+    //      리턴값으로 삼각형의 면적을 처리하는 함수를
+    //      선언하고 , 밑면과 높이를 prompt 창으로 입력받아
+    //      함수의 매개변수로 전달하여, 최종 면적을 
+    //      alert()으로 출력하세용
+
+    function triangArea (num01,num02){
+        alert("밑변 : "+num01+"높이 : "+num02)
+        return num01*num02/2;
+        }
+        
+        // var xy = triangArea (5,8)
+        var xy = triangArea (Number(prompt("밑변입력","")),Number(prompt("높이입력","")))
+        alert(xy)
+    // var base = triangArea(4,8)
+    // alert("삼각형의 넓이 : "+ space)
+    
+    // var base = Number(prompt("밑변 입력",""))
+    // var height = Number(prompt("높이 입력",""))
+    var dem = triangArea(base, height)
+    // 변수를 생각보다 많이 선언해줘야된다.
+    
+    alert(`
+    삼각형의 밑변 : ${base}
+    삼각형의 높이 : ${height}
+    삼각형의 넓이 : ${dem}
+    `)
+    </script>
+</body>
+</html>

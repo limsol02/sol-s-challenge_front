@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    // 입력을 위한 창
+    // prompt("설명내용","초기값설정")
+    // 문자열 데이터를 입력 받을 수 있음.
+    // var fruit = prompt("과일입력","사과")
+    // console.log( prompt(fruit)
+    // 2. 연산데이터 입력
+    var pt1 = prompt("국어점수입력", "0")
+    var pt2 = prompt("국어점수입력", "0")
+    alert(pt1+pt2) // 스캐너처럼 기본적으로 문자열로 받아들여짐 --> 나열만 해줌
+
+     // 3. 연산데이터 입력(숫자변환1) 
+     var pt1 = prompt("국어점수입력", "0")*1
+    var pt2 = prompt("국어점수입력", "0")*1
+    alert(pt1+pt2) // 이러면 숫자데이터로 인식됨
+
+     // 4. 연산데이터 입력
+     //     함수2(함수1()) --> 이중함수 적용
+     var pt1 = Number( prompt("국어점수입력", "0") )
+     var pt2 = Number( prompt("국어점수입력", "0") )
+    alert(pt1+pt2) // 이중함수로 문자열 -> 숫자로 변환
+    // # js에서 +만 연산시 형변환 필요, 
+    // 다른 연산시는 자동 형변환이 처리된다. 
+
+    var person = Number( prompt("영화 관객 인원수  ","0") )
+    var pay = Number( prompt("관람료 ","0") )
+    var sum = person*pay
+    alert("총비용"+ sum)
+
+    var team1 = Math.floor(Math.random()*6+1)
+     team1 += Math.floor(Math.random()*6+1)
+     team1 += Math.floor(Math.random()*6+1)
+     
+     alert("팀1의 3턴 값 : "+team1)
+    
+     var team2 = Math.floor(Math.random()*6+1)
+     team2 += Math.floor(Math.random()*6+1)
+     team2 += Math.floor(Math.random()*6+1)
+     alert("팀2의 3턴 값 : "+team2)
+        
+
+
+
+
+    </script>
+
+</body>
+</html>

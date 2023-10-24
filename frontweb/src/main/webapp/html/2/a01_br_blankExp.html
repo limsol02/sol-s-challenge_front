@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>
+        <h2>안녕하세요</h2>
+        <h3 onclick="addBlank(this)">안녕하세용</h3>
+    </p>
+   
+   <script>
+    var addBlank = function(obj){
+        obj.innerHTML+="&nbsp!"
+    }
+
+    var cnt = 1;
+    var h2Ob = document.querySelector("h2")
+    h2Ob.onclick = function(){
+        this.innerHTML += cnt++ +"&nbsp;!"
+    }
+    </script>
+</body>
+</html>

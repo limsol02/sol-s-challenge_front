@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        // 자바스크립트에서는 동적배열이 기본적으로
+        // 지원한다.
+        // ps) 자바는 정적배열이 기본
+        // --> 크기를 변경할 수 있으면 (.push) 동적배열
+        // --> 크기를 변경할 수 없으면 정적배열
+        // 배열을 생성합니다.
+        var array = [0, 1];
+        // 배열에 요소를 추가합니다.
+        array.push(2); // 제일마지막에 추가됨
+        array.push(3);
+        array.push(4);
+        // 출력합니다.
+        alert(array);//0,1,2,3,4
+
+        var names = []
+        names.push('홍길동');
+        names.push('김길동');
+        names.push('신길동');
+        names[3] = '마길동' // 없는 인덱스는 추가가능 바로
+        names[0] = '하길동(변경)' // 있는 인덱스는 변경가능 
+        alert("회원명 : "+names)
+
+        //ex) 학생들의 영어점수를 3명을 추가로 
+        //  배열 선언후 처리하고 
+        //  2번째 데이터를 변경,
+        //  4번째 데이터를 index로 추가처리하세요.
+
+        var engs = []
+        engs.push(50);
+        engs.push(60);
+        engs.push(70);
+        engs[1] = 80;
+        engs[3] = 90;
+        alert(engs)
+    </script>
+</head>
+<body>
+
+</body>
+</html>

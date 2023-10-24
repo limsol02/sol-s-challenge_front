@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+// # 주관식 연습 및 실습 10문제:
+// 1. `arguments` 객체는 어떤 자료형으로 출력되는가? 배열형 객체
+// 2. `arguments`의 주요 용도는 무엇인가요? 밑에 나열되어있는 애들 배열로 정리해서 하나씩 불러오기 편하게
+// 3. `setInterval` 함수는 어떻게 사용되나요? 그리고 어떤 동작을 수행하는가? 지정된 시간마다 반복실행
+// 4. `setTimeout`과 `clearInterval`을 함께 사용하는 주된 목적은 무엇인가요?
+	// 온라인상 문제처리..
+	// 특정 시간 후에 반복되는 함수를 중지하는데 사용한다.
+	
+//===========================================================================	
+	//var minutes = 60
+	//
+	//var int01 = setInterval(function(){
+	//	document.write(--minutes)  //  분단위로 카운트 다운..
+	//},60000) // 분단위로 반복
+	//
+	//var set01 = setTimeout(function(){
+	//	// 한시간 후에 처리할 내용
+	//	alert("시험종료가 됩니다.")
+	//	clearTimeout(set01)
+	//	clearInterval(int01)
+	//},60000*60)  // 60000*60 = 한시간
+	//
+	//시험문제 남은 시간 : 60분 --> 59분 --> 58...
+//===========================================================================	
+ 
+// 5. `eval()` 함수의 기능은 무엇인가요? 문자열로 이루어진 애들 안에 연산식 같은거 처리해줌
+	
+	//eval('var int=10; no++; alert(no)') : 문자열 안에 코드 실행해줌
+	
+// 6. `isNaN` 함수는 어떤 경우에 `true`를 반환하는가? 숫자형이 아닌경우
+
+	//조건문에 많이쓰인다.많이쓰인다
+	
+	//var num01Str = prompt("숫자입력")
+	//if(!isNaN(num01Str)){ // 숫자형 문자형 일때 true if{}안에 내용 실행 
+	//	var num01=Number(num01Str)
+	//}else{
+	//	alert("숫자형 문자열을 입력해야합니다.")
+	//}
+
+ 
+// 7. 매개변수의 기본값은 어떻게 설정하는가? function test(a = 10) {}
+// 8. `Number()` 함수와 `parseInt()`, `parseFloat()`의 차이점은 무엇인가요?
+//		뒤에 문자열이 붙어있으면 넘버는 오류남 int 랑 Float는 내뱉어주는데 정수냐 실수냐 차
+
+
+// #객관식(4지선다) 10문제:
+// 1. `arguments` 객체는?
+//    - A. 배열
+//    v- B. 객체
+//    - C. 문자열
+//    - D. 숫자
+// 2. `setInterval` 함수의 목적은?
+//    - A. 지정된 시간 후 함수를 한 번만 실행한다.
+//    v- B. 지정된 시간마다 함수를 반복적으로 실행한다.
+//    - C. 지정된 시간 동안 함수를 일시 중단한다.
+//    - D. 모든 타이머를 중지한다.
+
+// 3. `eval` 함수의 역할은?
+//    - A. 코드를 문자열로 변환한다.
+//    v- B. 문자열로 된 코드를 실행한다.
+//    - C. 변수의 값을 계산한다.
+//    - D. 문자열을 숫자로 변환한다.
+
+// 4. 다음 중 `isNaN` 함수가 `true`를 반환하는 것은?
+//    - A. `isNaN("100")`
+//    - B. `isNaN(100)`
+//    v- C. `isNaN("Hello")`
+//    v- D. `isNaN(undefined)`
+
+// 5. 매개변수의 기본값을 설정하는 방법은?
+//    v- A. `function test(a = 10) {}`--> 이거 default매개변수 함수  test(),test(15)
+//    - B. `function test(a: 10) {}`
+//    - C. `function test(a; 10) {}`
+//    - D. `function test(a) = 10 {}`
+
+// 6. 1 나누기 0의 결과는?
+//    - A. 1
+//    - B. 0
+//    - C. `undefined`
+//    v- D. `Infinity`
+
+// 7. 함수를 다른 함수의 매개변수로 전달하는 기능을 무엇이라고 하는가?
+//    v- A. 콜백 함수
+//    - B. 리턴 함수
+//    - C. 중첩 함수
+//    - D. 순수 함수
+//	function callAll(fun01){
+//		fun01()
+//	}
+
+// 8. `Number("1000원")`의 결과는?
+//    v- A. `NaN`
+//    - B. 1000
+//    - C. "1000원"
+//    - D. 에러 발생
+
+// 9. `parseInt("1.5달러")`의 결과는?
+//    - A. 1.5
+//    v- B. 1
+//    - C. `NaN`
+//    - D. 에러 발생
+
+// 10. JavaScript에서 `arguments` 객체는 어떤 함수에서 사용 가능한가?
+//    - A. 모든 함수에서
+//    - B. 화살표 함수에서만
+//    v- C. 전통적인 함수에서만  ==> 화살표함수에는 적용이 되지 않는다.
+//    - D. 클래스 내부 함수에서만
+
+// # 실습문제
+// 1. **arguments 객체 활용**:
+//     - `arguments` 객체를 사용하여 받은 숫자의 평균값을 반환하는 함수 `average`를 작성하세요.
+    var tot = 0;
+    function average (){
+       for(var idx=0; idx<arguments.length; idx++){
+        tot+=arguments[idx]
+    }     
+    return alert(tot/arguments.length)
+        }
+    average(60,70,80,90)
+
+
+// 2. **함수를 매개변수로 전달**:
+//     - `call01` 함수와 같은 방식으로, 문자열을 출력하는 함수 `printMessage`를 작성하고, 
+//      이 함수를 매개변수로 받아 3번 출력하는 `repeatMessage` 함수를 작성하세요.
+
+//    function printMessage(){
+//        alert("Hi!")
+//    }
+//    function repeatMessage(){
+//        printMessage()
+//        printMessage()
+//        printMessage()
+//    }
+//    repeatMessage();
+
+
+
+
+
+    // function printMessage(message){
+	// 	console.log(message);
+	// }
+	// function repeatMessage(func, message){
+	// // var func = printMessage
+	// 	for(let i = 0; i<3; i++){
+	// 		func(message);
+	// 		// console.log('안녕하세요'); 3번 호출하여 처리 
+	// 	}
+	// }
+	    // repeatMessage(printMessage,'안녕하세요')
+
+
+
+
+
+
+
+
+
+
+    // function printMessage(message){
+    //     alert(message)
+    // }
+    function repeatMessage(printMessage,message){
+        for(var i=0; i<3; i++){
+            printMessage(message);
+        }
+    }
+    repeatMessage(function(message){alert(message)},'안녕')
+
+
+
+
+
+
+
+
+    // 3. **setInterval & setTimeout 활용**:
+//     - 5초 간격으로 현재 시간을 출력하고, 총 3번 출력한 후에 타이머를 종료하는 코드를 작성하세요.
+    var time = setInterval( function(){
+        document.write('<p>' + new Date() + '</p>');
+    },5000)
+    var time01 = setTimeout(function(){
+        
+        clearInterval(time)
+        clearTimeout(time01)
+    },15000)
+        
+        
+
+
+// 4. **eval 함수 활용**:
+//     - `eval` 함수를 사용하여 "5+7" 이라는 문자열의 연산 결과를 출력하는 코드를 작성하세요.
+    alert(eval("5+7"))
+
+// 5. **숫자 에러 체크**:
+//     - "Hello"라는 문자열을 숫자로 변환하려고 할 때 발생하는 에러를 확인하고, 
+// `isNaN` 함수로 이 에러를 체크하는 코드를 작성하세요.
+
+// console.log(parseInt("Hello"))
+// console.log(isNan("Hello"))
+
+// 6. **기본 매개변수 활용**:
+//     - 세 개의 매개변수 a, b, c의 곱을 반환하는 함수를 작성하세요. 
+//      b와 c는 기본값이 각각 3, 5로 설정되어 있어야 합니다.
+function multi(a=0,b=3,c=5){
+     console.log(a*b*c);
+}
+multi(5,3,5);
+
+
+// 7. **문자열에서 숫자 추출**:
+//     - "35km"와 "10m"에서 숫자만 추출하여 더한 결과를 출력하는 코드를 작성하세요.
+var plus=parseInt("35km")+parseInt("10m")
+alert(plus)
+
+
+// 8. **prompt를 활용한 입력과 형변환**:
+//     - 사용자에게 "3.2kg"와 같이 kg 단위로 무게를 입력받고, 두 입력 값을 합산하여 출력하는 코드를 작성하세요.
+var a01 = parseFloat(prompt("몸무게입력","3.2kg"))
+var a02 = parseFloat(prompt("몸무게입력","5.2kg"))
+alert(a01+a02)
+
+
+// 9. **함수 호출 시 값 전달**:
+//     - 위에서 정의한 `test` 함수를 호출하되, a만 값을 전달하여 b와 c의 기본값과 함께 출력되게 하세요.
+function test(a=0,b=3,c=5){
+    alert(`
+    a =${a}
+    b =${b}
+    c =${c}
+    `)
+}
+test(6)
+
+
+// 10. **문자열 내 숫자 추출 및 연산**:
+//     - "120$"와 "100$"에서 각각의 숫자만 추출하여 더한 후 결과를 출력하는 코드를 작성하세요.
+
+var b01 = parseInt("120$")
+var b02 = parseInt("100$")
+alert(b01+b02)
+
+
+/*
+# 
+# 조별로 파악사항(아래사항 조별로 취합 전달 17:20까지 전달)
+1. 오늘 가장 어려웠던 부분 best3 및 내일 자세한 설명 필요한 부분
+2. 주관식/객관식은 조원들과 함께 협의해서 풀어서 제출하고
+    나머지는 개인 폴드에 올려주세요
+    (어려운문제도 포함되어 있으니 할 수 있는 내용까지만)
+3. 오늘 지각(9:00기준)인원과 사유, 수업 집중 여부 확인
+
+
+*/
+    </script>
+</body>
+</html>

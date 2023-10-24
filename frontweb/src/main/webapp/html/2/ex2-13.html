@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html><head>
+<meta charset="UTF-8">
+<title>내가 좋아하는 음식</title></head>
+<body>
+<h3>내가 좋아하는 음식</h3>
+<!--
+# 리스트 만들기
+1. 3가지 종류의 리스트 
+	1) 순서 있는 리스트(ordered list) ol
+	2) 순서 없는 리스트(unordered list) ul
+	3) 정의 리스트(definition list) dl
+	
+2. 포함된 구성요소 리스트 아이템
+	<li>...</li>
+	</li> 생략가능
+
+3. 속성
+	1) type : 여러가지 형식의 유형 표현
+	<ol type = "속성값">
+		1, A, a, I, i
+	<ul type = "속성값">
+		disc, circle, square
+	2) start : 시작번호
+-->
+<hr>
+<p>
+   <h2>주문할 메뉴를 클릭</h2>
+   <span>짜장면</span>
+   <span>짬뽕</span>
+   <span>탕수육</span>
+   <span>울면</span>
+</p>
+<ol id="menuList">
+
+
+</ol>
+<script>
+var menus = document.querySelectorAll("span")
+var menuList = document.querySelector("#menuList")
+for(var idx=0;idx<menus.length;idx++){
+	menus[idx].onclick=function(){
+		// this.innerText
+		menuList.innerHTML+="<li>"+this.innerText+"</li>"
+	}
+}
+
+</script>
+
+<ul>
+	<li>감자탕
+	<li>스파게티
+	<li>올레국수
+</ul>
+<ul type="square">
+	<li>감자탕
+	<li>스파게티
+	<li>올레국수
+</ul>
+<ol>
+	<li>감자탕
+	<li>스파게티
+	<li>올레국수
+</ol>
+<ol type="I">
+	<li>감자탕
+	<li>스파게티
+	<li>올레국수
+</ol>
+</body>
+</html>

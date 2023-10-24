@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        function test(...numbers) {
+            alert(numbers[0]);
+            alert(numbers[1]);
+            alert(numbers[2]);
+        }
+        // test(1, 2, 3);
+        // test(10, 20, 30);
+        // test('사과','바나나','딸기')
+
+        function buyProd(...prods){
+            alert("구매한 물건 : "+ prods)
+        }
+        buyProd("사과")
+        buyProd("사과","바나나")
+        buyProd("오렌지","수박","딸기")
+
+        // 참고로 js는 배열 상에서 자동으로 , 지원
+
+        //ex) 학생의 점수를 합산해서 출력하세요
+        //   @@의 학생 평균점 @@@
+
+        // function score (...scores){
+        //     function name(...names){
+        //     alert(names[0]+"학생의 점수 : " +scores[0])
+        //     alert(names[1]+"학생의 점수 : " +scores[1])
+        //     alert(names[2]+"학생의 점수 : " +scores[2])
+        //     alert(" 세 학생의 점수 합은 : "+ scoreTot)
+        // }
+        // }
+        // name("홍길동","김길동","최길동");
+        // score(50,60,70)
+        // scoreTot = eval(scores[0]+scores[1]+scores[2])
+        // alert(scoreTot)
+
+        function student(...points){
+            var tot = 0;
+            for(var idx in points){
+                tot+=points[idx]
+            }
+            alert(`
+                ${points.length}명의 학생
+                평균점 : ${tot/points.length}
+            `)
+        }
+        student(50,60)
+        student(50,60,70)
+        student(50,60,70,80)
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

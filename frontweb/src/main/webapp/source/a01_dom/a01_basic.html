@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Insert title here</title>
+	<script>
+		// 하단위 BOM로딩 후에 DOM로딩(DOM포함하는 개념)
+		window.onload=function(){
+			var h2Ob = document.querySelector("h2")
+			h2Ob.innerText="내용이 바뀌었죠?";
+		}
+		// 얘는 위에다가 실행하겠습니다~ 하고 말해놓은거라 아래에 h2선언해도 되는거임(예약느낌)
+		
+		/*
+		# javascript와 web 화면 동작 순서
+			1) 웹서버 실행과 클라이언트화면에서 호출
+				웹서버에 코드가 들어가 있고, 웹서버 실행
+				클라이언트가 웹서버 주소와 경로 호출하면
+					해당 위치에 있는 html 코드를 가져와서
+					브라우저 프로그램(크롬, 사파리, 인터넷익스플로어)
+					으로 해석해서 출력..
+			2) html로딩시 javascript 프로그램 호출 순서
+			
+				- BOM(Browser Object Model)호출 = 윈도우 창 틀 그자체
+					html코드를 창으로 가지고 있는 window창
+					
+					window창이 로딩되었을때, 처리할 함수 내용
+					javascript에서 윈도우 창을 로딩 시킬 때 명령어
+					window.open("","","")
+					
+					현재 화면창이 로딩되었을 때 처리할 함수..
+					window.onload = function(){
+						
+						
+					}
+				- DOM호출
+					위에서부터 html마지막까지 로딩
+					body에서 태그로 선언된 내용을 위에서 부터 아래 순서로 
+					랜더링(태그 해석해서 그 태그가 가지고 있는 명령으로 브라우저에서
+					출력)한 내용을 객체화하여 처리하는 것을 말한다.
+					순서 : 태그가 있고 그 아래에 해당하는 DOM객체를 인식할 수 있다.
+					
+				# BOM이 상위계층에 있고 DOM이 하위 계층에 있는 
+				구조이다. 
+				
+					
+			3) javascript 코드 실행 순서와 DOM인식 방법
+				위에서 아래로 실행되고,
+				DOM은 반드시 태그의 선언과 동시에 이벤트를 처리하거나,
+				DOM 하단에 해당 태그에 대한 객체의 선택자로
+				산택해서 속성과 속성값을 변경하는 형식으로 처리할
+				수 있다. 
+				단, 이벤트에 의해서 window(BOM)객체가 이벤트에
+				의해서 수행내용을 상단에 선언한 것은 코드가 위에
+				있더라도 수행되어 진다. 
+				// BOM이 로딩이 다 된 후에 수행할 코드..
+				// html코드를 다 메모리에 로딩된 후 처리하기
+				// 코드가 html태그 위에 있더라도 수행 처리가
+				// 된다..
+				window.onload = function(){
+					
+					
+				}
+				
+
+		# DOM객체 처리 방법
+			1) DOM객체의 선택자 선언 객체와 메서드 
+				var obj = document.querySelector("선택자")
+				var arry = document.querySelectorAll("선택자")
+			2) 출력처리
+				.innerText
+				.innerHTML
+			3) 기본 속성 처리
+			4) css 속성 처리
+			5) 이벤트 처리 방법
+		*/
+		function call(){
+			alert("반갑습니다!!")
+		}
+		var h1Ob = document.querySelector("h1")
+		// h1Ob.innerText = "변경"
+		// x ==> 에러발생 : 태그가 선언된 후, 메모리가 로딩되었을 
+		//	때 객체로 인식할 수 있다.  
+		//	h1은 얘 위에 선언하여야됨
+	</script>
+</head>
+
+<body>
+	<h2 onclick="call()">안녕하세요!</h2>
+	<h1>반갑습니다.</h1>
+</body>
+	<script>
+		var h2Obj = document.querySelector("h2");
+		h2Obj.align = "center";
+		
+	</script>
+</html>

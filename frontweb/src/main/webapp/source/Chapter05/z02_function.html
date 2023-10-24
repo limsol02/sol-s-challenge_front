@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        # arguments 에 대한 이해
+        1. 여러가지 매개변수를 효율적으로 동적으로 처리하기위한
+            내장된 객체
+        2. function buyList() {
+            for (var idx=0; arguments.length; idx++){
+                fruits += arguments[idx]+","
+            }
+            alert("구매한 과일 : "+fruits  )
+        }
+        buyList('사과') -> arguments = ['사과']
+        buyList('사과','바나나') -> arguments = ['사과','바나나']
+        buyList('사과','바나나','오렌지') -> arguments = ['사과','바나나','오렌지']
+        
+        3. 위와 같은 함수명으로 여러가지 매개변수를 동적으로
+            처리할 때, 필요로 하는 것을 arguments 객체로 가능하다.
+
+        */
+
+        function buyList(){
+            var fruits = ""
+            for(var idx=0; idx<arguments.length;idx++){
+                fruits+=arguments[idx]+","
+            }
+            alert("구매한 과일 : "+ fruits)
+        }
+
+        // buyList("사과")
+        // buyList("사과","수박")
+        // buyList("사과","바나나","키위")
+
+        function totPoint(){
+            var sum = 0;
+            var cnt = arguments.length
+            for (var idx = 0 ; idx <cnt; idx++){
+                sum+=Number(arguments[idx])
+            }
+            alert("학생 "+cnt + "명의 총점은 "+ sum+"이고, 평균은"+(sum/cnt)+"입니다.")
+
+        }
+        // totPoint(70)
+        // totPoint(70,80)
+        // totPoint(70,80,90)
+
+        //ex ) regMember함수로 가입한 회원명단으로 출력하는 함수를 선언하고,
+        //      여러 매개변수에 따라서 처리할 수 있게 처리하세요
+        //      회원 1명, 3명, 5명 아이디 입력
+
+        function regMember(){
+            var infos =""  // var infos = []
+            for(var idx =0; idx<arguments.length; idx++){
+                infos+=arguments[idx]+","
+                // infos.push(arguments[idx])
+            }
+            alert(`
+            가입한 회원은 
+            ${infos} 총${arguments.length}명 입니다. 
+            `)
+        }
+        regMember("홍길동")
+        regMember("홍길동","김길동","최길동")
+        regMember("홍길동","김길동","최길동","박길동","신길동")
+
+
+    </script>
+    
+</body>
+</html>

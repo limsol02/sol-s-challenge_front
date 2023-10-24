@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>이미지 삽입</title>
+</head>
+<body>
+<h3>이미지 삽입</h3>
+<hr>
+<!--
+# 이미지 삽입
+1. img 태그는 src 속성에 이미지 파일의 주소를 지정하여 여러가지 형태의
+	이미지를 표현한다.
+2. 기본 형식
+	img src = "이미지 파일의 url(위치)"
+	alt="문자열"
+	width="이미지의 폭"
+	height="이미지의 높이"
+
+3. 주요 속성
+	1) src : 이미지 파일의 위치, 필수 속성
+	2) alt : 이미지가 없거나 속성되는 등 이미지를 출력할 수 없는 경우
+		출력되는 문자열, 필수 속성
+	3) wifth : 이미지가 출력되는 너비로, 생략되면 원본 이미지의 폭, 
+		픽셀 수
+	4) height : 이미지가 출력되는 높이로, 생략되면 원본 이미지의 너비,
+		픽셀 수	
+
+-->
+<p> 엘비스 프레슬리의 사진입니다.</p>
+<img src="media/Elvis1.jpg" width="150" height="200" alt="Elvis">
+<!-- 같은 폴드에 media 폴드가 있고 그 안에 Elvis1.jpg가 있을때, 출력-->
+<img src="media/kitae.jpg" width="80" height="100" alt="황기태사진없음" >
+<!-- 해당 파일이 없을 때, alt에 있는 문자열이 나타남...-->
+<img src="https://t1.kakaocdn.net/kakaocorp/kakaocorp/admin/service/453a624d017900001.png" 
+		 alt="사진 주소 변경됨" width="100" height="100">
+<!-- 외부 주소로 접근이 가능한 이미지를 출력시 처리가 된다.-->
+<img src = "https://image.utoimage.com/preview/cp872722/2022/12/202212008462_500.jpg"
+alt="사진 주소 변경됨" width="100" height="100">
+
+<!-- a02_imgExp.html
+좋아하는 연예인 이미지 복사(결로 지정)
+커져라==> 커지게 
+작아져라==> 작아지게.. -->
+
+
+<h2 onclick="IgImg()">커져라!</h2>
+<h2 onclick="smImg()">작아져라!</h2>
+<h2 onclick="chImg()">바뀌어라!</h2>
+<script>
+	var imgObj = document.querySelector("img")// 첫번째 이미지 접근
+	var imgs = ["Elvis.png","bananan.png","iconchosun.png","apple.png"]
+	var idx = 0;
+	function IgImg(){imgObj.width+=20; imgObj.height+=20;}
+	function smImg(){imgObj.width-=20; imgObj.height-=20;}
+	function chImg(){imgObj.src="media/"+imgs[idx++%4]}
+
+</script>
+</body>
+</html>

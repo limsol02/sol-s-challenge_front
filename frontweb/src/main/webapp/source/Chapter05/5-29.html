@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+
+    /*
+    # 내장함수
+    1. javascript 내부에서 정의되어 사용하는 함수
+    2. setTimeout (gkatn,1/1000초)
+        해당 시간 후에 수행될 내용을 처리..
+
+    */
+    //alert("시작!!")
+        // 3초 후에 함수를 실행합니다.
+        // setTimeout(function () {
+        //     alert('3초가 지났습니다. ㅇㅂㅇ');
+        // }, 3000);
+
+    // function call(){
+    //     alert("5초후 호출")
+    // }
+    // setTimeout(call,5000)
+    // setTimeout(function(){
+    //     console.log("2초 후에 수행!!");
+    // },2000);
+
+    //ex) 10초 후에 시험이 종료되었습니다 . 출력되게 하세용
+
+    function call(){
+        alert("시험이 종료되었습니다")
+    }
+    // setTimeout(call,10000)
+
+    var set01 = setTimeout(function(){
+        alert("시험끝")
+        clearTimeout(set01) // 현재 수행하는 setTimeout 메모리 해제처리
+    },10000)
+ 
+    </script>
+</head>
+<body>
+
+</body>
+</html>

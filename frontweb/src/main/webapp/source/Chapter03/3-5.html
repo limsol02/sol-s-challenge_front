@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        // 변수를 선언합니다.
+
+    /*
+    if(조건1){
+        
+    }else if(조건2){ //  조건 1을 제외한 조건2
+
+    }else{ // 위 조건1, 조건2를 제외한 처리시
+
+    }
+    */
+
+        var date = new Date();
+        var hour = date.getHours();
+        // if else if 조건문
+        if (hour < 11) {
+            // "hour < 11"이 참일 때 실행합니다.
+            alert('아침 먹을 시간입니다.');
+        } else if (hour < 15) {
+            // "hour < 11"이 거짓이고 "hour < 15"가 참일 때 실행합니다.
+            alert('점심 먹을 시간입니다.');
+        } else {
+            // "hour < 15"가 거짓일 때 실행합니다.
+            alert('저녁 먹을 시간입니다.');
+        }
+
+
+    // ex) var month = Mathfloor.(Math.random()*12+1)
+    // 월을 입력하여 월에 따라 계쩔을 출력하세요
+    var month = Math.floor(Math.random()*12+1)
+    alert("해당하는 월은 \n"+month+"입니다.")
+    if (month>=3&&5<=month){
+        alert("해당하는 월은 봄입니다");
+    } else if(month>=6&&8<=month){
+        alert("해당하는 월은 여름입니다");
+    } else if(month>=9&&11<=month){
+        alert("해당하는 월은 가을입니다");
+    } else {
+        alert("해당하는 월은 겨울입니다");
+    } 
+    </script>
+</head>
+<body>
+
+</body>
+</html>

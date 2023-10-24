@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   
+       <!-- /*
+        html 주석문(해석되지 않는다.)
+       
+        태그는 기본 태그 내용을 포함하거나 특정 문자는 입력이 불가능해서
+        &특수문자키; 형식으로 처리한다.
+
+         &lt;br&gt; = <br> <>같은 특수문자는 &어쩌구; 형식으로 나타내야 출력됨
+      */ -->
+       <h2>특수문자 만들어 보기(태그포함)</h2>
+       <p>
+            &lt;br&gt;태그로 다음 줄로 넘어간다<br> 
+            다음와 같이 줄바꿈으로 다음 라인이
+            넘어가지 않는다.<br>
+            줄띄우기        이렇게 태그로 간격 띄워도 처리가 안된다<br>
+            원하는 만큼 공백이 필요한 경우 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;줄공백<br>
+            를 이와 같이 사용하여야 한다.
+       </p>
+       <h2>기호 넣기 연습</h2>
+       <hr>
+       10&divide;2 = 5<br>
+       &radic;2 = 1.414<br>
+       2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3<br>
+       오늘 &quot; Elvis&#34; 노래를 들었다.
+       <h3 onclick="addBlank(this)">공백 넣기(클릭)</h3>
+       <h4>공백 넣기(클릭)</h4>
+       <script>
+        var black01 = ""
+        // this라는 이름으로 클릭한 h3 객체를 obj라는 매개변수로 전달..
+            function addBlank(obj){ // obj = this (this는 클릭한 h3객체)
+                black01+="&nbsp;"
+                obj.innerHTML+=black01+"^^"
+                // innerText : 그대로 출력
+                // innerHTML : html태그를 해석해서 출력
+
+            }
+        
+        var h4Ob = document.querySelector("h4")
+        h4Ob.onclick = function(){
+            //여기서this란, onclick한 객체
+            this.innerHTML +='♥&nbsp;♥&nbsp;♥'
+        }
+
+        // ex) a01_br_blankExp.html     만들기
+        //  <h2> 안녕하세요 </h2>==> 클릭시마다 공백 ! 추가처리 
+       </script>
+
+    
+    
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        // 함수를 선언합니다.
+        // 가변형매개변수의 default데이터를
+        // 사용할 때, 활용한다
+        function test(a, b = 52, c = 273) {
+            // 출력합니다.
+            alert(a + ':' + b + ':' + c);
+        }
+        // 함수를 호출합니다.
+        // test(1);
+        // test(1, 2);
+        // test(1, 2, 3);
+
+        function buyProd(name="물건이름없음", price=0,cnt=1){
+            alert(`
+                구매한물건 :${name}
+                가격:${price}
+                갯수:${cnt}
+                총계:${price*cnt}
+            `)
+        }
+        // buyProd()
+        // buyProd("사과")
+        // buyProd("바나나",3000)
+        // buyProd("떨가",2000,5)
+
+        // ex) regMember 회원의 아이디, 패스워드, 이름을 등록하게 하고
+        //  해당 내용이 없을땐 , default 를 설정하게 하세요
+        function regMember(id=null, pass=null, name=null){
+            alert(`
+            등록할 아이디 : ${id}
+            등록할 비밀번호 : ${pass}
+            이름 : ${name}
+            `)
+            if (id&&pass&&name!=null){
+                alert(`등록성공!
+                등록할 아이디 : ${id}
+                등록할 비밀번호 : ${pass}
+                이름 : ${name}
+                `)
+            }
+        }
+        regMember("dlathf0202")
+        regMember("dlathf0202","7777")
+        regMember("dlathf0202","7777","임솔")
+
+        
+    </script>
+</head>
+<body>
+
+</body>
+</html>

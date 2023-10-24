@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        // 선언적 함수
+        function fun01() { alert('함수 A'); }
+        function fun01() { alert('함수 B'); }
+        // 마지막 정의된 함수 수행
+        fun01();
+        // 앞에 변수형 함수와 달리 선언 앞에 선언되어도 
+        // 처리가 가능하다.
+        fun02()
+        function fun02(){
+            alert("안녕하세요!!(호출 후 선언)")
+        }
+        
+        
+        // fun03()
+        var fun03 = function(){
+            alert("변수형 함수")
+        }
+        fun03()
+        //주의)  변수형 함수 에러남 --> 변수형 함수는 선언 후에 반드시 호출
+
+        //ex) 선언적 함수로 두개의 값을 합산하는 것과
+        //  변수형 함수로 두개의 값을 곱셈ㅊ퍼리하는것을 
+        //  처리하세요.
+
+
+        // var a01 = Number(prompt("숫자입력","숫자"))
+        // var a02 = Number(prompt("숫자입력","숫자"))
+
+        fun04();  //  선언적 함수
+        function fun04(){
+            var a01 = Number(prompt("숫자입력",""))
+            var a02 = Number(prompt("숫자입력",""))
+            alert(a01+a02)
+        }
+
+        var fun05=function(){
+            var a01 = Number(prompt("숫자입력",""))
+            var a02 = Number(prompt("숫자입력",""))
+            alert(a01*a02)
+        }
+        fun05();
+
+        var multi = function(a1,a2){
+            return a1*a2
+        }
+        alert(`${25}x${5}=${multi(25,5)}`)
+        
+    </script>
+</head>
+<body>
+
+</body>
+</html>

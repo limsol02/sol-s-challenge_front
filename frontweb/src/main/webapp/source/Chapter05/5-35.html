@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        var number = 1 / 0;
+        // 0으로 나누는 순간 무한대로 가버림
+        // 숫자의 에러로 js에서는 에러 코드만 처리된다.
+        // isFinite() : 함수로 한정된 수 인지 여부
+        // isNaN() : NaN 숫자형 문자열이 아닐때 ,
+        //      형변환시 나오는 에러코드로 
+        //      숫자형이 아닐 때, true 가 나오는 함수
+        //      조건으로 숫자형 여부를 확인하고자 할때사용 
+        //      Is not a number?
+        alert(number + ' : ' + isFinite(number));
+
+        alert(parseInt("이십") + ' : ' + isNaN(parseInt("이십")));
+    </script>
+</head>
+<body>
+
+</body>
+</html>

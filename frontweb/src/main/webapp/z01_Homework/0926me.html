@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+// # 아래 내용을 javascript 문제로 처리해주세요
+// [개념] 1. var, let, const 변수형식의 차이점을 예제를 통해서 기술하세요
+
+/*
+var 은 해놓으면 알아서 타입 정해져서 갑니다 대신 지역변수 전역변수 구분을 못합니다
+*/
+
+// [확인] 2. 위 let 변수를 이용해서 for문의 1~10까지 합산을 alert으로 출력하세요 
+
+let sum = 0;
+for (var i =1; i<=10; i++){
+    sum +=i
+}alert("1~10의 합계는 : " + sum)
+
+// [토론] 3. 기본 if문, if else문, if else if문의 형식과 차이를 기본예제를 통해 설명하세요
+// 	 조원들과 의견을 나누고 결론을 정리하여 제출하세요.
+// [토론] 4. 프로그램에서 전역변수와 지역변수의 사용의 필요성에 대하여 의견을 나누어 보세요
+// [확인] 5. 아래 내용을 중첩 조건문을 사용하여 처리해보세요
+
+// 1. **음식 선택 가이드**:
+//    사용자의 기분과 시간에 따라 다른 음식을 추천해주는 시스템을 만들어보세요.
+//    **조건**:
+//    - 기분: `hungry`, `sad`, `happy`
+//    - 시간: `morning`, `afternoon`, `evening`
+
+//    **도표**:
+   
+//    | 기분   | 시간       | 추천 음식               |
+//    |-------|-----------|------------------------|
+//    | hungry| morning   | Breakfast burrito      |
+//    | hungry| afternoon | Chicken Sandwich       |
+//    | hungry| evening   | Spaghetti              |
+//    | sad   | morning   | Pancakes with syrup    |
+//    | sad   | afternoon | Ice Cream              |
+//    | sad   | evening   | Chocolate Cake         |
+//    | happy | morning   | Fruit Salad            |
+//    | happy | afternoon | Sushi Roll             |
+//    | happy | evening   | Grilled Salmon         |
+
+// 조건안에서 비교할때, 문자열로 받아오는건 ""쓰는거 잊지말기 
+
+let feel = prompt("기분을 써보세용\nhungry/sad/happy","")
+let time = prompt("현재 시간을 입력하세용\nmorning/afternoon/evening","")
+if(feel=="hungry"){
+    if(time=="morning"){
+        alert("현재 추천음식은 Breakfast burrito 입니다.")
+    }else if(time=="afternoon"){
+        alert("현재 추천음식은 Chicken Sandwich 입니다.")
+    }else {
+        alert("현재 추천음식은 Spaghetti 입니다.")
+    }
+}else if(feel=="sad"){
+    if(time=="morning"){
+        alert("현재 추천음식은 Pancakes with syrup 입니다.")
+    }else if(time=="afternoon"){
+        alert("현재 추천음식은 Ice Cream 입니다.")
+    }else {
+        alert("현재 추천음식은 Chocolate Cake 입니다.")
+    }
+}else{
+    if(time=="morning"){
+        alert("현재 추천음식은Fruit Salad 입니다.")
+    }else if(time=="afternoon"){
+        alert("현재 추천음식은 Sushi Roll  입니다.")
+    }else {
+        alert("현재 추천음식은 Grilled Salmon 입니다.")
+    }
+}
+
+
+
+
+
+
+
+
+// ---
+
+// 2. **여행지 추천**:
+   
+//    계절과 활동 선호도에 따라 여행지를 추천해주세요.
+
+//    **조건**:
+//    - 계절: `summer`, `winter`
+//    - 활동: `adventure`, `relax`
+
+//    **도표**:
+
+//    | 계절  | 활동       | 여행지               |
+//    |-------|-----------|----------------------|
+//    | summer| adventure | Beach surfing        |
+//    | summer| relax     | Tropical resort      |
+//    | winter| adventure | Skiing in the Alps   |
+//    | winter| relax     | Cabin by a fireplace |
+
+// ---
+let season = prompt("계절을 써보세용\nsummer/winter","")
+let want = prompt("원하는 활동을 입력하세요\nadventure/relax","")
+
+if(season=="summer"){
+    if(want=="adventure"){
+        alert("추천 여행지는 Beach surfing입니다.")
+    }
+    else {
+        alert("추천 여행지는 Tropical resort입니다.")
+    }
+
+}else{
+    if(want=="relax"){
+        alert("추천 여행지는 Skiing in the Alps 입니다. ")
+    }else {
+        alert("추천 여행지는 Cabin by a firaplace")
+    }
+}
+
+
+
+
+// 3. **책 추천**:
+   
+//    사용자의 연령과 선호하는 장르에 따라 책을 추천해주세요.
+
+//    **조건**:
+//    - 연령: `kid`, `teen`, `adult`
+//    - 장르: `fantasy`, `mystery`
+
+//    **도표**:
+
+//    | 연령  | 장르       | 책                  |
+//    |-------|-----------|---------------------|
+//    | kid   | fantasy   | Harry Potter        |
+//    | kid   | mystery   | Nancy Drew          |
+//    | teen  | fantasy   | Percy Jackson       |
+//    | teen  | mystery   | Sherlock Holmes     |
+//    | adult | fantasy   | Game of Thrones     |
+//    | adult | mystery   | The Da Vinci Code   |
+
+let age = prompt("나이을 써보세용\nkid/teen/adult","")
+let type = prompt("원하는 장르를 입력하세용\nfantasy/mystery","")
+if(age=="kid"){
+    if(type=="fantasy"){
+        alert("추천 도서는 Harry Potter 입니다.")
+    }else {
+        alert("추천 도서는 Nancy Drew 입니다. ")
+    }
+}else if(age=="teen"){
+    if(type=="fantasy"){
+        alert("추천 도서는 Percy Jackson 입니다. ")
+    }else {
+        alert("추천 도서는 Sherlock Holmes 입니다.")
+    }
+}else{
+    if(type=="fantasy"){
+        alert("추천 도서는 Game of Thrones 입니다.")
+    }else {
+        alert("추천 도서는 The Da Vinci Code 입니다.")
+    }
+}
+
+
+
+// ---
+// [확인] 6. 아래 내용을 if else if 조건문을 사용하여 처리해보세요
+// 1. **음악 장르 추천**:
+//    사용자의 나이에 따라 음악 장르를 추천해보세요.
+//    **조건**: 나이
+//    **도표**:
+//    | 나이      | 추천 장르       |
+//    |----------|--------------|
+//    | 0-10     | Kids Music   |
+//    | 11-20    | Pop          |
+//    | 21-30    | Rock         |
+//    | 31-50    | Jazz         |
+//    | 50+      | Classical    |
+let age01 = Number(prompt("나이를 입력하세요",""))
+if(age01<0) alert("입력값은 0 이상입니다. ")
+if(age01<=10){
+    alert("추천 장르는 kids music입니다.")
+}else if(age01<=20){
+    alert("추천 장르는 pop입니다.")
+
+}else if(age01<=30){
+    alert("추천 장르는 Rock입니다.")
+}else if(age01<=40){
+    alert("추천 장르는 jazz 입니다.")
+}else{
+    alert("추천장르는 classical 입니다.")
+}
+
+
+
+
+
+// ---
+
+// 2. **음료 선택**:
+
+//    현재 시간에 따라 음료를 추천해주세요.
+
+// let hour = // new Date()  -->  날짜
+// .getHours(); --> 현재시간 
+// let hour = new Date().getHours();  --> 최종코드
+
+//    **조건**: 현재 시간 (24시간 형식)
+
+//    **도표**:
+
+//    | 시간      | 추천 음료     |
+//    |---------|------------|
+//    | 0-6     | Warm Milk  |
+//    | 7-10    | Coffee     |
+//    | 11-14   | Juice      |
+//    | 15-20   | Tea        |
+//    | 21-24   | Water      |
+
+let age02 = Number(prompt("나이를 입력하세요",""))
+if(age02<=6){
+    alert("추천 음료는 Warm Milk입니다.")
+}else if(age02<=10){
+    alert("추천 음료는 coffee 입니다.")
+
+}else if(age02<=14){
+    alert("추천 음료는 juice입니다.")
+}else if(age02<=20){
+    alert("추천 음료는 tea 입니다.")
+}else{
+    alert("추천 음료는 water 입니다.")
+}
+
+
+
+
+// ---
+
+// 3. **활동 추천**:
+   
+//    날씨에 따른 야외 활동을 추천해주세요.
+
+//    **조건**: 날씨 (sunny, rainy, cloudy)
+
+//    **도표**:
+
+//    | 날씨     | 추천 활동        |
+//    |--------|--------------|
+//    | sunny  | Picnic       |
+//    | rainy  | Indoor games |
+//    | cloudy | Photography  |	
+	
+let weather = (prompt("날씨를 입력하세요 sunny/rainy/cloudy",""))
+if(weather=="sunny"){
+    alert("추천 활동은 picnic입니다.")
+}else if(weather=="rainy"){
+    alert("추천 활동은 Indoor games 입니다.")
+
+}else{
+    alert("추천 활도은 Photography 입니다.")
+}
+
+
+
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

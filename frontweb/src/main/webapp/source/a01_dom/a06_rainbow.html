@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>red</h2>
+    <h2>orange</h2>
+    <h2>yellow</h2>
+    <h2>green</h2>
+    <h2>blue</h2>
+    <h2>navy</h2>
+    <h2>purple</h2>
+    <p>무지개색상 : @@@</p>
+    <script>
+        var h2arr = document.querySelectorAll("h2")
+        var pOb = document.querySelector("p")
+        for (var i = 0; i < h2arr.length; i++) {
+            h2arr[i].onclick = function () {
+                alert(this.innerText)
+                // 하단에 p에 무지개 색상은 @@ 클릭한 내용으로 출력
+                pOb.innerHTML += "<h3>선택한 무지개 색상 : " + this.innerText
+                // 해당 p태그의 배경 생상을 속성으로 변경 처리
+                pOb.style.background = this.innerText
+            }
+        }
+        // ol li로 판매하는 물건 리스트를 출력(사과 바나나 딸기 오렌지 수박)
+        // li를 클릭시, 해당 물건명을 하단 장바구니 리스트에 h4에 계속 누적 추가되게 ㄱㄱ
+
+
+    </script>
+    <ol>
+        <li>사과</li>
+        <li>바나나</li>
+        <li>딸기</li>
+        <li>오렌지</li>
+        <li>수박</li>
+    </ol>
+    <p id="list">장바구니 리스트</p>
+    <script>
+        var liArr = document.querySelectorAll("li")
+        var pOb01 = document.querySelector("#list")
+        for (var idx = 0; idx < liArr.length; idx++) {
+            liArr[idx].onclick = function () {
+                pOb01.innerHTML += "<h4>" + this.innerText+"</h4>"
+            }
+        }
+    </script>
+</body>
+
+</html>

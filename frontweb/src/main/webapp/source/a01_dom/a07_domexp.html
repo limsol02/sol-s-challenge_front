@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <ol>
+        <li>사과</li>
+        <li>바나나</li>
+        <li>딸기</li>
+        <li>오렌지</li>
+        <li>수박</li>
+    </ol>
+    <p id="list">장바구니 리스트</p>
+    <script>
+        // ol li로 판매하는 물건 리스트를 출력(사과 바나나 딸기 오렌지 수박)
+        // li를 클릭시, 해당 물건명을 하단 장바구니 리스트에 h4에 계속 누적 추가되게 ㄱㄱ
+        
+
+        //p태그는 block형태의 코드를 innerHTML로 가져오지(읽기) 못하고
+        // 그런 아래와 같이 (쓰기) 처리는 가능하다.
+        var liArr = document.querySelectorAll("li")
+        var pOb01 = document.querySelector("#list")
+        for (var idx = 0; idx < liArr.length; idx++) {
+            liArr[idx].onclick = function () {
+                // console.log(liArr[idx].innerText)
+                pOb01.innerHTML += "<h4>" + this.innerText+"</h4>"
+                // this : 이것 이벤트를 일으킨 객체를 가져옴
+                //  pOb01.innerHTML += p에 있는 내용에 클릭한 물건명을
+                // h4로 변경하여 추가 누적 처리..
+            }
+        }
+    </script>
+    
+</body>
+</html>

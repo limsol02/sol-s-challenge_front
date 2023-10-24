@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+    // window: BOM
+    // 하위에 document(DOM):  으로 구성되어있는
+    //     계층구조,
+        // window : 브라우저의 로딩된 창을 나타내는
+        //          객체
+        // .onload : 로딩을 하면이라는 이벤트처리
+        // =function(){} : 이벤트로 처리해야할 내용
+        // BOM (brower object model)
+
+        window.onload = function () {
+            // 로딩하면 이벤트처리 로딩되었을때 처리할 함수가 function(){}
+            // 변수를 선언합니다.
+            var list = '';
+            // 연산자를 사용합니다.
+            list += '<ul>';
+            list += '    <li>Hello</li>';
+            list += '    <li>JavaScript..!</li>';
+            list += '</ul>';
+            // 문서에 출력합니다.
+            // DOM(document object model)
+            // document.body : dom 중에서 body태그를 
+            //  지칭하고
+            // innerHTML : 화면에 출력할 내용을 지정.(태그를 랜더링)
+            // innerText : 화면에 출력할 내용을 지정.(태그를 랜더링x)
+            document.body.innerHTML += list;
+        };
+    </script>
+</head>
+<body>
+    <h2>안녕</h2>
+
+</body>
+</html>
