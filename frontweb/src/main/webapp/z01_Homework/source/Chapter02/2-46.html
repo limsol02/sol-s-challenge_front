@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        // 변수를 선언합니다.
+        var number = Math.sqrt(4); // 루트임
+        // 변수를 출력합니다.
+        /*
+        #원하는 정수를 임의로 가져올 때
+        Math.floor(Math.random*경우의 수 + 시작수)  앞에 함수는 내림수
+        Math.floor(Math.random()*6+1)
+        1. Math.floor() : 실수 내림 처리(정수형)
+        2. Math.random() : 임의의 수 처리 0.0<= Math.random() < 1.0
+        3. Math.round() : 반올림
+        4. Math.ceil() : 올림
+        */
+        var dice = Math.floor(Math.random()*6+1)
+        alert("주사위의 수 :" +dice)
+
+        // ex ) 임의의 점수 0~100을 3개를 가져와서 합산과 평균을 출력하세요.
+        var num1 =  Math.floor(Math.random()*101+0)
+        var num2 =  Math.floor(Math.random()*101+0)
+        var num3 =  Math.floor(Math.random()*101+0)
+        var sum = num1+num2+num3;
+        // js에서는 정수/정수 ==>  실수
+        var avg = Math.round(sum/3);
+        var show = "첫번째 임의의 수 : " + num1+ "\n"
+         show += "두번째 임의의 수 : " + num2+ "\n"
+         show += "세번째 임의의 수 : " + num3+ "\n"
+         show += "세 수의 합산 : " + sum+ "\n"
+         show += "세 수의 평균 : " + avg
+        alert (show)
+    </script>
+</head>
+<body>
+
+</body>
+</html>

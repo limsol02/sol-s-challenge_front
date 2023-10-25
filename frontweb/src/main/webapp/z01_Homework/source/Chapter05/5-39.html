@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        var won = '1000원';
+        var dollar = '1.5$';
+        // Number() : 초함된 모든 문자열이 숫자형이여야한다
+        // alert(Number(won) + ' : ' + Number(dollar));
+        // parseInt(),parseFloat() : 시작하는 숫자만 추출해서 형변환처리
+        // alert(parseInt(won) + ' : ' + parseInt(dollar));
+
+        //ex) prompt로 3.5달러와 4.7달러
+        //  와 같이 문자열로 단위가 포함된 두개의 
+        //  숫자를 받아서 형변환하여 합산값을 출력
+
+        var num01=parseFloat(prompt("달러입력","3.5$"))
+        var num02=parseFloat(prompt("달러입력","4.7$"))
+        alert(num01+num02)
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+    /*
+    # js애서 데이터 유형으로 function
+    1. 함수의 정의
+       var fun 01 = finction(){alert('함수호출')}
+        만약에 내가 fun01을 실행하고 싶다면 fun01(); 호출필요
+
+       var fun 99 = fun01
+       // 정의된 내용을 할당하는 과정
+
+    2. 함수의 실행/수행/호출 
+       fun99();  ==> ()이 붙어야 호출됨 
+    */    
+    // 정의 영역(아직 실행은 안됨)
+    function fun01(){
+            alert("안녕하세용 함수!!")
+        }
+        function call01(fun99){  //  fun99 = fun01
+            alert('함수를 매개변수로 전달')
+            fun99();  //  =fun01 , 정의된 내용 수행
+        }
+        // 호출(이제 실행됨)
+        // call01(fun01)
+
+        // 그니까 결과론적으로 call01()에서 야 call01 수행해 ! 하고 괄호안에 (fun01)를 넣어서
+        // fun01 이 fun99로 들어가고 밑에있는 fun99 가 fun01로 되는거니까
+        // fun01의 함수가 수행이 된다는 거잖아
+
+        function greet (){
+            alert("하이요")
+        }
+        // greet();
+
+        var show = greet ;
+        // show();
+        function showAll(show){
+            alert("함수 호출!")
+            show()
+        }
+        showAll(show); // = showAll(greet)
+        // var show = function()alert('좋은하루')
+        // show();
+        // 익명함수
+        showAll (function(){alert('좋은하루')});
+
+    </script>
+    
+</body>
+</html>

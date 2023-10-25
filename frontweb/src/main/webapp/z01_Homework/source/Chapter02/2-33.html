@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        // 변수를 선언합니다.
+        var cup = 'Coffee';
+        cup = 'green Tea'; // 문자열을 덮어쓰기 처리
+        cup += 'Water'; // 저장된 문자열과 함께 쓰기처리
+        // green Tea Water(+=인경우 문자열 누적)
+        // 출력합니다.
+        // Drink Water..! (cup변수 계속 덮어쓰기)
+        alert('Drink ' + cup + '..!');
+
+        // ex) 문자열 대입
+        // orderMenu 를 통해서 라인별로
+        // 주문한 메뉴를 할당하고 누적처리하여
+        // alert에 주문한 메뉴는 @@@,@@@,@@로 처리
+
+        var orderMenu ='유부초밥,';
+        orderMenu += '아몬드우유,';
+        orderMenu +='커피'; //  누적처리해준다
+        alert('주문한 메뉴는 '+orderMenu+' 입니다.') 
+        // \\안에 orderMenu를 그대로 넣었더니 걍 문자열 그대로 orderMenu 나옴
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

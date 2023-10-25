@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        /*
+        # eval()
+        1. 문자열로 된 내용을 실행을 처리해주는 내용
+        */
+        // 문자열을 생성합니다.
+        var willEval = '';
+        willEval += 'var number = 10;';
+        willEval += 'alert(number);';
+        // alert(willEval)
+        // eval() 함수를 호출합니다.
+        // eval(willEval);
+
+    //    alert( eval("3+5") )  //  출력값 8
+        // eval("var no = 10; alert('출력 : '+no)")  //  출력 : 10
+
+        // ex) 연산할 내용을 prompt로 입력받은 후, 
+        //      총 연산결과값을 document.write()를 이용해 출력
+
+        // var str = prompt("연산식 입력","1+2")
+        // document.write(str+"="+eval(str))
+        // var str = "2+5*7"
+
+        // document.write( eval (num01+num02 ) )
+        
+        // document.write(eval(`${num01+num02}`))
+        
+        // eval(document.write(`${num01+num02}`))
+
+        // document.write(eval(prompt("숫자하나입력","")+prompt("숫자또입력","")))
+
+        // ex) prompt 창에서 1~10까지 출력하는 반복문 코드를 
+        //      입력하여  eval을 통해서 처리하세요.
+
+        // for(var i=1; i<=10; i++){alert(i)}
+        var code = prompt("프로그램할 코드를 입력하세요","")
+        eval(code)  //  아 저 창에 내가 for문을 집어넣으라고??? 
+        // 내가         for(var i=1; i<=10; i++){alert(i)}
+        // 를 입력해서 넣으면 알림창으로 1~10까지 나오고
+        // document.write 이용하면 알아서 페이지에 1~10까지 적어짐 오..신기...
+
+        
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

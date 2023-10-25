@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        // 함수를 생성합니다.
+        function f(x) { return x * x; }
+        
+        // 함수를 호출합니다.
+        alert(f(3));
+        
+        function fun01 (num01){ // 매개변수
+            return num01+num01 // 리턴값
+        }
+        alert(fun01(5))
+        var result =fun01(10)
+        alert("결과값 : " + result)
+        //ex) 매개변수로 아이디, 패스워드를 받아서 
+        //  리턴값으로 3항연사자를 이용해
+        //  himan//7777 일 때, 로그인 성공 그외는 
+        //  실패를 리턴하여 alert() 으로 출력되게 하세용
+
+        // var id = prompt("아이디를 입력하세요","")
+        // var pass = prompt("비밀번호를 입력하세요","")
+
+        // login();
+         function login(id, pass){
+            return id=='himan' && pass=='7777'?'로그인 성공':'로그인실패'
+        }
+        alert(login('himan','7777'))
+        alert(login('himan','7788'))
+        
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        /*
+        # let 변수 
+        1. 지역변수와 전역변수를 구분하여 처리한다.
+            - block 안에서 선언되면 block 안에서만 사용
+            - 자바랑 동일한 프로세스
+            - block을 포함한 상위에서 변수를 선언하면 모든 블럭에 사용 : 전역변수
+            - cf) 선언한 내부에서만 사용가능 :  지역변수 (let) 은 구분되는데 var은 구분안된다.
+        */
+       var num01 = 25
+       var num01 = 30 //  var변수는 중복선언 가능하다.
+
+       let variable2 = 777;
+    //    let variable2 = 55; let은 중복선언 할 수 없다.
+        {
+            // 스코프 A
+            let variable = 273;
+            alert("스코프 A : "+ variable)
+            alert("전역변수 호출1 : "+ variable2)
+        }
+        {
+        // 스코프 B
+        // alert("스코프 B : "+variable);
+        alert("전역변수 호출2 : "+ variable2)
+
+
+        }
+        // 전역 스코프
+        // alert("전역스코프 : " +variable);
+        alert("전역변수 호출3 : "+ variable2)
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

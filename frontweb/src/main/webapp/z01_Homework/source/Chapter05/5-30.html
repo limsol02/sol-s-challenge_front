@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        console.log(isNaN("100"))
+        // 1초마다 함수를 실행합니다.
+        // setInterval(함수,1/1000) : 해당 시간마다 반복할 내용
+
+        // var intervalID = setInterval(function () {
+        //     // document.write() 화면출력
+        //     document.write('<p>' + new Date() + '</p>');
+        // }, 1000);
+        // // 10초 후 함수를 실행합니다.
+        // setTimeout(function () {
+        //     // 타이머를 종료합니다.
+        //     // clearInterval(변수명) : 해당 변수명으로 선언된 함수를 
+        //     // 자원을 해체 처리해준다.(종료철)
+        //     clearInterval(intervalID);
+        // }, 10000);
+
+        // var cnt=1;
+        // var int01 = setInterval(function(){
+        //     document.write("<h2>카운트 : "+(cnt++) +"</h2>")
+        //     if(cnt==11){
+        //         alert("종료!!")
+        //         // 카운트가 11이 되었을 때, 중단 처리.
+        //         clearInterval(int01)
+        //     }
+        // },1000)
+
+        //ex) prompt로 구구단의 단수를 입력받아 1~9까지 곱한값을 
+        //  출력하세요. @@x1 = @@
+
+        var num01 = Number(prompt("원하는 구구단의 숫자입력",""))
+        var num02 = setInterval(function(){
+            for(var i=1; i<=9; i++){
+                document.write(`<h2>${num01} X ${i} = ${num01*i}</h2>`)
+                if(i==9){
+                    clearInterval(num02)}
+                    break
+                
+            }
+        },3000)
+        // 근데 일케하면 3초뒤에 짠 하고 다나오고
+        // var cnt = 0;
+        // document.write(@x++cnt = @*) 이런식으로 해야 카운드 세듯 딴딴딴 나옴
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

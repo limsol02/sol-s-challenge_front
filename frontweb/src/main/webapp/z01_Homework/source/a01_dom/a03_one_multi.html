@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>시작</h1>
+    <h2>시작1</h2>
+    <h2>시작2</h2>
+    <h2>시작3</h2>
+    <h2>시작4</h2>
+    <h2>시작5</h2>
+
+
+</body>
+    <script>
+        var h1Ob = document.querySelector("h1")
+        h1Ob.innerText  = "사과"
+        
+        var h2Arr = document.querySelectorAll("h2")
+        h2Arr[0].innerText = "귤"
+        h2Arr[1].innerText = "딸기"
+        h2Arr[2].innerText = "배"
+        h2Arr[3].innerText = "파인애플"
+        h2Arr[4].innerText = "바나나"
+        for (var idx =0;idx<h2Arr.length; idx++){
+            h2Arr[idx].style.color="blue"
+            h2Arr[idx].align="center"
+        }
+
+        /*
+        # ?
+        1. h1 하나밖에 없는 document.querySelectorAll("h1")
+        2. h2 여러개있는데 document.querySelector("h2") -> 맨위에꺼만 바뀜 ㅋㅋ
+            h2Ob.innerText = "딸기"
+        */
+
+        var h1Arr = document.querySelectorAll("h1")
+        h1Arr[0].innerText = "애플";
+        
+        // 다중의 내용이 있지만, 1개만 선택해서 처리
+        var h2Ob = document.querySelector("h2")
+        h2Ob.innerText="첫번쨰과일"
+
+
+        
+
+    </script>
+</html>

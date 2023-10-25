@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+    <h1>출력1</h1>
+    <div>
+        <h1>포함태크</h1>
+        <p>문단내용</p>
+    </div>
+    <p></p>
+    <script>
+        var h1Ob = document.querySelector("h1")
+        h1Ob.innerText = "내용만 변경합니다<span>태그 그대로 나오죠</span>"
+        // .innerText : 내용 그대로 표현할 때
+        var divOb = document.querySelector("div")
+        divOb.innerHTML="<ul><li>사과</li><li>바나나</li><li>딸기</li>"
+        // .innerHTML : html 태그 랜더링시 처리
+        var pOb = document.querySelector("p")
+        h1Ob.onclick = function(){
+            var addData="<h2>맛있는 사과</h2>"
+            divOb.innerHTML+=addData
+            pOb.innerText+=addData
+        }
+        // ex) a06_rainbow.html
+        //  h2로 영문으로 무지개 색상을 설정한 후, 클릭시
+        //  하단 p무지개 색상 이라고 표기된 곳에 ,해당 색상을 출력해봐
+        //  1) 화면 태그
+        //  2) DOM객체 선언 h2,p
+        //  3) 이벤트처리(h2)
+        //  .innerText나 innerHTML을 이요ㅇ해서 p에 표현하기
+    </script>
+</body>
+</html>

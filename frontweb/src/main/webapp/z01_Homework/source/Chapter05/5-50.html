@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        // 함수를 선언합니다.
+        /*
+        # 화살표 함수
+        1. 간단한 함수를 처리할 때 활용한다.
+        2. 형식
+            1) 선언
+            함수명 = (매개변수1, 매개변수2..) => 리턴값;
+            2) 호출
+            함수명(데이터1,데이터2..)
+        */
+        const multiply = (a, b) => a * b;
+        // 사용합니다.
+        // alert(multiply(1, 2));
+        // alert(multiply(3, 4));
+
+        const buyTot = (price, cnt) => price*cnt
+        var price = 3000
+        var cnt = 2
+        // alert(`
+        //     물건가격:${price}
+        //     구매갯수:${cnt}
+        //     총계:${buyTot(price,cnt)}
+        // `)
+
+        /*
+        ex) 원의 면적으로 구하는 함수를 화살표함수로
+        정의해서 반지름이 입력되었을때 결과를 리턴하게 하세요
+        */
+
+        var circle = (num01,num02) => num01*num01*num02;
+        alert(`
+        원의 반지름 : ${3}
+        원주율 : ${3.14}
+        원의 넓이 : ${circle(3,3.14)}
+        `)
+
+        let circleArea = (radius) => radius*radius*3.14
+        var ra = prompt("원의 반지름을 입력하세요",)
+        alert(`
+        원의 반지름 : ${ra}
+        원의 넓이 : ${circleArea(ra)}
+        `)
+
+    </script>    
+</head>
+<body>
+
+</body>
+</html>
