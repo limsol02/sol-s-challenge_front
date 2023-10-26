@@ -7,8 +7,17 @@
 <body>
 <h3>버튼을 만들자</h3>
 <hr>
+<!--
+	submit : form에서 지정한 서버에 데이터 전송할 때,
+		사용. 데이터전송은 name="" value=""
+	reset : form에 있는 내용을 초기화할때 사용.
+	버튼은 두가지 형식\
+		<input type = "button" value="클릭"/>
+		<button type="button">클릭</button>
+-->
+
 <form>
-	검색: <input type="text" size="10" value="">
+	검색: <input type="text" name="sch01" size="10" value="">
 		  <input type="button" value="Q1">
 		  <button type="button">Q2</button><br>
 	submit 버튼 : <input type="submit" value="전송1">
@@ -18,5 +27,28 @@
 	이미지버튼 : <input type="image" src="media/button.png" alt="이미지 버튼">
 				<button type="button"><img src="media/button.png" alt="이미지 버튼"></button>
 </form>
+
+<h2>form유효성 check 연습</h2>
+<form id="sendFrm">
+	전송할아이디 : <input type="text" name="id" value=""/>
+	<input type="button" id="sendBtn" value="아이디 전송"/>
+</form>
+
+<script>
+	var sendBtnOb = document.querySelector("#sendBtn")
+	var idOb = document.querySelector("[name=id]")
+	sendBtnOb.onclick = function(){
+		// alert(`전송전 아이디값 있는지 여부 check`)
+		if(idOb.value==""){
+			alert(`아이디를 입력하여야 전송 가능합니다.`)
+			idOb.focus();
+		}else{
+			// submit 버튼 없이 프로그램으로 유효성에 맞으면
+			// js 객체 메서드로 전송한다.
+			document.querySelector("#sendFrm").submit()
+		}
+	}
+</script>
+
 </body>
 </html>

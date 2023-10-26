@@ -7,13 +7,22 @@
 <body>
 <h3>먹고 싶은 것 하나만 선택?</h3>
 <hr>
+<!--
+	type="radio" 는 name값이 동일한 범위 안에 단일선택을
+	할 수 있게한다.
+-->
 <form>
-	<input type="radio" name="china" value="1">
+	<input type="radio" name="china" value="짜장면">
 		짜장면<img src="media/jajang.png"><br>
-	<input type="radio" name="china" value="2" checked>
+	<input type="radio" name="china" value="짬뽕" checked>
 		짬뽕<img src="media/jjambbong.png"><br>
-	<input type="radio" name="china" value="3">
+	<input type="radio" name="china" value="탕수육">
 		탕수육<img src="media/tangsuyuk.png">
+
+	<input type="radio" name="lev" value="고급"/>고급	
+	<input type="radio" name="lev" value="중급"/>중급	
+	<input type="radio" name="lev" value="히급"/>하급	
+		<input type="submit">
 </form>
 </body>
 </html>

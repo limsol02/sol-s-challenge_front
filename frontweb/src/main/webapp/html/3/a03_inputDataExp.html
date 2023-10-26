@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <!--
+        ex) 물건명 : [] [물건등록]==> 클릭시, 입력한 물건명이 로딩되게 하세요
+        // 1. 화면
+        // 2. DOM객체
+        // 3. 이벤트 선언과 핸들러 함수할당.
+    -->
+<form>
+    <!--name="product" ==> js식별자로 "[속성=속성값]"
+    서버에 전송 안할꺼면 id써도 되는데 전송할꺼면 name으로 해야됨-->
+   물건명 :  <input type="text" name="product"> 
+   <!-- <input type="submit"> -->
+   <input type="button" value="물건등록" id="but">
+</form>
+
+<script>
+    var pOb = document.querySelector("[name=product]")
+    var butOb = document.querySelector("#but")
+
+    butOb.onclick = function(){
+        // 입력후에 버튼을 클릭시 입력한 물건명 가져오기
+        alert('입력된 물건명 : '+pOb.value)
+    }
+
+    /*
+    ex) 
+    */
+</script>
+</body>
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--
+[1단계:개념] 1. form 하위에 input의 type에 속성에 따른 속성값을 특징에 따라 기술하세요.
+    ==> input 을 <>안에 넣으면 type에 대해 기술해야 하는데,
+        1) text : 글을 써 넣을수있음
+        2) button / submit: 버튼이 만들어짐 (submit은 서버로 전송처리)
+        3) password : 비밀번호 입력 필드(*처리)
+        4) number : 숫자입력 필드
+        5) email : 이메일주소입력 필드(이메일 구조 확인도 해줌)
+        6) checkbox : 다중선택가능
+        7) radio : 단일선택
+        8) file : 파일 선택기능
+        9) reset : 초기화 
+        등 이 있습니다.
+
+[1단계:개념] 4. disabled, readOnly 속성의 차이를 기본코드와 함께 설명하세요.
+    ==> disabled은 아예 비활성화가 된 상태이고
+        readOnly은 읽기처리만 가능한 상태입니다.
+        <input type="text" value="비활성 입력" disabled> => (전송 자체가 안됨)
+        <input type="text" value="읽기 전용 입력" readonly> => (기본 value값이 전송됨)
+
+
+[1단계:개념] 7. 데이터베이스의 keyword 검색의 기본 형식을 예제를 통해서 기술하세요.
+[1단계:확인] 8. 사원정보를 정렬하여 출력하되 부서번호(deptno)를 1차(오름차순)로 급여(sal) 2차(내림차순)으로 부서번호, 급여, 사원명을 출력하세요.
+ -->
+
+
+ <!--[1단계:확인] 2. 아래와 같은 화면 구조의 내용을 등록 처리해보세요.
+    학생명:[    ] 점수:[    ] [등록] ==> 클릭시 마다 하단에 numbering되면서 등록 처리.
+	1  @@@   @@ -->
+    <form>
+        학생명 : <input type="text" name="name" value="">
+        점수 : <input type="text" name="score" value="">
+        <input type="button" name="but" value="등록"><br>
+        <h2>학생명과 점수 확인</h2><br>
+    </form>
+    
+    <script>
+        var h2Ob = document.querySelector("h2")
+        var nameOb = document.querySelector("[name=name]")
+        var scoreOb = document.querySelector("[name=score]")
+        var butOb = document.querySelector("[name=but]")
+
+        var cnt = 1;
+        butOb.onclick = function(){
+            h2Ob.innerHTML+= "<br>"+(cnt++)+"\t" + nameOb.value +"\t"+ scoreOb.value+"<br>"
+        }
+    </script>
+
+    <!--[1단계:확인] 3. 다음의 내용을 enter키를 통해서 입력 처리해보세요.
+        (테이블처리 및 최하단에 누적 총액계산)
+        구매할 물건의 가격:[   ]
+        구매한물건가격
+	    1000
+	     2000
+	    총액:@@@-->
+    
+   
+        구매한 물건의 가격 : <input type="text" name="price" value="">
+        <!-- <input type="button" name="b01" value="입력">  -->
+        <table id="table" border >
+            <thead><tr><th>구매한 물건의 가격</th></tr></thead>
+            <tbody id="t01"></tbody>
+            <tbody id="t02"></tbody>
+            
+        </table>
+    
+
+    <script>
+        var pOb = document.querySelector("[name=price]")
+        var tOb01 = document.querySelector("#t01")
+        var tOb02 = document.querySelector("#t02")
+        var plus = 0;
+        
+        
+        pOb.onkeyup = function(){
+            if(event.keyCode == 13){
+                var price = parseInt(pOb.value)
+                plus+=price
+                tOb01.innerHTML+= "<tr><th>"+pOb.value+"</th></tr>"
+                tOb02.innerHTML="<tr><th>"+plus+"</th></tr>"
+                this.value = ""
+                this.focus()
+            }
+        }
+    </script>
+
+<!--[1단계:확인] 5. 물건명[  ], 가격[   ], 갯수[   ] [등록] 화면에서 등록 클릭시, 하단에 구매한 물건은 @@@, 총비용은 @@ 라고 출력되게 하세요-->
+<form>
+    물건명 : <input type="text" name="n01" value="">
+    가격 : <input type="text" name="p01" value="">
+    갯수 : <input type="text" name="c01" value="">
+    <input type="button" name="b01" value="등록">
+
+    <div id="div01">
+
+    </div>
+</form>
+
+<script>
+    var n01Ob = document.querySelector("[name=n01]")
+    var p01Ob = document.querySelector("[name=p01]")
+    var c01Ob = document.querySelector("[name=c01]")
+    var b01Ob = document.querySelector("[name=b01]")
+    var divOb = document.querySelector("#div01")
+    var plus01 = 0;
+
+    b01Ob.onclick = function(){
+        var all = parseInt(p01Ob.value*c01Ob.value)
+        plus01=all
+        divOb.innerHTML=`구매한 물건은 ${n01Ob.value}, 총비용은 ${plus01}입니다. `
+    }
+
+</script>
+
+<!--[1단계:확인] 6. 회원 가입시, 가입 정보가 id, pass 일 때, 이름, 포인트, 메일주소일 때, 
+아이디, 패스워드, 이름, 메일주소는 반드시 입력해야 등록되게 할려면 javascript 코드를 기술하세요
+// 역으로 하면 포인트는 입력안해도 된다 이거잖아 그치 -->
+<form>
+    <h2>신나는 회원가입^^***</h2>
+    아이디 : <input type="text" name="id" value="">
+    비밀번호 : <input type="password" name="pass" value="">
+    이름 : <input type="text" name="n02" value="">
+    메일주소 : <input type="email" name="email" value="">
+    포인트 : <input type="text" name="point" value="">
+   <input type="button" name="btn" value="등록">
+</form>
+
+<script>
+    var n02Ob = document.querySelector("[name=n02]")
+    var passOb = document.querySelector("[name=pass]")
+    var idOb = document.querySelector("[name=id]")
+    var emailOb = document.querySelector("[name=email]")
+    var pointOb = document.querySelector("[name=point]")
+    var btnOb = document.querySelector("[name=btn]")
+
+    btnOb.onclick = function(){
+        if(pointOb=null){
+            alert("회원가입 성공")
+        }else{
+            alert("정보를 입력해주세요")
+        }
+    }
+</script>
+<!--/*
+[1단계:개념] 7. 데이터베이스의 keyword 검색의 기본 형식을 예제를 통해서 기술하세요.
+select (내가 원하는 애들입력) from (어느 테이블에서 가져올지 입력) where (내가 원하는 조건을 넣을 컬럼명 입력) like (그중에서도 원하는 정보값 조건명 입력);
+
+[1단계:확인] 8. 사원정보를 정렬하여 출력하되 부서번호(deptno)를 1차(오름차순)로 급여(sal) 2차(내림차순)으로 부서번호, 급여, 사원명을 출력하세요.
+ * */
+SELECT deptno, sal, ename FROM emp ORDER BY deptno ;
+SELECT deptno, sal, ename FROM emp ORDER BY sal DESC;-->
+
+</body>
+</html>

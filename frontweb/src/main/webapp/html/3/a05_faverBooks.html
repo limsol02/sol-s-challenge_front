@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--
+        좋아하는 도서 : [ ] [추가]
+
+        도서목록
+        @@@@
+    -->
+
+    <form>
+        좋아하는 도서 : <input type="text" name="book" value="">
+        <input type="button" value="추가" id="but">
+    </form>
+    <div>
+        
+    </div>
+    <h2>도서 목록(key 이벤트)</h2>
+    <table id="bookTab" border width="300">
+        <thead>
+        <tr>
+            <th>번호</th><th>도서명</th>
+        </tr>
+    </thead>
+    <tbody>
+
+    </tbody>
+    </table>
+
+    <script>
+        var bookOb = document.querySelector("[name=book]")
+        var butOb = document.querySelector("#but")
+        var divOb =document.querySelector("div")
+        divOb.innerHTML = " <h3>도서목록</h3><br>"
+        var tOb = document.querySelector("#bookTab tbody")
+
+        butOb.onclick = function(){
+            divOb.innerHTML+=bookOb.value+"<br>"
+            bookOb.value=""
+            bookOb.focus();
+        }
+        var cnt = 1;
+        bookOb.onkeyup= function(){
+            if( event.keyCode == 13 ){
+                tOb.innerHTML+="<tr><th>"+(cnt++)+"</th><th>"+this.value+"</th></tr>"
+                this.value=""
+                this.focus()
+            }
+        }
+
+        /*
+         bookOb.onkeyup = function(){
+    // alert(event.keyCode)==> enter = 13
+    if(event.keyCode == 13){
+        tbodyOb.innerHTML+="<tr><th>"+(cnt++)+"</th><th>"+this.value+"</th></tr>"
+        this.value=""
+        this.focus()
+    }
+   }*/
+    </script>
+</body>
+</html>
