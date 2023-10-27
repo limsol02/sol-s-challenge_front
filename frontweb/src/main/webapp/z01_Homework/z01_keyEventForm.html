@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--[1단계:확인] 3. 다음의 내용을 enter키를 통해서 입력 처리해보세요.
+        (테이블처리 및 최하단에 누적 총액계산)
+        구매할 물건의 가격:[   ]
+        구매한물건가격
+	    1000
+	     2000
+	    총액:@@@
+    
+    1) 화면(name ,id)
+    2) DOM
+    3) 이벤트 처리(이벤트핸들러 호출)
+    4) 이벤트 핸들러 함수에 처리할 내용 기술-->
+        
+    
+    구매할 물건의 가격 : <input type="number" name="price" value=""/><br>
+        <table border id="tabPriceOb">
+            <thead><tr><th> 구매한 물건 가격</th></tr></thead>
+            <tbody></tbody>
+            <tfoot><tr><th>총계 : 0</th></tr></tfoot>
+        </table>
+
+    <script>
+        var priceOb = document.querySelector("[name=price]")
+        var tabBodyOb = document.querySelector("#tabPriceOb tbody")
+        var totalOb = document.querySelector("#tabPriceOb tfoot th")
+        var plus = 0;
+
+        priceOb.onkeyup = function(){
+            if(event.keyCode == 13){ // enter키를 입력했을떄
+                tabBodyOb.innerHTML+="<tr><th>"+priceOb.value+"원</th></tr>" 
+                // 이벤트에 의해 누적이 잘 되는지 확인
+                plus+=parseInt(this.value)
+                // Number(this.value)도 가능
+                // js는 +만 기본적으로 문자열이기에 형변환필요
+                totalOb.innerHTML="<tr><th> 총계 : "+plus+"원 </th></tr>"
+                this.value=""
+                this.focus()
+            }
+        }
+    </script>
+
+    
+
+    <!--[1단계:확인] 6. 회원 가입시, 가입 정보가 id, pass 일 때, 이름, 포인트, 메일주소일 때, 
+    아이디, 패스워드, 이름, 메일주소는 반드시 입력해야 등록되게 javascript 코드를 기술하세요-->
+
+
+</body>
+</html>

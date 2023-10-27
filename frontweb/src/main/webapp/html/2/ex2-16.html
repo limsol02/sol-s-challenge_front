@@ -60,13 +60,28 @@ ex3) 2행4열 3행4열 4행4열 병합
 
 -->
 <h2>4행 4열</h2>
-<table border>
+<table border id="tab01">
 	<tr><td colspan="2">1행1열</td><td colspan="2">1행3열</td></tr>
 	<tr><td rowspan="2">2행1열</td><td>2행2열</td><td>2행3열</td><td rowspan="3">2행4열</td></tr>
 	<tr><td>3행2열</td><td rowspan="2">3행3열</td></tr>
 	<tr><td colspan="2">4행1열</td></tr>
-
+	<tbody></tbody>
+	<tfoot></tfoot>
 </table>
+<script>
+	var tab01Ob = document.querySelector("#tab01")
+	var tbody1Ob = document.querySelector("#tab01 tbody")
+
+
+	var tdArr01 = document.querySelectorAll("#tab01 td")
+	tdArr01[0].innerHTML="1행1열 ^^ 내용할당"
+	for(var idx = 0; idx<tdArr01.length;idx++){
+		tdArr01[idx].innerHTML = idx+1 // 해당 셀을 1~n번쨰까지 번호할당
+	}
+	tdArr01.forEach(function(td,idx){
+		td.innerText = idx+1
+	})
+</script>
 <!-- 
 	1 행 1열
 -->

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--[1단계:확인] 5. 물건명[  ], 가격[   ], 갯수[   ] [등록] 화면에서 등록 클릭시,
+         하단에 구매한 물건은 @@@, 총비용은 @@ 라고 출력되게 하세요-->
+
+    물건명<input type=" text" name="proName"><br>
+    가격<input type="text" name="price"><br>
+    갯수<input type="text" name="cnt"><br>
+    <input type="button" id="regBtn" value="등록">
+
+    <p id="show"></p>
+
+    <script>
+        var nameOb = document.querySelector("[name=proName]")
+        var priceOb = document.querySelector("[name=price]")
+        var cntOb = document.querySelector("[name=cnt]")
+        var showOb = document.querySelector("#show")
+        var regBtnOb = document.querySelector("#regBtn")
+
+        regBtnOb.onclick = function(){
+            var name = nameOb.value
+            var price = priceOb.value
+            var cnt = cntOb.value
+            showOb.innerText = `구매한 물건은 ${name}이고, 총비용은 ${price*cnt} 입니다.`
+            
+        }
+        // regBtnOb.onfocus= function(){this.value=""}
+        nameOb.onfocus = function(){this.value=""; this.focus()}
+        priceOb.onfocus = function(){this.value=""; this.focus()}
+        cntOb.onfocus = function(){this.value=""; this.focus()}
+        // 커서를 위치시키면 공백이 되어 입력이 편하게 처리..
+
+    </script>
+</body>
+</html>
