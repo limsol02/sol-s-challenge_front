@@ -20,20 +20,18 @@
 	<mark>하이라이팅</mark><br>
 </p>
 <span>안녕하세요(테스트용^^)</span>
-<input type="button" value="진하게 처리" onclick="addBold()">
+<input type="button" value="진하게 처리" 
+	onclick="addBold()">
 <input type="button" value="기울임 처리" onclick="addItalic()">
 <input type="button" value="사선 처리" onclick="addDel()">
-<input type="button" value="위첨자 처리" onclick="addSub()">
+<input type="button" value="위첨자 처리" onclick="addSup()">
 </body>
-	<script>
-		var h2Ob = document.querySelector("span")
-		function addBold(){
-			h2Ob.innerHTML="<b>"+h2Ob.innerHTML+"</b>"}
-		function addItalic(){
-			h2Ob.innerHTML="<i>"+h2Ob.innerHTML+"</i>"}
-		function addDel(){
-			h2Ob.innerHTML="<del>"+h2Ob.innerHTML+"</del>"}
-		function addSub(){
-			h2Ob.innerHTML="<sub>"+h2Ob.innerHTML+"</sub>"}	
-	</script>
+<script>
+var h2Ob = document.querySelector("span")
+function addBold(){ h2Ob.innerHTML="<b>"+h2Ob.innerHTML+"</b>" }
+function addItalic(){ h2Ob.innerHTML="<i>"+h2Ob.innerHTML+"</i>" }
+function addDel(){ h2Ob.innerHTML="<del>"+h2Ob.innerHTML+"</del>" }
+function addSup(){ h2Ob.innerHTML="<sub>"+h2Ob.innerHTML+"</sub>" }
+
+</script>
 </html>

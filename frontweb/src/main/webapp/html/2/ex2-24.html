@@ -4,11 +4,46 @@
 <meta charset="UTF-8">
 <title>target 속성 활용</title>
 </head>
+<!--  
+최상위 페이지                      ex2-24.html
+
+하위 페이지 
+         ex2-24-sitelist.html(left)            http://www.w3c.org(right)
+    <a href="ex2-01.html" target="right">내부페이지1</a>
+    <a href="ex2-02.html" target="right">내부페이지2</a>
+    <a href="ex2-03.html" target="right">내부페이지3</a>
+    <a href="ex2-04.html" target="right">내부페이지4</a>
+    <a href="ex2-05.html" target="right">내부페이지5</a>  
+    
+    페이지에서 target으로 지정한 frame을 href="변경페이지" 로 변경처리
+ex)        z05_top.html
+
+ frame01            frame02 
+ z06_left.html      z07_main.html
+ 링크로
+ target="frame02"
+ 로 설정해서
+ ex2-10.html
+ ex2-11.html
+ ex2-12.html 를 클릭시
+ 변경되게 하세요.
+
+
+
+
+
+
+
+
+
+
+-->
 <body>
 <h3>target 속성 활용</h3>
 <hr>
 <iframe src="ex2-24-sitelist.html" name="left" width="200" height="300">
 </iframe>
+
 <iframe src="http://www.w3c.org" name="right" width="300" height="300">
 </iframe>
 </body>

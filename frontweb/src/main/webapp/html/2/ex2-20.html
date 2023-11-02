@@ -6,11 +6,45 @@
 <body>
 <h3>Elvis Presley</h3>
 <hr>
+<!-- 
+# 내부페이지 이동처리
+1. 페이지내 또는 외부페이지의 특정한 위치로 이동처리할 때 주로 사용된다.
+2. 처리순서
+    1) 페이지 내 또는 다른 페이지에서 이동할 위치를 id 속성으로
+      선언한다. 
+	  <태그명  id="아이디명">
+    2) 상단이나 특정한 곳에서 리스트를 만들어 이동할 곳을 a href로
+	   표기한다.
+	3) href="#아이디명"  : 앞에서 특정위치에 지정한 아이디 속성을
+	   #아이디명으로 지정하면, 해당 link를 클릭시 이동된다.
+    4) href="이동할페이지#아이디명"
+	   다른 페이지에 특정한 위치로 이동처리하게 해준다.
+	cf)
+	# 요청값을 전송하는 경우도 있다.
+	a href="페이지?id=himan&pwd=9999"   
+
+-->
+<h2>특정페이지에 요청값까지 전달</h2>
+검색할물건명:<input type="text" id="pname">
+<button type="button" onclick="send()">물건명으로 검색</button>
+<script>
+	var pnameOb = document.querySelector("#pname")
+	function send(){
+		var pnameVal = pnameOb.value
+		if(confirm(pnameVal+"를 검색하시겠습니까?")){
+			location.href="z04_schProduct.jsp?pname="+pnameVal
+		}
+	}
+	
+</script>
 <ul>
 	<li><a href="#love">Love me tender</a>
 	<li><a href="#can">Can't help falling in love</a>
 	<li><a href="#it">It's now or never</a>
 </ul>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 <h3 id="love">Love me tender</h3>
 Love me tender, Love me sweet, Never let me go.<br>
 You have made my life complete, <br>
@@ -18,11 +52,19 @@ And I love you so.<br>
 Love me tender, Love me true, <br>
 All my dreams fulfilled.<br>
 For my darling I love you, And I always will.<br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
 <h3 id="can">Can't help falling in love</h3>
 Love me tender, Love me sweet, Never let me go.<br>
 You have made my life complete, And I love you so.<br>
 Love me tender, Love me true, All my dreams fulfilled.<br>
 For my darling I love you, And I always will.<br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
 <h3 id="it">It''s now or never</h3>
 It's now or never, Come hold me tight<br>
 Kiss me my darling, Be mine tonight<br>

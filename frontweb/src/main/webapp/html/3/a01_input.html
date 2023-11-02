@@ -6,20 +6,30 @@
     <title>Document</title>
 </head>
 <body>
-    이름 입력 : <input id = "name01" value="초기입력값">
-                <input type = "button" id ="btn01" value="이름등록">      
+    이름 입력:<input id="name01" name="name01" value="초기입력값">
+              <input type="button" id="btn01" value="이름등록">
     <br>
-    <!-- name 으로 속성과 속성값을 설정하면 서버에 데이터를 전송할 수 있다.-->
-    <p>출력할화면</p>
+    <!-- name으로 속성과 속성값을 설정하면 서버에 데이터를 전송할 수 있다-->
+    <p>출력할 화면</p>
     <script>
     // 1. DOM객체
     var name01Ob = document.querySelector("#name01")
+    var name01Ob = document.querySelector("[name=name01]")
+    console.log("#화면에 있는 DOM객체#")
+    console.log(name01Ob)
+    console.log(name01Ob.id)
+    console.log(name01Ob.value)
+    name01Ob.value="변경(입력값)"
+
+
     var btn01Ob = document.querySelector("#btn01")
     var pOb = document.querySelector("p")
+
     // 2. 이벤트 처리
     btn01Ob.onclick=function(){
-        pOb.innerHTML+="<br>등록이름 : "+name01Ob.value+"<br>"
+        pOb.innerHTML+="<br>등록이름:"+name01Ob.value+"<br>"
     }
+
     // 3. 이벤트 핸들러 함수 내용 처리.
     </script>
 </body>

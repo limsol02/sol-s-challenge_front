@@ -9,28 +9,26 @@
 <form>
 	<!--
 		1. select를 통해서 option값을 선택해준다.
-		2. select의 name을 기준으로 key 설정되고,
-		3. 설정된 value 값이 전송이 되는데,
-		4. option value가 있으면 label(실제 쓰여진 메뉴이름) 상관없이 value값 전송
-		5. option value가 없으면 label 로 설정되어 전송
+		2. select name를 기준으로 key 설정되고,
+		3. 선택된 value이 전송이 되는데,
+		4. option value가 있으면 label상관없이 value값 전송
+		5. option value가 없으면 label있는 값에 value로 설정되어 전송
 
-	-->
-	중국음식 : 
+	 -->
+	중국음식:
 	<select name="china">
 		<option value="1">짜장면</option>
 		<option value="2" selected>짬뽕</option>
 		<option value="3">탕수육</option>
-	</select>
-	<input type="submit"/><br>
+	</select><br>
+	한국음식:
+	<select name="korean">
+		<option  value="된장찌개">된장찌개</option>
+		<option>김치찌개</option>
+		<option>설렁탕</option>
+	</select><br>
 
-	한국음식 : 
-	<select name="korea">
-		<option >된장찌개</option>
-		<option >김치찌개</option>
-		<option> 설렁탕</option>
-	</select>
 	<input type="submit"/>
-
 </form>
 </body>
 </html>

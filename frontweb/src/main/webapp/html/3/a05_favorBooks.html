@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    좋아하는 도서 : <input type="text" name="book" value=""/>
+    <input type="button" value="추가" id="regBtn"/>
+    <div id="show">
+    </div>
+    <h2>도서 목록(key이벤트)</h2>
+    <table id="bookTab" border width="300">
+        <thead>
+            <tr><th>번호</th><th>도서명</th></tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</body>
+<script>
+    var bookOb = document.querySelector("[name=book]")
+    var regBtnOb = document.querySelector("#regBtn")
+    var showOb = document.querySelector("#show")
+    var tbodyOb = document.querySelector("#bookTab tbody")
+    var cnt = 1;
+    // 입력할 도서내용을 입력시 처리.
+    bookOb.onkeyup=function(){
+        //alert(event.keyCode)
+        if( event.keyCode == 13 ){
+            //this.value // 이벤트가 일어나는 객체 this, value  입력된 값.
+            //alert( this.value )
+            tbodyOb.innerHTML+="<tr><th>"+(cnt++)+"</th><th>"+this.value+
+                "</th></tr>"
+            this.value=""
+            this.focus()
+        }
+    }    
+
+
+    showOb.innerHTML="<h4>도서목록</h4>"
+    regBtnOb.onclick=function(){
+        showOb.innerHTML+=bookOb.value+"<br>"
+        bookOb.value=""
+        bookOb.focus()
+    }
+
+    /* ex) a05_favorBooks.html
+    좋아하는 도서:[    ] [추가]
+    도서목록
+    @@@@
+    @@@@
+    */   
+
+</script>
+</html>

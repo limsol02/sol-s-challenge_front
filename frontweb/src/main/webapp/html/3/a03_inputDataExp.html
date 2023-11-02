@@ -6,33 +6,31 @@
     <title>Document</title>
 </head>
 <body>
-
-    <!--
-        ex) 물건명 : [] [물건등록]==> 클릭시, 입력한 물건명이 로딩되게 하세요
+    <form>
+        물건명:<input type="text" name="prodName" value="">
+        <input type="button" id="regBtn" value="물건등록">
+    </form>
+</body>
+<script>
+    //  name="prodName" ==> js 식별자로 "[속성=속성값]" 
+    var prodNameOb = document.querySelector("[name=prodName]")
+    var regBtnOb = document.querySelector("#regBtn")
+    regBtnOb.onclick=function(){
+        console.log(prodNameOb) // f12 활용 해당 라인의 에러 확인..
+        // 입력후에, 버튼을 클릭시, 입력한 물건명 가져오기.
+        alert("등록한물건명:"+prodNameOb.value)
+    }
+        // ex) a03_inputDataExp.html
+        //     물건명:[   ] [물건등록] ==> 클릭시, 입력한 물건명이 로딩되게
+        //     하세요..
         // 1. 화면
         // 2. DOM객체
-        // 3. 이벤트 선언과 핸들러 함수할당.
-    -->
-<form>
-    <!--name="product" ==> js식별자로 "[속성=속성값]"
-    서버에 전송 안할꺼면 id써도 되는데 전송할꺼면 name으로 해야됨-->
-   물건명 :  <input type="text" name="product"> 
-   <!-- <input type="submit"> -->
-   <input type="button" value="물건등록" id="but">
-</form>
-
-<script>
-    var pOb = document.querySelector("[name=product]")
-    var butOb = document.querySelector("#but")
-
-    butOb.onclick = function(){
-        // 입력후에 버튼을 클릭시 입력한 물건명 가져오기
-        alert('입력된 물건명 : '+pOb.value)
-    }
-
+        // 3. 이벤트선언과 핸들러 함수 할당.    
     /*
-    ex) 
+    ex) a04_orderMenu.html
+    주문할 음식:[    ] [주문]
+    주문 클릭시, 입력된 주문할 음식 alert()으로 출력..
+    
     */
 </script>
-</body>
 </html>

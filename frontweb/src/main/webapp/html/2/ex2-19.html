@@ -6,11 +6,42 @@
 <body>
 <h3>링크의 target 속성 활용</h3>
 <hr>
+<!-- 
+# 페이지 이동 옵션 target
+0. 현재페이지이동(target="_self")
+	특정한 내외/외부 주소로 설정된 페이지로 이동하는 것으로
+	target옵션을 설정하지 않더라도 처리가 된다.
+1. 특정 프레임에 대한 페이지 이동	
+	아이프레임의 name="프레임이름"
+	target="프레임이름"
+2. 새로운 윈도우창(탭)으로 페이지가 로딩처리(target="_blank")
+3. 프레임의 계층구조
+	 	               a01_top.html
+	 	                  	 	
+	frame01(a02_left.html) 	       frame02(a03_main.html)
+	 	                              
+	 	                    frame03(a04_upper.html)   frame04(a05_down.html)
+	 	                        
+	target="_parent" : 
+	    frame03(a04_upper.html), frame04(a05_down.html)
+	    ==>  frame02(a03_main.html)
+	    frame01(a02_left.html), frame02(a03_main.html)
+	    ==>  a01_top.html
+	    
+	target="_top"    
+	    a01_top.html 안에서 모든 frame과 페이지가 계층 구조로 되어 있기때문에
+	    하위에 있는 모든 페이에서 a target="_top"를 하면 a01_top.html  페이지
+	    가 변경된다.
+-->
 <ul>
+	<li><a href="http://www.etnews.com" >
+			전자신문(현재 윈도우, _self)</a>
+	<li><a href="ex2-01.html" target="frame01">
+			내부페이지(특정프레임이름)</a>
 	<li><a href="http://www.w3.org" target="_blank">W3C(새 윈도우, _blank)</a>
-	<li><a href="http://www.etnews.com" target="_self">전자신문(현재 윈도우, _self)</a>
 	<li><a href="http://www.naver.com" target="_parent">네이버(부모 윈도우, _parent)</a>	
 	<li><a href="http://www.mk.co.kr" target="_top">매일경제신문(브라우저 윈도우, _top)</a>
 </ul>
+<iframe name="frame01" width="300" height="300"></iframe>
 </body>
 </html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 페이지 이동  a href="이동할페이지"
+    ex) a href를 이용해서
+        1) 네이버 사이트로 이동( 이미지 클릭)
+        2) 내부에 ex2-01.html 이동하게 하세요(첫페이 이동 문자 클릭시)
+    -->
+    <a href="http://www.naver.com">
+        <img width="100" height="20" src="https://search.pstatic.net/sunny/?src=https%3A%2F%2Fi.namu.wiki%2Fi%2FxbzSJsK0HQq8qY1cDiKC_gCGE94QyYF0WHovG0xH508mtcOTw7w1aeHpSnc2bMNS0tI-iZ1dzQauMj01HuBxbg.webp&type=a340">
+    </a><br>
+    <a href="ex2-01.html">첫페이지 이동!!</a><br>
+    <a href="javascript:goPage('ex2-01.html')">페이지1이동</a><br>
+    <a href="javascript:goPage('ex2-02.html')">페이지2이동</a><br>
+    <a href="javascript:goPage('ex2-03.html')">페이지3이동</a><br>
+    <a href="javascript:goPage('ex2-04.html')">페이지4이동</a><br>
+    <h2>리스트 클릭시 페이지 이동</h2>
+    <ol>
+        <li onclick="goPage('ex2-05.html')">페이지5이동</li>
+        <li onclick="goPage('ex2-06.html')">페이지6이동</li>
+        <li onclick="goPage('ex2-07.html')">페이지7이동</li>
+        <li onclick="goPage('ex2-08.html')">페이지8이동</li>
+    </ol>
+    <script>
+        function goPage(page){
+            if(confirm(page+"로 이동하시겠습니까?")){
+                location.href=page;
+            }
+        }
+    </script>    
+    <!--
+       이벤트 핸들러 함수를 선언하고
+	       location.href를 이용해서 
+       1) a href="javascript:이동함수()"
+       2) h1 이벤트명=이벤트함수()
+	   형식으로 이동되게 하세요.
+
+	   이동함수에는 이동여부를 check하는 confirm()
+	   활용..
+     -->
+
+</body>
+</html>

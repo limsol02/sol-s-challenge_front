@@ -6,21 +6,22 @@
     <title>Document</title>
 </head>
 <body>
-    <p>
-        <h2>안녕하세요</h2>
-        <h3 onclick="addBlank(this)">안녕하세용</h3>
-    </p>
-   
-   <script>
-    var addBlank = function(obj){
-        obj.innerHTML+="&nbsp!"
+    <h2>안녕하세요..</h2>
+    <p>여기에서도 표시 ^^<br></p>
+</body>
+<script>
+    // ex) a01_br_blankExp.html
+    //     <h2>안녕하세요</h2> ==> 클릭시 마다  마지막에 공백 + '!'
+    //        가 추가 처리
+    var h2Ob = document.querySelector("h2")
+    var pOb = document.querySelector("p")
+    var cnt =1
+    h2Ob.onclick = function(){
+        // h2Ob.innerHTML+=cnt+") &nbsp;!"
+        this.innerHTML+=cnt+") &nbsp;!"
+        pOb.innerHTML+=cnt+++") 안녕하세요<br>"
     }
 
-    var cnt = 1;
-    var h2Ob = document.querySelector("h2")
-    h2Ob.onclick = function(){
-        this.innerHTML += cnt++ +"&nbsp;!"
-    }
-    </script>
-</body>
+
+</script>
 </html>
