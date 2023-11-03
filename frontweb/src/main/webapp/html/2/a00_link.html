@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<!--
+# 페이지 이동 링크 처리
+1. 단계별 학습내용.
+    1) 페이지 이동(1단계)
+        <a href = "이동할페이지"> 화면에보이는텍스트</a>
+        화면에 보이는 텍스트 클릭시, 이동할 페이지로 이동되는 것을 말한다.
+        <a href = "a01_prod.html">의류페이지이동</a> ==> 걍 예시
+    
+    2) 특정한 범위의 내용이 이동처리..(구역나누기) (2단계)
+        <a href = "a01_prod.html" target = "frame01">의류페이지이동</a>
+        <a href = "a02_best.html" target = "frame01">베스트</a>
+        <a href = "a03_coop.html" target = "frame01">쿠폰</a>
+        <a href = "a04_deliv.html" target = "frame01">스마일배송</a>
+        
+        <iframe src="페이지" name="frame01"></iframe>
+
+        a href의 문자를 클릭시, href에 있는 페이지가 target = "frame01" // name=frame01
+        즉, 타켓으로 된 name에 이동시키게 하고있다. 
+
+    3) 계층 구조
+                    a01.top.html
+
+            <iframe설정>         <iframe설정> -> <iframe name="mainFrame">   
+            a02_left.html       a03_main.html
+            a href=""
+            target="mainframe"
+
+    # form객체의 데이터 전송
+    1단계 : 
+        <a href = "a01_send.jp?id=himan&pwd=8888">회원정보</a>
+        ==> 특정한 페이지에 데이터를 전송..
+        ex) a01_send.jp?id=himan&pwd=8888 의 구조?
+        = 페이지명?key=val&key2=val2
+
+    2단계 : DOM객체, 이미지로 특정페이지 호출/ 요청값을 전송
+        1) 페이지 이동
+            <img src="apple.png" onclick="goPage('apple.html')">
+            function goPage(page){
+                // js로 location.href="이동할페이지"
+                location.href=page;
+            }
+
+        2) 페이지이동 + 요청값 전달(z02_list.jsp)
+            <img src = "eage.png" onclick="goPageCat(100001)">-코드값을 넘긴거
+            
+            function goPageCat(code){
+                location.href="show.jsp?categoryCode="+code
+            }
+            show.jsp
+                String code=request.getParameter("categoryCode")
+                List<Product> list = dao.getProduct(code);
+                // Dao에 선언한 List 처리한 sql로 결과를 받은 데이터
+                for(Product prd:list){
+                    <td>"+prod.getImage()+"</td>
+                }
+    
+     3단계 : 위 내용과 같이 전달하는 데이터를 form에 의해 처리되는 것을 말한다.
+        입력값에 의해 처리되는 모든 내용은 이렇게 처리된다.
+            <form action="전달할페이지">
+                <input type="text" name="key" value="입력할값">
+                <input type= "submit">
+             </form>
+                search.jsp?keyword="사과"
+                ==>
+                <form action="search.jsp">
+                    <input type="text" name="keyword" value="사과">
+                    <input type="submit" value="검색">
+            </form>
+
+        이런경우 [ 사과 ] [검색]
+-->
+</body>
+</html>

@@ -4,6 +4,33 @@
 <meta charset="UTF-8">
 <title>&lt;style&gt; 태그로 스타일 만들기</title>
 <style>
+/*
+# css (cascading style sheet)
+1. html문서의 색이나 모양 등 외관을 꾸미는 언어
+2. css로 작성된 코드를 스타일 시트라고 부른다.
+3. 현재 css3즉 css level3를 쓰기도 한다.
+	css1 > css2 > css3 > css4
+4. css의 기능
+	1) 색상과 배경
+	2) 텍스트
+	3) 폰트
+	4) 박스 모델(box model)
+	5) 비주얼 포맷 및 효ㅘ
+	6) 리스트
+	7) 테이블
+	8) 사용자 인터페이스
+
+# css3 스타일시트 구성
+1. span 텍스트를 20픽셀 blue로 출력하는 css3 스타일 시트
+	span{ color : blue; font-size:20px}
+	span : 선택자(selector)
+	color : 프로퍼티(속성)
+	blue : 속성값
+	: ==> 구분자(속성:속성값)
+	; ==> 각 속성의 구분자
+
+2. 주석문 * * 사이
+*/
 body { 
 	background-color : linen; 
 	color : blueviolet;
@@ -14,13 +41,47 @@ h3 {
 	text-align : center;
 	color : darkred;
 }
+h2{
+	text-align: right;
+	background-color: beige;
+	color : blue;
+}
+div{
+	text-align: center;
+	background-color: cornflowerblue;
+	color : black;
+}
+/*
+h2, div 설정
+*/
 </style>
 </head>
 <body>
+<h2>김연아</h2>
+<hr>
+<div>
+	대한민국의 前 국가대표 피겨 스케이팅 선수. 
+	2010 밴쿠버 동계올림픽 피겨 스케이팅 여자 싱글 금메달리스트, 
+	2014 소치 동계올림픽 피겨 스케이팅 여자 싱글 은메달리스트다.	
+</div>
+
 <h3>소연재</h3>
 <hr>
 <p>저는 체조 선수 소연재입니다. 음악을 들으면서
 책읽기를 좋아합니다. 김치 찌개와 막국수 무척
 좋아합니다.</p>
+<script>
+// h2를 선택해서 객체로 만든다.
+	var h2Ob = document.querySelector("h2")
+// h2Obj(DOM) 에 이벤트 속성을 선언 h2Ob.onclick(클릭했을때)
+// =function(){} : 이름이 없는 함수로 할당(익명함수로 할당)
+	h2Ob.onclick=function(){
+		// h2Ob.style : css 속성을 js형태로 선언(동적으로 할당)
+		// color="green" : 글자 색상을 초록으로 할당
+		h2Ob.style.color="green";
+		// textAlign="center" : 정렬처리를 중앙으로 처리
+		h2Ob.style.textAlign="center";
+	}
+</script>
 </body>
 </html>
