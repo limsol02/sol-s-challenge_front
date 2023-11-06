@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>$("*") 선택자 실습</title>
+<script type="text/javascript" src="jquery-3.1.1.js"></script>
+<script type="text/javascript">
+
+   $(document).ready(function(){
+	     $("*").css("color","red");
+        // * : 선택자
+        // $("요소객체 선택자").css("css 속성","속성값")
+        //$("선택자").css({속성:속성값 속성2:속성값2})
+        $("button").css({backgroundColor:"pink",color:"blue"})
+        //ex) 하단에 2x2 테이블을 추가하여, td 단위로 글자와 배경색상을 설정하고
+        //  출력해보세요..
+   });
+
+   $(document).ready(function(){
+      // $("#1").css({backgroundColor:"pink",color:"blue"})
+      // $("#2").css({backgroundColor:"blue",color:"pink"})
+      // $("#3").css({backgroundColor:"navy",color:"yellow"})
+      // $("#4").css({backgroundColor:"yellow",color:"navy"})
+      $("td").css({backgroundColor:"yellow",color:"green"})
+      // 단일
+      $("td").eq(1).css("color","blue")
+   });
+</script>
+</head>
+<body>
+   <table>
+      <tr><td id="1">1x1</td><td id="2">1X2</td></tr>
+      <tr><td id="3">2x1</td><td id="4">2X2</td></tr>
+   </table>
+ <div>DIV</div>
+ <span>SPAN</span>
+ <p> <button>Button</button></p>
+</body>
+</html>

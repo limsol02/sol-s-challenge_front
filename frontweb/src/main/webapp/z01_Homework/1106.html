@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+</head>
+
+<body>
+
+</body>
+<script>
+    /*
+    [1단계:개념] 1. jquery 초기 설정 방식을 선언하세요
+    
+    ==> jquery 다운받는 페이지에 들어가서 다운말고 그냥 페이지 형태로 있는 거 페이지를 들어가 
+    <script src="https://code.jquery.com/jquery-3.7.1.js"> 라고 html 에 src를 써넣으면 jquery 사용이 가능합니당
+    
+    [1단계:개념] 2. jquery==>javascript, javascript==>jquery변환형식을 기술하세요.
+    
+    ==> js에서는 태그들을 설정해두고 var 태그Ob = document.querySelector("태그") / var 태그Arr = document.querySelectorAll("태그") 을 
+    이용하여 태그Arr[idx].innerText 나 태크Ob.onnerText 등을 이용해 사용하는데 이러한 js방식을 jqurey로 $("태그Ob").css("속성:속성값") 으로 처리할 수 도 있고
+    
+    애초에 jquery로 $("태그") 로 선택하고 바로 var 태그Ob.style.color="속성값" 처럼 jquery 방식을 js로 변환할 수 있습니다.
+    
+    
+    [1단계:개념] 4. jquery의 기본 출력 속성과 css, attribute 속성를 예제로 설명하고 만드세요..
+    ==> jquery 에서는
+    $(document).ready(function(){
+        $("태그").css({속성1:속성값1 , 속성2:속성값2})
+    });
+    $를 이용하여 선택하고 . 를 이용하여 계속해서 원하는 속성과 속성값을 부여할 수 있습니다.
+    attribute 속성도 찾아보니까 link를 사용하는 것 같은데 var href = $("#link(a herf 에 넣어둔 링크 아이디)").attr("href"); 라는 식으로 쓰는것같은데
+    잘 모르겠습니다
+    
+    
+    [1단계:개념] 5. 선택자로 $("선택자1 선택자2")와 $("선택자1>선택자")의 차이점을 예제로 기술하세요.
+    ==>  $("선택자1 선택자2") 같은 경우는 상속받는 위 아래 즉 부모/자식 뿐만이 아니라 상속을 받는 후손관계라면 다 적용이 가능합니다. 
+    <table><tr><th></th></tr></table> 같은 경우에는  $("table tr").css("color","red") 라고 선택을 한경우 css의 속성값이 적용이 되지만
+    
+    $("선택자1>선택자")인 경우에는 바로 위아래로 상속받는 부모/자식 관계에서만 적용이 됩니다. 
+    <table><tr><th></th></tr></table> 같은 경우에는  $("table tr").css("color","red") 라고 했을때 적용이 되지않고,
+    $("table tr").css("color","red") 인경우 table과 tr은 바로 상하위의 부모자식 관계라 글자색 변경이 적용됩니다.
+    
+    [1단계:확인] 6. table의 3X3테이블을 만들고, 클래스를 선언하여 jquery로
+    .cls01>.cls02가 2행3열로 배경색상을 빨강색으로 처리되게 하고, .cls03.cls04로 1행2열의 글자색상이 노랑색으로 처리되게 하세요
+    
+    */
+
+    //[1단계:확인] 3. jquery에서 h2 3개를 인사말로 선언하고, 동일한 태그(h2)의 jquery를 이용해서 모두 글자색상 적용과 이중에서 2번째 태그에 내용 변경처리를 하세요
+    $(document).ready(function () {
+        $("h2").css("color", "green")
+        $("h2").eq(1).text("안녕히가세영")
+    })
+
+    // [1단계:확인] 6. table의 3X3테이블을 만들고, 클래스를 선언하여 jquery로
+    // .cls01>.cls02가 2행3열로 배경색상을 빨강색으로 처리되게 하고, .cls03.cls04로 1행2열의 글자색상이 노랑색으로 처리되게 하세요
+
+    $(document).ready(function () {
+        $(".cls01>.cls02").css("background", "red")
+        $(".cls03.cls04").css("color", "yellow")
+    });
+</script>
+
+<body>
+
+    <table>
+        <tr>
+            <th>1x1</th>
+            <th class="cls03 cls04">1x2</th>
+            <th>1x3</th>
+        </tr>
+        <tr class="cls01">
+            <th>2x1</th>
+            <th>2x2</th>
+            <th class="cls02">2x3</th>
+        </tr>
+    </table>
+
+
+
+    <h2>안녕하세영1</h2>
+    <h2>안녕하세영2</h2>
+    <h2>안녕하세영3</h2>
+</body>
+
+</html>

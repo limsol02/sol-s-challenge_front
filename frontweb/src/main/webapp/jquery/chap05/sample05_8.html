@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>$("parent > child") 선택자 실습</title>
+<script type="text/javascript" src="jquery-3.1.1.js"></script>
+<script type="text/javascript">
+
+   $(document).ready(function(){
+	   $( "ul.topnav > li" ).css( "border", "3px double red" );
+     /*
+     # 선택자1(한칸띄우고)선택자2[형식1] vs 선택자1>선택자2[형식2]
+     1. 공통점 :  둘다 계층 구조 태그에서 선택자1을 상위로 한 선택자2에 적용
+     2. 차이점 
+      1) 형식1은 상/하위 계층 레벨 상관없이(중간에 다른 요소객체가 계층에 포함되더라도 선택자2에서 처리.)
+      <table>
+        <tr>
+            <td><img>
+      </table>
+      이런 계층구조에서
+      $("table img") 계층레벨 중간에 상관없이 table을 상위로 하면 img에 적용
+      
+      2) 형식2는 상/하위 계층이 부모/자식간 바로 위 계층을 포함되어야한다.
+      $("td>img") : img상위 태그가 바로 td일때만, img가 적용된다. 
+
+     */ 
+	   console.log($( "ul.topnav > li" ).length);
+   });
+</script>
+</head>
+<body>
+<ul class="topnav">
+  <li>아이템 1</li>
+  <li>아이템 2
+    <ul>
+    <li>중첩 아이템 1</li>
+    <li>중첩 아이템 2</li>
+    <li>중첩 아이템 3</li>
+    </ul>
+  </li>
+  <li>아이템 3</li>
+</ul>
+</body>
+</html>

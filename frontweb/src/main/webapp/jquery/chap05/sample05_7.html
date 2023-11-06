@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>$("tag1, tag2") 선택자 실습</title>
+<script type="text/javascript" src="jquery-3.1.1.js"></script>
+<script type="text/javascript">
+
+   $(document).ready(function(){
+      // $("선택자1, 선택2, 선택3") 동일한 작용..
+      // ,(콤마형태) 같은 기능메서드 적용..
+	     $("div, span, p.myClass").css("color","red");
+      // p.myClass : p태그이고 속성으로 class="myClass"일때
+   });
+</script>
+</head>
+<body>
+<div>div</div>
+<p class="myClass">p class="myClass"</p>
+<p class="notMyClass">p class="notMyClass"</p>
+<span>span</span>
+</body>
+</html>

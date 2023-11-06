@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>$("prev + next") 선택자 실습</title>
+<script type="text/javascript" src="jquery-3.1.1.js"></script>
+<script type="text/javascript">
+
+   $(document).ready(function(){
+    /*
+    # 같은 레벨의 계층 구조의 형제관계 선택자 처리.
+    1. 선택자1 + 선택자2 : 선택자1 바로 앞에 둔 같은 레벨의 선택자2에서 적용
+    */
+    // $("선택자").메서드1().메서드2() : 동일한 선택자에
+    //    기능 메서드가 chaining
+	   $( "label + input" ).css( "color", "blue" ).val( "Labeled!" );
+     /*
+     # form의 value 속성
+     1. jquery에서는 form 하위요소객체의 value 속성을 val("속성할당")
+     val() : 속성을 가져오기도 한다.
+     */
+   });
+
+   // ex1) 선택자1 + 선택자2 형식으로 h1과p를 설정하여 p에서 배경색상 변경
+   // ex2) form 하위의 요소객체를 id="name" 속성을 선언한 value값을 val()을 
+   //     활용해 홍길동이라고 할당하고 배경색상을 노랑색으로 처리 
+
+   $(document).ready(function(){
+    $("h1+p").css("background","orange")
+    $("#name").css("background","yellow").val("홍길동")
+   });
+</script>
+</head>
+<body>
+<h1>아 집에가고싶다</h1>
+<p>그건 누구나 마찬가지......................</p>
+<form>
+  <input type="text" id="name">
+</form>
+
+<form>
+  <label for="name">Name:</label>
+  <input name="name" id="name">
+  <fieldset>
+    <label for="newsletter">Newsletter:</label>
+    <input name="newsletter" id="newsletter">
+  </fieldset>
+</form>
+<input name="none">
+</body>
+</html>

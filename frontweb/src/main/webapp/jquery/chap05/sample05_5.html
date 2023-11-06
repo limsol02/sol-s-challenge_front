@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>$(".class") 선택자 실습</title>
+<style>
+	.cls01{color : green;}
+	.cls02{background-color : yellow;}
+	/*
+	원래 css 선언방법
+	태그명{속성:속성값;}
+	#아이디명{속성:속성값;}
+	.클래스명{속성:속성값;}
+	*/
+</style>
+
+<script type="text/javascript" src="jquery-3.1.1.js"></script>
+<script type="text/javascript">
+
+   $(document).ready(function(){
+	     $(".myClass").css("color","red");
+	     console.log("첫 번째 .myClass 값:" + $(".myClass").first().text() );
+	     console.log("마지막 .myClass 값:" + $(".myClass").last().text() );
+		 $(".notMe").css("color","blue")
+		 $(".notMe").eq(2).css("color","green")
+
+		 // class = "cls01 cls02"
+		 // ==> jquery 에서 선택자 선언방법?
+		 // $(".클래스명1.클래스명2") : 클래스1과 클래스2가 태그로 나열되어 선언되어 있을때 선택
+		 $(".cls01.cls02").text("변경완료~") // 붙이면 클래스명 둘다 가지고있는 애한테 적용
+		 $(".cls01 .cls02").css("background","pink")
+
+		 $(".cls12 .cls13").css("color","orange")
+
+   });
+
+   // ex) h3로 cls9 cls10 cls11 로 선언하고 
+   // 	jq로 선택자로 선언하고 배경색상을 오렌지로!
+   $(document).ready(function(){
+	$(".cls9.cls10.cls11").css("background","orange")
+	$(".cls9.cls10 .cls11").css("background","green")
+
+	// ex1) div cls14 상위 / p cls15 하위로 해서 배경색상 설정
+	// ex2) table cls16 상위 td cls17 로해서 글자색상 변경
+	$(".cls14 .cls15").css("background","skyblue")
+	$(".cls16 .cls17").css("color","blue")
+
+	// $("상위>하위") : 중간에 다른 계층 레벨이 없이 바로 부모를 가진 하위 선택자
+
+	//ex) tr을 상위로 한 th의 배경색상을 red로 처리
+	$(".cls16>.cls17").css("background","red")
+	// $("table td") 는 부모자식 ㄴㄴ 걍 자손관계
+	// $("table>td") 는 b 부모자식 ㄴㄴ 걍 자손관계
+	// $("tr td") 는 부모자식 ㅇ 조상후손 ㅇ
+   });
+</script>
+</head>
+<body>
+	<table>
+		<tr class="cls16">
+			<th class="cls17">평생</th><th class="cls17">150</th>
+		</tr>
+	</table>
+	<div class="cls14">
+		<p class="cls15"> 타자 언제느냐???</p>
+	</div>
+
+
+	<table>
+	<tr class="cls12">
+		웃으면
+		<td class="cls13">복옴</td>
+	</tr>
+	</table>
+
+
+
+	<h3 class="cls9 cls10 cls11">ㅎㅇㅎㅇ
+		<p class="cls11">zzzz</p>
+	</h3>
+
+
+
+	<h2 class="cls01">안녕1</h2>
+	<h2 class="cls02">안녕2</h2>
+	<h2 class="cls01 cls02">안녕3</h2>
+	
+	<h1 class="cls01">
+		<p class="cls02">ㅋㅋㅋ 하위계층</p>
+	</h1>
+
+
+
+	<div class="myClass">div class="myClass"</div>
+	<span class="myClass">span class="myClass"</span>
+	<div class="notMe">div class="notMe"</div>
+	<div class="notMe">div class="notMe"</div>
+	<div class="notMe">div class="notMe"</div>
+</body>
+</html>
