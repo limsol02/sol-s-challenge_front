@@ -25,13 +25,34 @@
    // ex2) form 하위의 요소객체를 id="name" 속성을 선언한 value값을 val()을 
    //     활용해 홍길동이라고 할당하고 배경색상을 노랑색으로 처리 
 
+
+   // ex3) h3와 p태그를 아래에 선언하고 
+   // h3+p 일 때, 베경색상으로 노랑색을 설정
+  $(document).ready(function(){
+    $("h3").click(function(){
+      $("h3+p").css({background:"yellow"}).click()
+  })
+  $("h1").click(function(){
+    $("h1~p").css({background:"green"})
+  })
+})
+    
+
    $(document).ready(function(){
+    
     $("h1+p").css("background","orange")
     $("#name").css("background","yellow").val("홍길동")
    });
 </script>
 </head>
 <body>
+
+<h1>클릭1</h1>
+<p>이건 고문이야...</p>
+<p>그만........</p>
+<h3>클릭2</h3>
+<p>죽여줘...</p>
+
 <h1>아 집에가고싶다</h1>
 <p>그건 누구나 마찬가지......................</p>
 <form>

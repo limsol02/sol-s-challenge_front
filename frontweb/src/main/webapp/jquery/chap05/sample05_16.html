@@ -7,15 +7,24 @@
 <script type="text/javascript">
 
    $(document).ready(function(){
+      // $("[속성1][속성2]") : 두가지 속성을 둘 다 가지고있는경우
 	   $( "input[id][name$='man']" ).val( "man 글자 포함" );
+      // id라는 속성이 있고 name이라는 속성의 속성값이 man으로 끝나는거
 	   $( "input[value |='en']" ).css("border" , " 3px dotted red");
+      // $("[속성|=속성값]") : 정확하게 딱 저 속성값을 가지거나 , 속성값으로 끝나는데 뒤에
+      //             따라 붙는애가 - 을 포함해서 따라붙으면 가능 
+
+      // ex) 아래내용 정확하게 kr로 value이 있거나 kr-으로 시작되는 value에 
+      //    배경색상으로 오렌지 ㄱㄱ
+
+   $("input[value|='kr']").css("background","orange")
    });
 </script>
 </head>
 <body>
 <input id="man-news" name="man-news" value="en">
 <input name="milkman" value="kr">
-<input id="letterman" name="new-letterman" >
+<input id="letterman" name="new-letterman" value="kr-sol" >
 <input name="newmilk" value="en-UK">
 </body>
 </html>

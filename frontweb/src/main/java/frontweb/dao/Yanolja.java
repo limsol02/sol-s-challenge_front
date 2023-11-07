@@ -30,12 +30,12 @@ public class Yanolja {
 	
 	        while (rs.next()) {
 	        	plist.add(new pension(
-	                    rs.getInt("no"),
+	        			rs.getString("no"),
 	                    rs.getString("name"),
-	                    rs.getInt("numberOfPeople"),
-	                    rs.getInt("price"),
-	                    rs.getDate("checkIn"),
-	                    rs.getDate("checkOut"),
+	                    rs.getString("numberOfPeople"),
+	                    rs.getString("price"),
+	                    rs.getString("checkIn"),
+	                    rs.getString("checkOut"),
 	                    rs.getString("loc")
 	            ));
 	        }
@@ -50,12 +50,13 @@ public class Yanolja {
 	}
 	
 
+/*SELECT * FROM PENSION p 
+WHERE loc LIKE '%가평%' AND checkIn LIKE '%10%' AND NUMBEROFPEOPLE LIKE '%6%';*/
 
-
-public List<pension> getPensionList(String loc, Date checkIn,Date checkOut,int numberOfPeople) {
+public List<pension> getPensionList(String loc, String checkIn,String numberOfPeople) {
 	    List<pension> plist = new ArrayList<>();
 	    String sql = "SELECT * FROM PENSION p \r\n"
-	    		+ "WHERE loc = '"+loc+"' AND checkIn >= '"+checkIn+"' AND checkOut <= '"+checkOut+"' AND NUMBEROFPEOPLE ="+numberOfPeople+";";
+	    		+ "WHERE loc LIKE '%"+loc+"%' AND checkIn LIKE '%"+checkIn+"%' AND NUMBEROFPEOPLE LIKE '%"+numberOfPeople+"%';";
 	    
 	    try {
 	        con = DB.con();
@@ -64,12 +65,12 @@ public List<pension> getPensionList(String loc, Date checkIn,Date checkOut,int n
 	
 	        while (rs.next()) {
 	        	plist.add(new pension(
-	                    rs.getInt("no"),
+	                    rs.getString("no"),
 	                    rs.getString("name"),
-	                    rs.getInt("numberOfPeople"),
-	                    rs.getInt("price"),
-	                    rs.getDate("checkIn"),
-	                    rs.getDate("checkOut"),
+	                    rs.getString("numberOfPeople"),
+	                    rs.getString("price"),
+	                    rs.getString("checkIn"),
+	                    rs.getString("checkOut"),
 	                    rs.getString("loc")
 	            ));
 	        }

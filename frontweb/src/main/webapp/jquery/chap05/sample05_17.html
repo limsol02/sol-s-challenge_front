@@ -1,44 +1,64 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="UTF-8">
-<title>:animated Filter Selector</title>
-<style>
-  div {
-    background: red;
-    border: 1px solid blue;
-    width: 70px;
-    height: 70px;
-    margin: 0 3px;
-    float: left;
-  }
-  .toggleWidth{
-     width: 40px;
-  }
+  <meta charset="UTF-8">
+  <title>:animated Filter Selector</title>
+  <style>
+    div {
+      background: red;
+      border: 1px solid blue;
+      width: 70px;
+      height: 70px;
+      margin: 0 3px;
+      /* 상하/좌우 여백(이건 상하여백0 좌우여백3) */
+      float: left;
+      /* 왼쪽으로 쭉 연결 */
+    }
+
+    .toggleWidth {
+      width: 40px;
+    }
   </style>
 
 
-<script type="text/javascript" src="jquery-3.1.1.js"></script>
-<script type="text/javascript">
+  <script type="text/javascript" src="jquery-3.1.1.js"></script>
+  <script type="text/javascript">
 
-   $(document).ready(function(){
+    $(document).ready(function () {
 
-	   $( "#run" ).click(function() {
-		   $( ":animated" ).toggleClass("toggleWidth");
-	   });
-	    
-	   function animateIt() {
-	     $( "#ani" ).slideToggle( "slow", animateIt );
-	   } 
-	   animateIt();
-   });
-</script>
+      $("#run").click(function () {
+        $("div").toggleClass("toggleWidth")
+        //.toggleClass("css에서 선언된클래스")
+        // 클릭시마다 선언된 클래스가 적용여부를 반복할 때, 처리하는 것을 말한다.
+
+        //$("#ani").slideDown("slow");
+        //$( ":animated" ).toggleClass("toggleWidth");
+      });
+
+      // 재귀 호출 처리합석
+      function animateIt() {
+        //$("#ani").slideUp("slow");
+        $( "#ani" ).slideToggle( "slow", animateIt );
+        //$("선택자").slideToggle("속도", 함수호출)
+      }
+      animateIt();
+    });
+
+    /*
+    1. 재귀처리할 함수 선언
+    2. 초기호출
+      함수 안에서 매개변수로 함수호출
+    */
+  </script>
 </head>
-<body>
-<button id="run">Run</button>
 
-<div></div>
-<div id="ani"></div>
-<div></div>
+<body>
+  <button id="run">Run</button>
+
+  <div>1</div>
+  <div id="ani">2</div>
+  <div>3</div>
 </body>
+
 </html>

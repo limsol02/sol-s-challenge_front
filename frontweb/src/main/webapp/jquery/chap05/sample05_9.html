@@ -10,6 +10,8 @@
     //                                  굵기 종류 색상
 	   $( "form input" ).css( "border", "2px dotted blue" );
 	   $( "form fieldset input" ).css( "background-color", "yellow" );
+     // input 중에서 form과 그 하위에 fieldset을 조상으로 가진 것을 설정..
+     // $( "form>fieldset>input" ) 이건 바로위에 쪼로록 붙어있어야됨
    });
 </script>
 </head>

@@ -2,16 +2,17 @@ package frontweb;
 import java.util.Date;
 
 public class pension {
-	private int no;
+	private String no;
 	private String name;
-	private int numberOfPeople;
-	private int price;
-	private Date checkIn;
-	private Date checkOut;
+	private String numberOfPeople;
+	private String price;
+	private String checkIn;
+	private String checkOut;
 	private String loc;
 	public pension() {
 	}
-	public pension(int no, String name, int numberOfPeople, int price, Date checkIn, Date checkOut, String loc) {
+	public pension(String no, String name, String numberOfPeople, String price, String checkIn, String checkOut,
+			String loc) {
 		this.no = no;
 		this.name = name;
 		this.numberOfPeople = numberOfPeople;
@@ -20,10 +21,10 @@ public class pension {
 		this.checkOut = checkOut;
 		this.loc = loc;
 	}
-	public int getNo() {
+	public String getNo() {
 		return no;
 	}
-	public void setNo(int no) {
+	public void setNo(String no) {
 		this.no = no;
 	}
 	public String getName() {
@@ -32,28 +33,28 @@ public class pension {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public int getNumberOfPeople() {
+	public String getNumberOfPeople() {
 		return numberOfPeople;
 	}
-	public void setNumberOfPeople(int numberOfPeople) {
+	public void setNumberOfPeople(String numberOfPeople) {
 		this.numberOfPeople = numberOfPeople;
 	}
-	public int getPrice() {
+	public String getPrice() {
 		return price;
 	}
-	public void setPrice(int price) {
+	public void setPrice(String price) {
 		this.price = price;
 	}
-	public Date getCheckIn() {
+	public String getCheckIn() {
 		return checkIn;
 	}
-	public void setCheckIn(Date checkIn) {
+	public void setCheckIn(String checkIn) {
 		this.checkIn = checkIn;
 	}
-	public Date getCheckOut() {
+	public String getCheckOut() {
 		return checkOut;
 	}
-	public void setCheckOut(Date checkOut) {
+	public void setCheckOut(String checkOut) {
 		this.checkOut = checkOut;
 	}
 	public String getLoc() {

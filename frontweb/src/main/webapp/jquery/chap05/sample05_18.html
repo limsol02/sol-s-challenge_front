@@ -5,14 +5,42 @@
 <title>:eq(index) Filter Selector</title>
 <script type="text/javascript" src="jquery-3.1.1.js"></script>
 <script type="text/javascript">
-
+/*
+# 다중의 선택자 처리..
+1. $("td:eq(index 번호)")
+2. $("td").eq(index번호)
+여러개가 있을 때, index번호로 하나씩 접근애서 처리가 필요할때, 사용된다.
+*/
    $(document).ready(function(){
+	   $( "td:eq( 0 )" ).css("background-color","red");
 	   $( "td:eq( 2 )" ).css("background-color","green");
-	   $( "td:eq( -1 )" ).css("background-color","green");
+	   $( "td:eq( -1 )" ).css("background-color","blue");
+     var ranIdx = Math.floor(Math.random()*$("td").length)
+     $("td").eq(ranIdx).css("color","orange").text("당첨~")
    });
+   //Math.random()*$("td").length : 0 ~ $("td").length의 크기보다 -1 작은수
+
+   // ex) h2로 1~5번호 리스트하고 카운트1~5 출력하고
+   // eq()를 이용하여 첫번째와 마지막 배경색상으 노랑색으로 처리하고, 임의의h2는 빙고 표사
+   $(document).ready(function(){
+    //$("h2").eq(0).css("background","yellow")
+    $("h2:eq(0),h2:eq(4)").css("background","yellow")
+    
+    var ran = Math.floor(Math.random()*$("h2").length)
+    $("h2").eq(ran).text("빙고").css("color","red")
+
+   })
 </script>
 </head>
 <body>
+  <h2>카운트1</h2>
+  <h2>카운트2</h2>
+  <h2>카운트3</h2>
+  <h2>카운트4</h2>
+  <h2>카운트5</h2>
+
+
+
 <table border="1">
   <tr><td>TD #0</td><td>TD #1</td><td>TD #2</td></tr>
   <tr><td>TD #3</td><td>TD #4</td><td>TD #5</td></tr>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img{width: 100px;
+            height: 100px;
+        }
+
+        div{width: 100px;
+            height: 100px;
+            border: 1px solid red;}
+        
+        .widthLen{width:300px;
+                height: 300px;}
+        .bongMax{width:300px;
+                height: 300px;}
+    </style>
+    <script src="jquery-3.1.1.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("h2").click(function(){
+                $("div").toggleClass("widthLen")
+                // toggleClass 한번 누를때 적용 또누르면 적용해제
+            })
+            //버튼을 클릭했을떄, 여의봉을 검색해서 이미지에 넣고 
+            // 클래스가 적용되게 하세여
+            $("[type=button]").click(function(){
+                $("img").toggleClass("bongMax")
+            })
+        })
+    </script>
+</head>
+<body>
+    <input type="button" value="커져라!작아져라!"/>
+    <img src="data:image/jpeg;base64,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">
+    <h2>토글 클래스 처리</h2>
+    <div></div>
+    <div></div>
+    <div></div>
+</body>
+</html>
