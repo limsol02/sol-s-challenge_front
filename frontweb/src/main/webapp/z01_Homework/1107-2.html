@@ -1,0 +1,152 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<script>
+		/*
+[1단계:개념] 1. css와 jquery 선택자의 차이점을 기술하세요.
+[1단계:개념] 2. $("[속성]")의 여러가지 형식을 기술하세요..
+[2단계:확인] 3. [전공자 or 경험자] 찾는 글자[  ] [포함여부확인] [내용 textarea에 java개념 출력처리]
+              위에서 글자내용을 입력하고, 포함여부확인 버튼을 클릭시, 해당 내용을 찾으면 textarea 배경색상이 노랑색으로 바뀌게 하세요
+[1단계:확인] 4. addClass(), toggleClass(), toggleSlide()의 기능을 각각 예제를 통해서 기술하세요.
+[1단계:확인] 5. 4X4테이블을 만들어서, 상단에 [미니롯또]라는 버튼을 클릭시, 1~16 cell중에 당첨 레이블이 출력되게 하세요.
+[1단계:개념] 6. group 함수의 종류, select 구문의 기본형식과 의미를 기술하세요.
+[1단계:확인] 7. employees의 job_id별 최고급여를 구하되 8000이상인 경우만 출력되게 sql 구문작성하세요.
+[1단계:확인] 8. EMPLOYEES의 salary와 commission_pct를 이용해서 급여와 보너스 합산을 구할 때, nvl2를 이용해서 처리해보세요.
+[1단계:확인] 9. EMP에서 입사분기별 평균급여를 출력하세요
+#### 4. 생각하고 토론해볼 내용(마지막에 조별로 정리해서 조장님이 전달해주세요)
+- CSS 선택자와 jQuery 선택자 사이의 성능 차이는 어떤 의미가 있을까요?
+- 왜 jQuery를 사용할 때 여전히 CSS 선택자를 알고 있어야 할까요?
+- 클래스와 ID 선택자를 사용할 때의 장단점은 무엇일까요?
+#### 5. 간단한 퀴즈(마지막에 조별로 정리해서 조장님이 전달해주세요)
+1. $(".class")와 $("#id")는 jQuery에서 각각 어떤 요소를 선택하나요?
+2. CSS에서 어떻게 하면 태그 p에 있는 모든 클래스가 .class인 자식 요소들을 선택할 수 있나요?
+
+# 조별로 파악사항(아래사항 조별로 취합 전달 17:20까지 전달)
+1. 오늘 가장 어려웠던 부분 best3 및 내일 자세한 설명 필요한 부분
+2. 오늘 지각(9:00기준)/수업시간 엄수(매시간:00)/과제제출 인원과 사유
+3. 수업 시간 집중하였는가?   
+ 
+
+이 질문에 답하기 위해 각 항목별로 내용을 나눠보겠습니다.
+
+### [1단계:개념]
+
+1. **CSS와 jQuery 선택자의 차이점:**
+   - CSS 선택자는 스타일 시트에서 직접적으로 HTML 요소를 선택하여 스타일을 적용합니다.
+   - jQuery 선택자는 JavaScript 라이브러리인 jQuery 내에서 HTML 요소를 선택하여 다양한 동적 작업을 수행합니다 (예: 요소의 스타일 변경, 이벤트 처리 등).
+
+2. **$("[속성]")의 여러 가지 형식:**
+   - $("[attribute]"): 특정 속성을 가진 모든 요소를 선택합니다.
+   - $("[attribute=value]"): 특정 속성과 정확한 값을 가진 요소를 선택합니다.
+   - $("[attribute^=value]"): 특정 속성 값이 지정된 값으로 시작하는 요소를 선택합니다.
+   - $("[attribute$=value]"): 특정 속성 값이 지정된 값으로 끝나는 요소를 선택합니다.
+   - $("[attribute*=value]"): 특정 속성 값에 지정된 값을 포함하는 요소를 선택합니다.
+   - $("[attribute|=value]"): 특정 속성 값이 지정된 값이거나 그 값으로 시작하는 요소를 하이픈(-)과 함께 선택합니다.
+
+### [1단계:확인]
+
+4. **addClass(), toggleClass(), slideToggle()의 기능과 예제:**
+   - .addClass(): 선택한 요소에 하나 이상의 클래스를 추가합니다.
+     javascript
+     $("p").addClass("highlight");
+     
+   - .toggleClass(): 선택한 요소에서 하나 이상의 클래스를 토글합니다.
+     javascript
+     $("p").toggleClass("highlight");
+     
+   - .slideToggle(): 선택한 요소에 대해 슬라이드 업과 슬라이드 다운 효과를 토글합니다.
+     javascript
+     $("#box").slideToggle();
+ 
+
+5. **미니롯또 예제:**
+   - HTML:
+ html
+     <button id="lotto">미니롯또</button>
+     <table>
+       <tr>
+         <td>1</td><td>2</td><td>3</td><td>4</td>
+       </tr>
+        ... 다른 행은 생략 ... 
+       <tr>
+         <td>13</td><td>14</td><td>15</td><td>16</td>
+       </tr>
+     </table>
+
+   - jQuery:
+	javascript
+     $("#lotto").click(function() {
+       var winningIdx= Math.floor(Math.random() * 16);
+       $("td").eq(winningIdx).css("background-color","yellow").text("롯또당첨")
+     });
+
+### [1단계:개념]
+
+6. **Group 함수의 종류, SELECT 구문의 기본형식과 의미:**
+   - Group 함수 종류: COUNT(), SUM(), AVG(), MAX(), MIN()
+   - SELECT 구문 기본 형식: SELECT column_list FROM table_name WHERE conditions GROUP BY column_list HAVING group_conditions ORDER BY column_list;
+   - 의미: 특정 테이블에서 조건을 만족하는 행들에 대해 컬럼을 선택하고, 그룹화, 필터링 및 정렬을 적용합니다.
+
+### [1단계:확인]
+
+7. **job_id별 최고급여 SQL 구문:**
+   sql
+   SELECT job_id, MAX(salary) 
+   FROM employees 
+   GROUP BY job_id 
+   HAVING MAX(salary) >= 8000;
+   
+
+8. **salary와 commission_pct 합산 SQL 구문:**
+   sql
+   SELECT salary, commission_pct, 
+          salary + NVL2(commission_pct, commission_pct * salary, 0) AS total_compensation
+   FROM employees;
+   
+
+9. **
+
+입사 분기별 평균급여 SQL 구문:**
+   sql
+   SELECT TO_CHAR(hire_date, 'Q') AS quarter, AVG(salary)
+   FROM employees
+   GROUP BY TO_CHAR(hire_date, 'Q');
+   
+
+### 4. 생각하고 토론해볼 내용
+
+- **CSS 선택자와 jQuery 선택자 사이의 성능 차이:**
+  - 성능 차이는 주로 브라우저가 CSS 선택자를 네이티브로 처리하는 반면, jQuery 선택자는 JavaScript를 통해 처리되어 약간의 오버헤드가 발생할 수 있다는 점에서 의미를 찾을 수 있습니다.
+  
+- **CSS 선택자를 알고 있어야 하는 이유:**
+  - jQuery는 내부적으로 CSS 선택자 구문을 사용하며, 성능 최적화를 위해 때때로 순수 CSS를 사용하는 것이 더 낫기 때문입니다.
+
+- **클래스와 ID 선택자 사용 시 장단점:**
+  - 클래스 선택자는 여러 요소에 재사용 가능하나, ID 선택자는 유니크한 요소에만 사용됩니다. ID 선택자는 특정 요소를 식별하는 데 강력하지만, 과용하면 CSS와 JavaScript의 유지 관리가 어려워질 수 있습니다.
+
+### 5. 간단한 퀴즈
+
+1. $(".class")는 jQuery에서 클래스가 class인 모든 요소를 선택하고, $("#id")는 ID가 id인 단일 요소를 선택합니다.
+2. CSS에서 태그 p에 있는 모든 클래스 .class인 자식 요소들을 선택하기 위해서는 p > .class 선택자를 사용할 수 있습니다.
+
+*/	
+
+
+
+
+
+
+
+
+
+
+
+
+	</script>
+
+</body>
+</html>

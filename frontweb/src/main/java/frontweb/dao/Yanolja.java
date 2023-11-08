@@ -30,12 +30,12 @@ public class Yanolja {
 	
 	        while (rs.next()) {
 	        	plist.add(new pension(
-	        			rs.getString("no"),
+	                    rs.getInt("no"),
 	                    rs.getString("name"),
-	                    rs.getString("numberOfPeople"),
-	                    rs.getString("price"),
-	                    rs.getString("checkIn"),
-	                    rs.getString("checkOut"),
+	                    rs.getInt("numberOfPeople"),
+	                    rs.getInt("price"),
+	                    rs.getDate("checkIn"),
+	                    rs.getDate("checkOut"),
 	                    rs.getString("loc")
 	            ));
 	        }
@@ -50,13 +50,14 @@ public class Yanolja {
 	}
 	
 
-/*SELECT * FROM PENSION p 
-WHERE loc LIKE '%가평%' AND checkIn LIKE '%10%' AND NUMBEROFPEOPLE LIKE '%6%';*/
 
-public List<pension> getPensionList(String loc, String checkIn,String numberOfPeople) {
+
+public List<pension> getPensionList(String loc, Date checkIn,Date checkOut,int numberOfPeople) {
 	    List<pension> plist = new ArrayList<>();
-	    String sql = "SELECT * FROM PENSION p \r\n"
-	    		+ "WHERE loc LIKE '%"+loc+"%' AND checkIn LIKE '%"+checkIn+"%' AND NUMBEROFPEOPLE LIKE '%"+numberOfPeople+"%';";
+	    String sql = "SELECT * FROM PENSION \r\n"
+	    		+ "WHERE loc LIKE '%"+loc+"%' " ;
+	    // tring sql = "SELECT * FROM emp\r\n"
+		//+ "WHERE ename LIKE '%"+ename+"%' ";
 	    
 	    try {
 	        con = DB.con();
@@ -65,12 +66,12 @@ public List<pension> getPensionList(String loc, String checkIn,String numberOfPe
 	
 	        while (rs.next()) {
 	        	plist.add(new pension(
-	                    rs.getString("no"),
+	                    rs.getInt("no"),
 	                    rs.getString("name"),
-	                    rs.getString("numberOfPeople"),
-	                    rs.getString("price"),
-	                    rs.getString("checkIn"),
-	                    rs.getString("checkOut"),
+	                    rs.getInt("numberOfPeople"),
+	                    rs.getInt("price"),
+	                    rs.getDate("checkIn"),
+	                    rs.getDate("checkOut"),
 	                    rs.getString("loc")
 	            ));
 	        }
@@ -103,4 +104,3 @@ public static void main(String[] args) {
 
 
 }
-
