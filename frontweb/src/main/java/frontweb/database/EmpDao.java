@@ -10,6 +10,7 @@ import java.util.List;
 import frontweb.Dept;
 import frontweb.vo.EmpShort;
 import frontweb.vo.Member;
+import frontweb.vo.Reservation;
 
 public class EmpDao {
 	// 공통으로 사용할 전역 객체 선언
@@ -76,6 +77,29 @@ public class EmpDao {
 		String src = "SELECT * FROM member01 WHERE name LIKE '%"+nameSch+"%'";
 		return mlist;
 	}
+	
+	public List<Reservation> getResListByDate(String date){
+		List<Reservation> rlist = new ArrayList<Reservation>();
+		String sql = "select * from reservation WHERE to_char(resdate,'YYYY-MM-DD') = '"+date+"'";
+		return rlist;
+	}
+
+	/*
+	INSERT INTO reservation VALUES (res_seq.nextval,
+	to_date('2023-11-13','YYYY-MM-DD'),
+	'서울','대구',9,12
+);
+	 * */
+	public void inserReservation(Reservation ins){
+		String sql="INSERT INTO reservation VALUES (res_seq.nextval,\r\n"
+				+ "	to_date('"+ins.getResdate()+"','YYYY-MM-DD'),\r\n"
+				+ "	'"+ins.getStartloc()+"','"+ins.getEndloc()+"',"+ins.getStarttime()+","+ins.getEndtime()+"\r\n"
+				+ ")";
+		
+	}
+	
+	
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 

@@ -129,7 +129,7 @@ WHERE dname LIKE '%S%'
 	public static void main(String[] args) {
 		A04_PreparedDao dao = new A04_PreparedDao();
 		System.out.println(dao.getEmpList().size());
-		for(Emp emp:dao.getEmpList("A")) {
+		for(Emp emp:dao.getEmpList()) {
 			System.out.print(emp.getEmpno()+"\t");
 			System.out.print(emp.getEname()+"\t");
 			System.out.print(emp.getJob()+"\t");

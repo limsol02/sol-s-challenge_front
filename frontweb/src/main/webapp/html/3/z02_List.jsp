@@ -9,7 +9,9 @@ for (Emp emp : dao.getEmpList()) {
 	System.out.print(emp.getEname() + "\t");
 	System.out.print(emp.getJob() + "\t");
 	System.out.print(emp.getSal() + "\n");
+	
 }
+
 %>
 <!DOCTYPE html>
 <html>
