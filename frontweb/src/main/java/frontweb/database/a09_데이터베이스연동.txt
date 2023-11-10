@@ -1,0 +1,164 @@
+# java를 통한 database 서버 연동 프로그래밍
+
+1. 소프트웨어를 사용하는 사용자에 의해 입력된 데이터는 필요에 따라 DB서버라는
+	고정적이고 지속적인 저장장치에 저장되었다가 필요에 의해 할용하여 
+	사용자가 원하는 정보를 가져올 수 있다. 
+
+2. 이때, 사용자와 서버사이에 보다 효율적인 사용자정의 인터페이스가 있다면
+	원하는 정보를 효율적이고 빠르게 로딩할 수 있다. 
+	
+3. 이를 위해 웹프로그래밍에 화면을 처리하는 UI를 html로 구현하고, 백엔드단에서 
+	java를 통해서 서버에 접속하여, 그 요청에 따라 데이터를 입력, 수정, 삭제, 리스트 등을 처리한다.
+	
+# 데이터베이스 연동처리를 위한 단계별 처리 내용과 이해
+1. DB연동을 위한 환경설정
+	1) DB서버 구동 : 원격에 DB서버가 구동되어있고, DB서버접속을 위한 정보를 가지고 있어야한다.
+	ip, port, DB서버명, 계정, 비밀번호
+	
+	2) jdbc 드라이버 : 각 DB서버의 회사에서는 해당 서버를 접속하기 위한
+		공통되는 java프로그램을 컴파일 시켜서 패키지화한 모듈을 가지고 있는데,
+		이것을 드라이버라고 한다. @@@.jar로 되어있다.
+		이것을 프로그램에 연동할 수 있도록 하여야 한다.
+		WEB프로그래밍의 경우 Webapp 하위 WEB-INF 밑 lib에 가지고 있어야한다.
+		
+2. DB접속 객체를 위한 클래스 선언
+	1) 데이터베이스 서버에 접속하기 위한 정보를 가지고 연동을 처리한다.
+	2) DB연동시 필요로 예외 처리 및 공통 자원해제 처리 메서드 구현
+
+3. 업무별 기능 Dao작성
+	1) 위 DB 접속 객체를 호출하면서 
+	
+	2) 공통 기능 객체(전역변수로 선언)
+		- Connection con : 연결객체
+		- Statement stmt : 대화객체(sql을 이용해서 오라클서버에 명령처리)
+		- PreparedStatement pstmt : 향상된 대화객체
+			(여러가지 보안 사항이 적용된 객체로 sql을 이용하여 오라클 서버에 명령처리)
+		- ResultSet rs : 결과처리객체(select 구문의 경우, 서버에서 전달해온
+			데이터를 자바에서 이 결과 객체를 통해 우선 저장한다.
+			ㄴ=> 이 객체는 2차원의 행/열로 되어 데이터와 컬럼 정보가 저장되어있다.
+			이 객체 안에 있는 여러 속성으로 통해서 다시 Dto나 VO로 전달하여 프로그램에 사용할 수 있게 한다.)
+	
+	3) 기능메서드 선언
+		- 리턴할 객체 선언 : sql의 결과로 단일 객체 또는 다중의 객체를 리턴할 수 있도록
+			리턴댁체를 선언한다.
+		- 매개변수 객체 / 변수 선언 : sql에 조건이나 입력, 수정, 삭제시 처리할 데이터를
+			객체나 변수에 담아서 처리할 수 있게 한다. 
+			
+		# 기능메서드에서 처리하는 내용({}중괄호에서 처리되는 내용)
+		- 실제 리턴할 객체
+		- sql 선언
+		- DB연결(Connection)
+		- 대화객체(Statement stmt)를 통해서 sql 처리
+		- 결과 처리(ResultSet)를 통해서 처리된 결과를 가지고 **select구문만 사용**
+			while, if문을 통해 rs.next(), rs.getXXX("컬럼명")을 
+			통해서 VO나 Dto객체에 할당한다.
+		- 자원해제 및 예외처리
+		
+	4) main()에서 정상 실행 여부 테스트
+	
+4. 만들어진 DAO를 웹(jsp)프로그램을 통해서 호출하여, 화면에 출력 및 기능 처리한다. 
+
+### 기능 메서드의 처리 순서 ###
+
+[#1. sql 작성]
+	데이터를 처리할 핵심 구문을 작성해서 결과를 확인하고
+	- select * from emp where ename like '%A%' ==> A입력해서 처리할 데이터
+	  and job like '%B%' ==> B입력해서 처리할 데이터
+	  insert into emp(empno,ename) values (1000,'홍길동');
+	  ==> 1000 : 입력할 데이터 1 / '홍길동' : 입력할데이터2
+	
+	1) 입력할 데이터가 무엇인지? ==> 변수/ 객체 설정(단순한 데이터는 변수로 / 복잡한 데이터는 객체로)
+		메서드의 매개변수로 사용
+		public XXX setXXX(@@@@)
+		
+	2) 결과를 받을 데이터가 무엇인가?
+		- 한개의 데이터 => 변수설정
+			select count(*) from emp; -> 사원정보의 갯수 (데이터 하나)
+			public int count()
+		
+		- 한행의 데이터 => 단일객체 => VO/DTO 객체를 생성 class Emp{}
+			select * from emp where empno = 7000 -> 한 행의 데이터
+			public Emp getEmpno(int empno)		
+		
+		- 여러행의 데이터 => 객체형 배열
+			단일 열
+			select ename 
+			from emp
+			public List<String> getEname();
+		
+			select * from emp where ename like '%A%'; 
+			public List<Emp> getEmpList(String name)
+		
+		로 설정하여야한다. 
+		# 메서드의 return할 유형을 결정한다. #
+		
+[2. 메서드 선언시, 매개변수 선언, 리턴값 유형 선언]
+	리턴할 객체 선언..
+	public List<Emp> getEmpList(String name){
+		List<Emp> emplist = new ArratList<Emp>();
+		
+		return emplist;
+		
+	}
+
+[3. 접속 처리(기능 메서드 안에서 처리할 내용)]
+	필드로 선언된 Connection에 DB연동 처리 할당.
+	private Connection con;
+	
+	con = DBCon.conn();
+	
+	주의) 핸드폰으로 이해..
+	연결된 객체로 대화객체를 만들고, 대화객체로 결과객체를 만들어 낸다.
+	연관관계로 처리하여아 한다. 그래서, 필드(공통 객체)로 선언하였다.
+
+[4. sql 구문 문자열 할당 및 매개변수 처리 ]
+	String sql = "select * from emp where ename like '%"+enaem+"%'";
+	
+[5. 대화 객체 처리]
+	// 연결객체로 부터 대화객체를 생성한다.
+	stmt = con.createStatement();
+
+[#6. 결과 객체 처리]
+	 ResultSet : 2차원의 데이터구조를 가진 객체(sql의 결과값을 가지고있다.)
+	 일반적으로 이 객체를 프로그램적으로 활용하기 위해 VO/DTO 객체에 담는 처리를 하여야한다.
+	 ResultSet rs = stmt.executeQuery(sql);
+	 
+	 ResultSet re = pstmt.XXXXX;
+	 rs.next() : 행별로 호출하면서 return값을 boolean으로 처리한다.
+	 			마지막에 데이터가 없을 때는 boolean false 로 리턴
+	 if(re.next()) while(re.next())
+	 boolean hasDate = re.next();
+	 각 행에서 열별로 호출하는 데이터는 유형과 컬럼명/index를 기준으로 호출할 수 있다.
+	 
+	 	select empno, ename, ....
+	 	rs.getString("ename") : 컬럼명이 ename이고 이 데이터 유형은 문자열
+	 	rs.getInt("empno") : 컬럼명이 empno이고, 이 데이터유형은 정수형
+	 	rs.getString(2) : select 호출 기준으로 두번쨰 호출하는 컬럼으로 이 데이터유형은 String 
+
+[7. 자원해제]
+	// 공통 기능메서드를 통해서 처리
+	DBConn.close(rs,stmt,con)
+
+[8. 예외 처리]
+	try{
+		1라인 ~~~
+		2라인 ~~~
+		DBConn.close(rs,stmt,con)
+		// 만약 1라인에서 예외가 나와버리면 마지막줄인 자원해제가 넘어감
+	}catch(SQLException e){
+	
+	}catch(Exception e){
+	
+	}finally{
+		DBConn.close(rs,stmt,con)
+	}
+
+[9. main() 메서드 호출 처리..] [끝!]
+			
+			
+			
+			
+			
+			
+				
+	

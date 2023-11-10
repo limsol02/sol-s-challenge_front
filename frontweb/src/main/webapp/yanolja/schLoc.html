@@ -1,38 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>야놀자|야매 지역검색</title>
     <script src="jquery-3.1.1.js"></script>
 </head>
+<style>
+  .oval-text {
+  border-radius: 50%;
+  border: 2px solid pink;
+  width: 50px;
+  text-align: center;
+  margin: 0 auto;
+}
+.mainName{
+  border-radius: 5%;
+  border: 2px solid rgb(172, 167, 167);
+  width: 800px;
+  height: 200px;
+  text-align: center;
+  margin: 0 auto;
+}
+h3{
+  text-align: center;
+  margin: 0 auto
+}
+
+</style>
+
 <body>
     <script>
-        $(document).ready(function(){
-            $("#back").css({width:"40px",height:"40px"})
-            $(".mainName").css("text-align","center")
-            $("input").css({width: 400, height: 40, border: '3px solid pink'})
-            $("input").click(function(){
-                $("input").value=="";
+        $(document).ready(function () {
+            $("#back").css({ width: "40px", height: "40px" })
+            $(".mainName").css("text-align", "center")
+            $("[name=schLoc]").css({ width: 400, height: 40, border: '3px solid pink' })
+            $("input").click(function () {
+                $("input").val("");
             })
-            $("[schLoc]").on("input", function(){
-                if($("input").value = "가평"){
-                window.location.href = "PensionList.html";
-        }
-    });
+            $("[name=sch]").click(function () {
+                if ($("[name=schLoc]").val() == "가평") {
+                    window.location.href = "PensionList.html";
+                }
+            });
+            $("input").focus(function () {
+                $("input").val("");
+            });
+            $("[name=sch]").css({background:"pink",border:"pink",width: 40, height: 40})
         })
-
     </script>
 
-<a href="main.html"><img src="back.png" id="back"/></a>
-    <div  class="mainName" >
-        <h3 >펜션/풀빌라</h3>
-        <hr>
-        <h3 >어디로 갈까요?</h3>
-        <form action>
-        <input type="text" name="schLoc" value="지역선택">
+    <a href="main.html"><img src="back.png" id="back" /></a>
+    <h3 style="border-radius: 10;">펜션/풀빌라</h3>
+    <br><br><br>
+    <div class="mainName">
+        <h3>어디로 갈까요?</h3>
+        <br>
+        <form action="PensionList.html">
+            <input type="text" name="schLoc" value="지역선택">
+            <input type="submit" name="sch" value="검색">
         </form>
         <h4>최근 선택지역</h4>
+        <h6 class="oval-text">양양</h6>
     </div>
+    <hr>
+    <table style="margin-left:auto;margin-right:auto;">
+        <tr>
+            <th><img src="이번주특가.png" style="width: 100px;"></th>
+            <th><img src="풀빌라.png" style="width: 100px;"></th>
+            <th><img src="독채펜션.png" style="width: 100px;"></th>
+            <th><img src="스파펜션.png" style="width: 100px;"></th>
+            <th><img src="키즈펜션.png" style="width: 100px;"></th>
+            <th><img src="반려동물동반.png" style="width: 100px;"></th>
+           
+        </tr>
+        <tr>
+            <th>이번주특가</th>
+            <th>풀빌라</th>
+            <th>독채펜션</th>
+            <th>스파펜션</th>
+            <th>키즈펜션</th>
+            <th>반려동물동반</th>
+           
+        </tr>
+    </table>
 </body>
+
 </html>

@@ -1,11 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="jquery-3.1.1.js"></script>
 </head>
+<style>
+    #back {
+        width: 20px;
+        height: 20px;
+        margin-left: 150px;
+    }
+    
+    #table01{
+        margin-left: 400px;
+        border-radius: 0%;
+        border: 2px solid rgb(183, 176, 177);
+    }
+    p{
+    margin-left: 400px;
+    }
+    #table02{
+        margin-left: 400px;
+        border-radius: 0%;
+        border: 2px solid rgb(183, 176, 177);
+    }
+    img{
+        width: 330px;
+    }
+    </style>
+
 <body>
-    <h2> 하이</h2>
+    <form action="PensionList.html">
+
+    </form>
+    <a href="main.html"><img src="back.png" id="back" /></a>
+    <h2 style="margin-left: 400px;"> 가평</h2>
+    <table id="table01">
+        <tr>
+            <th class="a01">체크인 날짜입력</th>
+            <th class="a01">체크아웃 날짜입력</th>
+            <th class="a01">일수계산</th>
+            <th class="a02">숙박일수</th>
+            <th class="a02">인원수</th>
+        </tr>
+        <tr>
+            <th class="a01"><input type="text" id="checkIn" value="20231110"></th>
+            <th class="a01"><input type="text" id="checkOut" value="20231112"></th>
+            <th class="a01"><input type="button" id="btu" value="계산"></th>
+            <th class="a02"><sapn id="nights"></sapn></th>
+            <th class="a02"><input type="number" value="1"></th>
+        </tr>
+    </table>
+    <p>펜션/풀빌라 &nbsp;&nbsp; #프리미엄펜션  &nbsp;&nbsp; #풀빌라  &nbsp;&nbsp;
+        #개별바베큐  &nbsp;&nbsp;#독채펜션 &nbsp;&nbsp;#스파펜션
+    </p>
+    <hr>
+    <table id="table02">
+        <tr>
+            <th><img src="펜션.png"></th>
+            <th><img src="펜션1.png"></th>
+        </tr>
+        <tr>
+            <th>가평 사랑펜션<br>★4.6<br>200,000~</th>
+            <th>가평 희망펜션<br>★4.3<br>220,000~</th>
+        </tr>
+        <tr>
+            <th><img src="펜션2.png"></th>
+            <th><a href="HellPension.html"><img src="펜션3.png"></a></th>
+        </tr>
+        <tr>
+            <th>가평 평화펜션<br>★4.5<br>180,000~</th>
+            <th><a href="HellPension.html">가평 지옥펜션<br>★4.0<br>150,000~</a></th>
+        </tr>
+    </table>
 </body>
+    <script>
+
+        var checkInOb = document.querySelector("#checkIn");
+        var checkOutOb = document.querySelector("#checkOut");
+        var nightOb = document.querySelector("#nights");
+        var BtuOn = document.querySelector("#btu")
+
+        BtuOn.onclick = function(){
+            var nightOfDate = parseInt(checkOutOb.value-checkInOb.value)
+            nightOb.innerHTML=nightOfDate+"박";
+        }
+        console.log(parseInt(checkOutOb.value-checkInOb.value))
+        
+    </script>
+
 </html>

@@ -11,7 +11,8 @@ public class Pension {
 	public Pension() {
 		// TODO Auto-generated constructor stub
 	}
-	public Pension(int no, String name, int numberOfPeople, int price, String emptyOfDate, String loc) {
+	public Pension(int no, String name, int numberOfPeople,
+			int price, String emptyOfDate, String loc) {
 		this.no = no;
 		this.name = name;
 		this.numberOfPeople = numberOfPeople;

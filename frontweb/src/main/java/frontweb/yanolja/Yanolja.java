@@ -91,7 +91,7 @@ AND TO_CHAR(EMPTYOFDATE,'YYYY-MM-DD')='2023-11-10';
 public static void main(String[] args) {
 	Yanolja dao = new Yanolja();
 	System.out.println(dao.getPensionList().size());
-	for(Pension pension:dao.getPensionList()) {
+	for(Pension pension:dao.getPensionList("가평",6,"20231110")) {
 		System.out.print(pension.getNo()+"\t");
 		System.out.print(pension.getName()+"\t");
 		System.out.print(pension.getNumberOfPeople()+"\t");

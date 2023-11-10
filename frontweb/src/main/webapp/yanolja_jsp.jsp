@@ -3,7 +3,7 @@
 	import="frontweb.yanolja.Pension" import="java.util.*"%>
 <%
 Yanolja dao = new Yanolja();
-for (Pension pension :dao.getPensionList(null,0,null)) {
+for (Pension pension :dao.getPensionList()) {
 	System.out.print(pension.getNo() + "\t");
 	System.out.print(pension.getName() + "\t");
 	System.out.print(pension.getNumberOfPeople() + "\t");
@@ -11,8 +11,7 @@ for (Pension pension :dao.getPensionList(null,0,null)) {
 	System.out.print(pension.getEmptyOfDate() + "\t");
 	System.out.print(pension.getLoc() + "\n");
 }
-%>	
-	
+%>		
 <!DOCTYPE html>
 <html>
 <head>
@@ -49,6 +48,7 @@ for (Pension pension :dao.getPensionList(null,0,null)) {
 
 	String emptyOfDate = request.getParameter("emptyOfDate");
 	if(emptyOfDate==null) emptyOfDate="";
+	
 
 
 	for(Pension pension:dao.getPensionList(loc,numberOfPeople,emptyOfDate)) {

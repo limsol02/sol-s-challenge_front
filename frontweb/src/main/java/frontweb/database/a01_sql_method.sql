@@ -11,8 +11,8 @@ private double comm;
 private int deptno;
  */
 
-SELECT max(sal) FROM emp WHERE deptno=10;
 -- ex) 위 구문 처리할 때 메서드 선언..
+SELECT max(sal) FROM emp WHERE deptno=10;
 -- public double getMax(int deptno){double max = 0; return max;}
 
 SELECT ename FROM emp where empno = 7369;
