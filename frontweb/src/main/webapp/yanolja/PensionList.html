@@ -4,26 +4,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>야매 펜션리스트</title>
     <script src="jquery-3.1.1.js"></script>
 </head>
 <style>
+    #mainPaint{
+        background-color: white;
+        border-radius: 0px;
+        margin-left: 400px;
+        width: 750px;
+        padding-top: 10px;
+        height: 1500px;
+    }
     #back {
         width: 20px;
         height: 20px;
-        margin-left: 150px;
+        margin-left: 20px;
     }
     
     #table01{
-        margin-left: 400px;
+        margin-left: 20px;
         border-radius: 0%;
         border: 2px solid rgb(183, 176, 177);
+        padding-top: 20px;
+        padding-bottom: 20px;
+        padding-left: 20px;
+        padding-right: 20px;
+
     }
     p{
-    margin-left: 400px;
+    margin-left: 20px;
     }
     #table02{
-        margin-left: 400px;
+        padding-top: 20px;
+        padding-left:20px ;
+        padding-right: 20px;
+        padding-bottom: 20px;
+        margin-left: 20px;
         border-radius: 0%;
         border: 2px solid rgb(183, 176, 177);
     }
@@ -32,12 +49,15 @@
     }
     </style>
 
-<body>
+<body style="background-color: rgb(243, 236, 236);">
     <form action="PensionList.html">
 
     </form>
+    <div id="mainPaint">
+    
     <a href="main.html"><img src="back.png" id="back" /></a>
-    <h2 style="margin-left: 400px;"> 가평</h2>
+    <h2 style="margin-left:350px;"> 가평</h2><br>
+    
     <table id="table01">
         <tr>
             <th class="a01">체크인 날짜입력</th>
@@ -53,10 +73,10 @@
             <th class="a02"><sapn id="nights"></sapn></th>
             <th class="a02"><input type="number" value="1"></th>
         </tr>
-    </table>
+    </table><br>
     <p>펜션/풀빌라 &nbsp;&nbsp; #프리미엄펜션  &nbsp;&nbsp; #풀빌라  &nbsp;&nbsp;
         #개별바베큐  &nbsp;&nbsp;#독채펜션 &nbsp;&nbsp;#스파펜션
-    </p>
+    </p><br>
     <hr>
     <table id="table02">
         <tr>
@@ -76,6 +96,7 @@
             <th><a href="HellPension.html">가평 지옥펜션<br>★4.0<br>150,000~</a></th>
         </tr>
     </table>
+</div>
 </body>
     <script>
 

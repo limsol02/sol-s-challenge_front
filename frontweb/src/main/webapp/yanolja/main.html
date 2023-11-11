@@ -7,12 +7,18 @@
     <script src="jquery-3.1.1.js"></script>
 </head>
 <style>
+    #mainPaint{
+        background-color: white;
+        border-radius: 0px;
+        margin-left: 400px;
+        width: 750px;
+        padding-top: 10px;
+        height: 880px;
+    }
 </style>
-<body>
+<body style="background-color: rgb(243, 236, 236);">
     <div id="mainPaint">
-    </div>
-
-    <div  class ="a01"> 
+    <div  class ="a01" style="padding-top: 50px;"> 
          <input type="text" size="40px" value="무엇을 하고 놀까요?">
     </div> 
     <br><br><br>
@@ -33,12 +39,13 @@
     <tr  class ="a01">
         <th>항공</th><th>해외숙소</th><th>교통</th>
     </tr>
-</table>    
+</table> 
+</div>   
 <script>
     $(document).ready(function(){
         $(".a01").css("text-align", "center")
         $("input").css({width: 600, height: 40, border: '3px solid pink',})
-        $("#mainPaint").css("background","pink")
+       
     })
 </script>
 

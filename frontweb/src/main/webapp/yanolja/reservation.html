@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>야매예약내역</title>
+    <script src="jquery-3.1.1.js"></script>
+</head>
+<style>
+    #back {
+        width: 20px;
+        height: 20px;
+        margin-left: 400px;
+    }
+
+    #bD01 {
+        background-color: white;
+        border-radius: 0px;
+        margin-left: 400px;
+        padding-top: 10px;
+        height: 600px;
+        width: 750px;
+    }
+
+    #bD02 {
+        background-color: white;
+        border-radius: 0px;
+        margin-left: 400px;
+        width: 750px;
+        height: 250px;
+        padding-top: 10px;
+    }
+
+    #bD03 {
+        background-color: white;
+        border-radius: 0px;
+        margin-left: 400px;
+        width: 750px;
+        padding-top: 10px;
+        height: 350px;
+    }
+
+    #bD04 {
+        background-color: white;
+        border-radius: 0px;
+        margin-left: 400px;
+        width: 750px;
+        padding-top: 10px;
+        height: 430px;
+    }
+
+    #bD05 {
+        background-color: white;
+        border-radius: 0px;
+        margin-left: 400px;
+        width: 750px;
+        padding-top: 10px;
+        height: 400px;
+    }
+
+    #d01 {
+        display: flex;
+    }
+
+    #d02 {
+        display: flex;
+    }
+
+    #d03 {
+        display: flex;
+        border: 2px solid pink;
+        border-radius: 10px;
+        width: 180px;
+        height: 40px;
+        line-height: 5px;
+        text-align: center;
+        padding-left: 10px;
+    }
+
+    #d04 {
+        display: flex;
+        border: 2px solid pink;
+        border-radius: 10px;
+        width: 680px;
+        height: 20px;
+        padding: 20px;
+    }
+
+    .font01 {
+        font-weight: bold;
+        color: gray;
+    }
+
+    #font02 {
+        font-style: italic;
+        color: gray;
+    }
+
+    #bD04>#ta02 {
+        padding-left: 80px;
+        height: 300px;
+    }
+
+    #ta02 th {
+        border-radius: 10px;
+        border: 1px solid rgb(80, 77, 77);
+        width: 300px;
+    }
+
+    input[type=button]{
+        margin-left: 100px;
+        padding: auto;
+        width: 550px;
+        height: 50px;
+        background-color: pink;
+        border-color: pink;
+        color:white;
+        font-size: 18px;
+    }
+</style>
+
+<body style="background-color: rgb(243, 236, 236);">
+
+    <script>
+        $(document).ready(function () {
+            $(".in01").click(function () {
+                $(this).val("");
+            });
+            $(".in01").focus(function () {
+                $(this).val("");
+            });
+            $("#bD04 #ta02 th").click(function () {
+                $("#bD04 #ta02 th").css("background", "");
+                $(this).css("background", "skyblue")
+            })
+            $("#c01").change(function () {
+                if ($("#c01").prop("checked")) {
+                    $(".c02").prop("checked", true);
+                } else {
+                    $(".c02").prop("checked", false);
+                }
+            });
+            $("[type=button]").click(function(){
+                window.open("pay.html", "_blank", "width=700,height=500");
+            })
+
+        })
+    </script>
+
+
+    <div id="d01">
+        <a href="HellPension.html"><img src="back.png" id="back" /></a>
+        <h2 style=" margin-left: 300px;"> 예약 </h2>
+    </div><br><br>
+    <div id="bD01">
+        <h4 style=" margin-left: 30px;">숙소</h4>
+        <div style="background-color:rgb(246, 245, 245); margin-left: 30px; width:700px;
+    height: 150px;">
+            &nbsp;<br>
+            <p style="margin-left: 10px;">예약 완료 후 무료 취소안내</p>
+            <p style=" color: rgb(80, 77, 77);">
+                &nbsp;⇒ 예약 일시 기준 체크인 시각 이전일 경우 무료취소가 가능합니다.<br>
+                &nbsp;⇒ 숙소 정책에 따라 일부상품은 무료 취소가 불가능합니다.<br>
+                &nbsp;
+            </p>
+        </div>
+        <h2 style=" margin-left: 20px;">지옥펜션</h2>
+        <div id="d02">
+            <table style=" margin-left: 100px;">
+                <tr class="font01">
+                    <th>체크인</th>
+                </tr>
+                <tr>
+                    <th>2023.11.10 (금)</th>
+                </tr>
+                <tr>
+                    <th>14:00</th>
+                </tr><br>
+                <tr id="font02">
+                    <th>기준6명/최대6명</th>
+                </tr>
+            </table>
+            <table style=" margin-left: 200px;">
+                <tr class="font01">
+                    <th>체크아웃</th>
+                </tr>
+                <tr>
+                    <th>2023.11.12 (일)</th>
+                </tr>
+                <tr>
+                    <th>11:00</th>
+                </tr><br>
+                <tr>
+                    <th>&nbsp;</th>
+                </tr>
+            </table>
+        </div>
+        <div id="d03" style=" margin-left: 500px;">
+            <p style="color: gray;">숙박/2박</p>&nbsp;&nbsp;
+            <h3>150,000원</h3>
+        </div>
+        <h6 style="color: red; margin-left: 550px;">※ 취소 및 환불불가 ※</h6>
+        <div id="d04" style=" margin-left: 10px; ">
+            방문수단 선택
+            <input type="radio" name="select" value="대중교통" style="margin-left: auto;"> 대중교통
+            <input type="radio" name="select" value="차량"> 차량
+        </div>
+    </div>
+    <br> <br>
+
+    <div id="bD02">
+        <h3 style=" margin-left: 30px; "> 예약자 정보 </h3>
+        <label style=" margin-left: 100px; "> 성명 <br>
+            <input type="text" value="성함을 입력해주세요" class="in01" style=" margin-left: 100px;
+        border-top:none ; border-left :none ; border-right:none ; width:500px; height: 30px;">
+        </label>
+        <br><br>
+        <label style=" margin-left: 100px; "> 휴대폰번호 <br>
+            <input type="text" value="번호를 입력해주세요" class="in01" style=" margin-left: 100px;
+        border-top:none ; border-left :none ; border-right:none ; width:500px; height: 30px;">
+        </label>
+    </div>
+    <br><br>
+    <div id="bD03">
+        <h3 style=" margin-left: 30px; "> 결제 금액 </h3>
+        <div style="display: flex;">
+            <p style="color: gray; padding-left: 100px;">상품 금액</p>
+            <p style="margin-left: auto; padding-right: 150px;">150,000원</p>
+        </div>
+        <div style="display: flex;">
+            <p style="color: gray; padding-left: 100px;">할인 금액</p>
+            <p style="margin-left: auto; padding-right: 150px;">0 원</p>
+        </div>
+        <div style="display: flex;">
+            <p style="color: gray; padding-left: 100px;">포인트</p>
+            <p style="margin-left: auto; padding-right: 150px;">0 원</p>
+        </div>
+        <p style="padding-left: 100px; color: gray;">
+            -------------------------------------------------------------------------</p>
+        <div style="display: flex;">
+            <p style="color: gray; padding-left: 100px;">총 결제 금액</p>
+            <p style="color:red; margin-left: auto; padding-right: 150px;">150,000 원</p>
+        </div>
+    </div>
+    <br><br>
+    <div id="bD04">
+        <h3 style=" margin-left: 30px; "> 결제 수단</h3>
+        <table id="ta02">
+            <tr>
+                <th colspan="2">kakao pay</th>
+            </tr>
+            <tr>
+                <th>toss pay</th>
+                <th id="card">카드</th>
+            </tr>
+            <tr>
+                <th>KB pay</th>
+                <th>PAYCO</th>
+            </tr>
+            <tr>
+                <th>N pay</th>
+                <th>휴대폰</th>
+            </tr>
+            <tr>
+                <th>Smile pay</th>
+                <th>SSGPAY</th>
+            </tr>
+            <tr>
+                <th>L.PAY</th>
+                <th>실시간 계좌이체</th>
+            </tr>
+        </table>
+    </div>
+    <br><br>
+    <div id="bD05">
+        <label style="font-size: 20px; display: block; padding-left: 50px; padding-top: 30px;">
+            <input id="c01" type="checkbox" style="transform: scale(1.5); margin-right: 5px;">필수 약관 전체 동의
+        </label><br>
+        <label style="padding-left: 70px;">
+            <input type="checkbox" class="c02"> [필수] 만 14세 이상 이용 동의
+        </label><br><br>
+        <label style="padding-left: 70px;">
+            <input type="checkbox" class="c02"> [필수] 개인정보 수집 및 이용
+        </label><br><br>
+        <label style="padding-left: 70px;">
+            <input type="checkbox" class="c02"> [필수] 개인정보 제3자 제공
+        </label><br><br>
+        <label style="padding-left: 70px;">
+            <input type="checkbox"> [선택] 이벤트, 혜택 정보 수신 동의
+        </label><br><br>
+        <label style="padding-left: 70px;">
+            <input type="checkbox"> [선택] 이벤트, 혜택 정보 전송을 위한 개인정보 수집 및 이용동의
+        </label><br><br><br>
+        <input type="button" value="150,000원 결제하기">
+    </div>
+
+</body>
+
+
+</html>

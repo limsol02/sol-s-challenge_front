@@ -8,17 +8,26 @@
     <script src="jquery-3.1.1.js"></script>
 </head>
 <style>
+#mainPaint{
+        background-color: white;
+        border-radius: 0px;
+        margin-left: 400px;
+        width: 750px;
+        padding-top: 10px;
+        height: 880px;
+    }
+
   .oval-text {
-  border-radius: 50%;
+  border-radius: 20px;
   border: 2px solid pink;
-  width: 50px;
+  width: 40px;
   text-align: center;
   margin: 0 auto;
 }
 .mainName{
-  border-radius: 5%;
+  border-radius: 20px;
   border: 2px solid rgb(172, 167, 167);
-  width: 800px;
+  width: 600px;
   height: 200px;
   text-align: center;
   margin: 0 auto;
@@ -30,32 +39,32 @@ h3{
 
 </style>
 
-<body>
+<body style="background-color: rgb(243, 236, 236);">
     <script>
         $(document).ready(function () {
             $("#back").css({ width: "40px", height: "40px" })
             $(".mainName").css("text-align", "center")
             $("[name=schLoc]").css({ width: 400, height: 40, border: '3px solid pink' })
-            $("input").click(function () {
-                $("input").val("");
-            })
             $("[name=sch]").click(function () {
                 if ($("[name=schLoc]").val() == "가평") {
                     window.location.href = "PensionList.html";
                 }
             });
+            $("input").click(function () {
+                $("input").val("");
+            })
             $("input").focus(function () {
                 $("input").val("");
             });
             $("[name=sch]").css({background:"pink",border:"pink",width: 40, height: 40})
         })
     </script>
-
+    <div id="mainPaint">
     <a href="main.html"><img src="back.png" id="back" /></a>
     <h3 style="border-radius: 10;">펜션/풀빌라</h3>
     <br><br><br>
     <div class="mainName">
-        <h3>어디로 갈까요?</h3>
+        <h3 style="margin-top: 20px;">어디로 갈까요?</h3>
         <br>
         <form action="PensionList.html">
             <input type="text" name="schLoc" value="지역선택">
@@ -63,8 +72,9 @@ h3{
         </form>
         <h4>최근 선택지역</h4>
         <h6 class="oval-text">양양</h6>
-    </div>
+    </div><br><br><br>
     <hr>
+    <br><br><br>
     <table style="margin-left:auto;margin-right:auto;">
         <tr>
             <th><img src="이번주특가.png" style="width: 100px;"></th>
@@ -85,6 +95,7 @@ h3{
            
         </tr>
     </table>
+</div>
 </body>
 
 </html>

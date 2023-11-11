@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-3.1.1.js"></script>
+</head>
+<style>
+#d01{
+    padding-left: 50px;
+    margin-left: 50px;
+    margin-top: 80px;
+    border : 1px solid gray;
+    height: 460px;
+}
+input[type=text]{
+    margin-left: 20px;
+    border : none;
+    border-bottom: 1px solid ;
+    size: 4000px;
+}
+input[type=button]{
+    margin-left: 20px;
+    width: 200px;
+    height: 50px;
+    background-color: pink;
+    border-color: pink;
+    color: white;
+}
+</style>
+<script>
+    $(document).ready(function(){
+        $("[type=button]").click(function(){
+            var textInfo = $("[type=text]").val();
+            if(textInfo!=""){
+            window.location.href="ShowInfo.html"}
+        })
+    })
+
+</script>
+<body>
+<div id="d01">
+<h3>카드 정보 입력</h3>
+<br>
+> 카드 번호 입력 <br> <input type="text"><br><br>
+> 유효 기간 입력 <br> <input type="text"><br><br>
+> 비밀번호 앞 두자리 입력 <br> <input type="text"><br><br>
+> CVC 입력 <br> <input type="text"><br><br><br>
+<input type="button" value="결제완료">
+</div>
+</body>
+</html>
