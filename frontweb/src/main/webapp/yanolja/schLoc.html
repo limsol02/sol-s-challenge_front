@@ -8,94 +8,111 @@
     <script src="jquery-3.1.1.js"></script>
 </head>
 <style>
-#mainPaint{
+    #mainPaint {
         background-color: white;
         border-radius: 0px;
-        margin-left: 400px;
+        margin-left: 30%;
         width: 750px;
-        padding-top: 10px;
+        padding-top: 0px;
         height: 880px;
     }
 
-  .oval-text {
-  border-radius: 20px;
-  border: 2px solid pink;
-  width: 40px;
-  text-align: center;
-  margin: 0 auto;
-}
-.mainName{
-  border-radius: 20px;
-  border: 2px solid rgb(172, 167, 167);
-  width: 600px;
-  height: 200px;
-  text-align: center;
-  margin: 0 auto;
-}
-h3{
-  text-align: center;
-  margin: 0 auto
-}
+    .oval-text {
+        border-radius: 20px;
+        border: 2px solid pink;
+        width: 40px;
+        text-align: center;
+        margin: 0 auto;
+    }
 
+    .mainName {
+        border-radius: 20px;
+        border: 2px solid rgb(172, 167, 167);
+        width: 600px;
+        height: 200px;
+        text-align: center;
+        margin: 0 auto;
+    }
+
+    h3 {
+        text-align: center;
+        margin: 0 auto
+    }
+
+    #back {
+        margin-left: 30%;
+        padding-left: 450px;
+    }
 </style>
+<header style="background-color: white; height: 50px; width: 2000px; ">
+    <div style="display: flex;">
+        <a href="main.html"><img src="back.png" id="back" /></a>
+        <h3 style="margin-left: 21%; padding-top: 10px;">펜션/풀빌라</h3>
+    </div>
+</header>
 
 <body style="background-color: rgb(243, 236, 236);">
     <script>
+
+
         $(document).ready(function () {
-            $("#back").css({ width: "40px", height: "40px" })
+            $("#back").css({ width: "30px", height: "30px" })
             $(".mainName").css("text-align", "center")
             $("[name=schLoc]").css({ width: 400, height: 40, border: '3px solid pink' })
-            $("[name=sch]").click(function () {
-                if ($("[name=schLoc]").val() == "가평") {
+            $("#sch").click(function () {
+                var isTrue = $("#schLoc").val();
+                if (isTrue=="가평") {
                     window.location.href = "PensionList.html";
+                } else {
+                    alert("지역을 선택하세요.");
+                    return false;
                 }
             });
-            $("input").click(function () {
-                $("input").val("");
+            $("[name=schLoc]").click(function () {
+                $(this).val("");
             })
-            $("input").focus(function () {
-                $("input").val("");
+            $("[name=schLoc]").focus(function () {
+                $(this).val("");
             });
-            $("[name=sch]").css({background:"pink",border:"pink",width: 40, height: 40})
+            $("[name=sch]").css({ background: "pink", border: "pink", width: 40, height: 40 })
         })
     </script>
     <div id="mainPaint">
-    <a href="main.html"><img src="back.png" id="back" /></a>
-    <h3 style="border-radius: 10;">펜션/풀빌라</h3>
-    <br><br><br>
-    <div class="mainName">
-        <h3 style="margin-top: 20px;">어디로 갈까요?</h3>
-        <br>
-        <form action="PensionList.html">
-            <input type="text" name="schLoc" value="지역선택">
-            <input type="submit" name="sch" value="검색">
-        </form>
-        <h4>최근 선택지역</h4>
-        <h6 class="oval-text">양양</h6>
-    </div><br><br><br>
-    <hr>
-    <br><br><br>
-    <table style="margin-left:auto;margin-right:auto;">
-        <tr>
-            <th><img src="이번주특가.png" style="width: 100px;"></th>
-            <th><img src="풀빌라.png" style="width: 100px;"></th>
-            <th><img src="독채펜션.png" style="width: 100px;"></th>
-            <th><img src="스파펜션.png" style="width: 100px;"></th>
-            <th><img src="키즈펜션.png" style="width: 100px;"></th>
-            <th><img src="반려동물동반.png" style="width: 100px;"></th>
-           
-        </tr>
-        <tr>
-            <th>이번주특가</th>
-            <th>풀빌라</th>
-            <th>독채펜션</th>
-            <th>스파펜션</th>
-            <th>키즈펜션</th>
-            <th>반려동물동반</th>
-           
-        </tr>
-    </table>
-</div>
+
+        <br><br><br>
+        <div class="mainName">
+            <h3 style="margin-top: 20px;">어디로 갈까요?</h3>
+            <br>
+            <form action="PensionList.html">
+                <input type="text" name="schLoc" value="지역선택" id="schLoc">
+                <input type="submit" name="sch" value="검색" id="sch">
+            </form>
+            <h4>최근 선택지역</h4>
+            <h6 class="oval-text">양양</h6>
+        </div><br><br><br>
+        <hr>
+        <br><br><br>
+        <table style="margin-left:auto;margin-right:auto;">
+            <tr>
+                <th><img src="이번주특가.png" style="width: 100px;"></th>
+                <th><img src="풀빌라.png" style="width: 100px;"></th>
+                <th><img src="독채펜션.png" style="width: 100px;"></th>
+                <th><img src="스파펜션.png" style="width: 100px;"></th>
+                <th><img src="키즈펜션.png" style="width: 100px;"></th>
+                <th><img src="반려동물동반.png" style="width: 100px;"></th>
+
+            </tr>
+            <tr>
+                <th>이번주특가</th>
+                <th>풀빌라</th>
+                <th>독채펜션</th>
+                <th>스파펜션</th>
+                <th>키즈펜션</th>
+                <th>반려동물동반</th>
+
+            </tr>
+        </table>
+    </div>
 </body>
 
 </html>

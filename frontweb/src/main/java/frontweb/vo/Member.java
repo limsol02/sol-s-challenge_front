@@ -1,6 +1,7 @@
 package frontweb.vo;
 
 public class Member {
+	// 필드값 선언
 	private int mno;
 	private String name;
 	private String id;
