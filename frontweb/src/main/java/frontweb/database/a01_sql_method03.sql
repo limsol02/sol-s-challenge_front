@@ -46,11 +46,69 @@ public boolean login(String id, String pwd){
  * */
 
 
+--[1단계:확인] 1.단일 열 및 단일 행 결과:
+--1. **최대 급여 조회**:
+SELECT max(sal) FROM emp;
+--2. **총 직원 수 계산**:
+SELECT count(*) FROM emp;
+--3. **평균 급여 계산**:
+SELECT avg(sal) FROM emp;
+--4. **최소 급여 조회**:
+SELECT min(sal) FROM emp;
+--5. **부서 번호 @@의 총 직원 수**:
+SELECT count(*) FROM emp WHERE DEPTNO = 10;
 
 
+--[1단계:확인] 2.다중 열 및 단일 행 결과:
+--1. **전체 직원의 평균 급여와 총 급여**:
+SELECT avg(sal) , sum(sal) FROM emp;
+--2. **직원이름 에서 일하는 직원의 이름과 입사일,
+SELECT ename, hiredate FROM emp WHERE ename LIKE upper('%a%');
+
+/*
+public Emp03 getNameHire(String sch){
+	Emp03 e03 = null;
+	String sql = "SELECT ename, hiredate FROM emp WHERE ename LIKE upper('%"+sch+"%')";
+	try{
+		con = DBCon.con();
+		stmt = con.createStatement();
+		rs = stmt.executeQuery(sql);
+		while(rs.next()){
+			e03 = new Emp03(
+				rs.getString("ename"),
+				rs.getDate("hiredate")
+			);
+		}	
+		} catch (SQLException e) {
+			System.out.println("DB예외" + e.getMessage());
+		} catch (Exception e) {
+			System.out.println("일반예외" + e.getMessage());
+		} finally {
+			DBCon.close(rs, stmt, con);
+			System.out.println("자원해제처리!");
+		}
+	return e03;
+}
+ * */
+--[1단계:확인] 3. 단일 열 및 다중 행 결과:
+--1. **모든 부서의 부서 번호 목록**:
+SELECT deptno FROM emp;
+--2. **@@@ 이상 급여를 받는 직원들의 이름**:
+SELECT ename FROM emp WHERE sal>2000;
+--3. **직책이 @@ 인 직원들의 이름**:
+
+SELECT ename FROM emp WHERE job LIKE upper('%m%');
+--[1단계:확인] 4. 다중 열 및 다중 행 결과(vo는 개인폴드로 추가해서 만들기)
+--1. **각 부서이름과  급여를 기준으로 직원의 이름, 직책, 급여**: 
+SELECT ename, job, sal FROM emp WHERE job LIKE upper('%m%') AND sal>2000;
+--2. **각 직책별 평균 급여**:
+SELECT avg(sal) FROM emp WHERE job LIKE upper('%m%');
+--3. **각 부서의 직원 수 및 평균 급여**:
+SELECT count(*) , AVG(sal) FROM emp WHERE job LIKE upper('%m%');
 
 
+SELECT * FROM PENSION WHERE loc='가평'AND NUMBEROFPEOPLE = 6 AND 
+to_char(CHECKIN,'YYYY-MM-DD')='2023-11-10';
+SELECT deptno, avg(sal) avsal FROM emp WHERE deptno=30 group by deptno;
 
-
-
-
+SELECT deptno ,count(*) cnt , AVG(sal) FROM emp group by deptno;

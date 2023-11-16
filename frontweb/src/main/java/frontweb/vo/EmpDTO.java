@@ -1,46 +1,28 @@
-package frontweb;
+package frontweb.vo;
 
-import java.util.Date;
-
-public class Emp {
+public class EmpDTO {
 	private int empno;
 	private String ename;
 	private String job;
 	private int mgr;
-	private Date hiredate;
+	private String hiredateStr;
 	private double sal;
 	private double comm;
 	private int deptno;
-	public Emp() {
+	public EmpDTO() {
 		// TODO Auto-generated constructor stub
 	}
-	
-	
-	public Emp(int empno, String ename, double sal, int deptno) {
-		this.empno = empno;
-		this.ename = ename;
-		this.sal = sal;
-		this.deptno = deptno;
-	}
-
-
-	public Emp(int empno, String ename, String job, int mgr, Date hiredate, double sal, double comm, int deptno) {
+	public EmpDTO(int empno, String ename, String job, int mgr, String hiredateStr, double sal, double comm,
+			int deptno) {
 		this.empno = empno;
 		this.ename = ename;
 		this.job = job;
 		this.mgr = mgr;
-		this.hiredate = hiredate;
+		this.hiredateStr = hiredateStr;
 		this.sal = sal;
 		this.comm = comm;
 		this.deptno = deptno;
 	}
-	
-	public Emp(String ename, String job, int deptno) {
-		this.ename = ename;
-		this.job = job;
-		this.deptno = deptno;
-	}
-	
 	public int getEmpno() {
 		return empno;
 	}
@@ -65,11 +47,11 @@ public class Emp {
 	public void setMgr(int mgr) {
 		this.mgr = mgr;
 	}
-	public Date getHiredate() {
-		return hiredate;
+	public String getHiredateStr() {
+		return hiredateStr;
 	}
-	public void setHiredate(Date hiredate) {
-		this.hiredate = hiredate;
+	public void setHiredateStr(String hiredateStr) {
+		this.hiredateStr = hiredateStr;
 	}
 	public double getSal() {
 		return sal;

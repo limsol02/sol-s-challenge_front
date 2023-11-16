@@ -1,0 +1,57 @@
+# PreparedStatement 처리
+
+1. PreparedStatement는 java에서 sql쿼리를 실행하는 데 사용되는 인터페이스 입니다.
+java.sql 패키지에 정의되어 있으며, Statement 인터페이스를 상속받습니다.
+PreparedStatement는 SQL쿼리에 파라미터를 동적으로 삽입하는 기능을 제공하며,
+데이터베이스와 상호작용으로 보다 효율적으로 안정적이게 만들어줍니다.
+
+2. 사용이유 및 장점
+	1) SQL Injection방지 : PreparedStatement는 사용자 입력을 통해 SQL쿼리를 
+		동적으로 생성할 때, SQL Injection공격을 방지합니다. 사용자입력이 쿼리의 
+		일부로 직접 삽입되지 않고, 파라미터로 처리되기에 공격자가 악의적인 sql코드를 
+		주입하는 것을 방지할 수 있습니다.
+		* id : [  ]
+		* pwd : [  ]
+		[로그인버튼]
+		String sql = "select * from member where id='"+id+"'and pwd = '"+pwd+"'";
+		select * from member where id = 'himan' and pwd = '7777'(원래 로그인)
+		SELECT * FROM MEMBER01 WHERE id='9999' AND PWD ='' OR 1=1 --';
+		아이디 몰라도 걍 암거나 집어넣고 pwd 에 ' OR 1=1 -- 집어넣으면 다됨
+		==> 해당 컬럼을 지정하고, 컬럼의 type을 check해서 할당하기에
+		위와 같은 동적쿼리는 허용하지 않는다.
+		
+	2) 성능향상 : 데이터베이스는 PreparedStatement를 사용할 때 쿼리를 미리
+		컴파일하고 캐시에 저장합니다. 이로인해 같은 쿼리를 반복적으로 실행할 때 성능이 향상됩니다. 
+		변수 부분만 바꾸어 재사용할 수 있기 떄문에 데이터베이스의 부하를 줄일 수 있습니다.
+		
+		select * from emp
+		1번째 ==> (이전 동일 sql있는지 확인) ==> 해석 ==> 실행
+		2번째 ==> (이전 동일 sql있는지 확인) ==> 바로실행
+		// ex) 
+		- select * from emp where ename = ?
+		==> 일단 sql을 보내고 실행 후, 매개변수로 ?에 들어갈 데이터를 전달, 동일sql로 인식
+		
+		- select * from emp where ename = '홍길동'		
+		- select * from emp where ename = '신길동'
+		==> 동적 sql은 계속 다른 sql문으로 해석, 계속 재확인하고 처리.		
+	
+	3) 코드 가독성 및 유지 보수 : 쿼리에 변수를 직접 삽입하는 대신 ? 를 사용하여
+		파라미터를 표시합니다. 이로 인해 코드 가독성이 향상되고, 유지보수가 용이해집니다.
+		
+3. 단점
+	1) 초기 비용 : 쿼리가 처음 실행될 때, 컴파일 과정이 필요하기 때문에 Statement에 비해
+		초기 실행 속도가 느릴 수 있습니다. 하지만 반복 실행 시 이러한 비용은 상쇄됩니다.
+		
+	2) 유연성 제한 : 동적 쿼리의 경우 쿼리의 구조가 변경되어야 할 때마다 PreparedStatement를 
+		새로 생성해야 합니다. 이는 때때로 더 복잡한 코드를 초래할 수 있습니다. 
+		
+4. 사용예시
+	String sql = "insert into users values(?,?)";
+	try(
+		Connection con = dataSource.getConnection();
+		PreparedStatement pstmt = con.preparedStatement(sql)
+	){
+		pstmt.setString(1,"John Doe");
+		pstmt.setString(1,"John@example.com");
+		pstmt.executeUpdate();
+	}catch(SQLException e){}
