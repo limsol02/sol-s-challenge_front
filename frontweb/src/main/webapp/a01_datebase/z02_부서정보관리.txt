@@ -1,0 +1,100 @@
+# 부서정보 처리 파일
+1. java
+	dao
+	PreparedStmtDao.java
+		getDeptList()  부서정보 리스트
+		insertDept(Dept ins) 부서정보 등록
+		---------------------------------
+		getDept(int deptno) 부서정보 상세
+		updateDept(Dept upt) 부서정보 수정
+		deleteDept(int deptno) 부서정보 삭제 
+   jsp
+   	a01_database\a05_deptList.jsp 부서정보리슽
+   	a01_database\a05_deptInsert.jsp 부서정보등록화면/등록처리
+   	a01_database\a05_deptDetail.jsp 부서정보상세
+   	a01_database\a05_deptProc.jsp 부서정보수정/삭제
+2. 부서정보 등록
+	1) 등록 버튼 추가. onclick location.href="a05_deptInsert.jsp" 이동
+		<input type="button" value="부서등록" 
+				onclick="location.href='a05_deptInsert.jsp'"/>
+	
+	2) 등록 기본 화면 구성 
+		a05_deptInsert.jsp
+		<form>
+		<input name="deptno"/>
+		<input name="dname"/>
+		<input name="loc"/>
+		<input type="submit" value="등록"/>
+		<input type="button" value="메인리스트화면" 
+				onclick="location.href='a05_deptList.jsp'"/>		
+		
+		</form>
+	3) 등록 처리 dao 기능 메서드 처리
+		insertDept(Dept ins)
+			sql = "insert int dept01 values(?,?,?)
+			pstmt.setInt(1,ins.getDeptno());	
+			pstmt.setString(2,ins.getDname());	
+			pstmt.setString(3,ins.getLoc());
+	4) 등록 화면에서 요청값 처리
+		String deptnoStr = request.getParamter("deptno");
+		int deptno=0; if(deptnoStr!=null) deptno = Integer.parseInt(deptnoStr);
+		String dname = request.getParamter("dname");
+		String loc = request.getParamter("loc");
+	5) 등록 화면에 Dao, vo(Dept)  import
+		PreparedStmtDao dao = new PreparedStmtDao();
+		boolean isInsert = false;
+		if(deptnoStr!=null){
+			dao.insertDept(new Dept(deptno,dname,loc));
+			isInsert = true;
+		}
+	6) 등록 성공 javascript 처리
+		var isInsert = <%=isInsert%>;
+		if(isInsert){
+			if(!confirm("부서정보등록 성공\n계속등록하시겠습니까?"))
+				location.href="a05_deptList.jsp";
+				
+		}
+3. 부서정보 상세
+	1) 리스트에서 더블 클릭으로 상세화면 이동
+		<tr ondblclick="goPage(<%=dept.getDeptno()%>)"
+		function goPage(deptno){
+			location.href="a05_deptDetail.jsp?deptno="+deptno
+		}
+	2) 상세 페이지에서 처리(05_deptDetail.jsp)
+		- 요청값 받기
+		String deptnoStr = request.getParameter("deptno");
+		int deptno = 0;
+		if(deptnoStr!=null) deptno = Integer.parseInt(deptnoStr);
+	3) 데이터베이스 연동 메서드 만들기
+		public Dept getDept(int deptno){
+			String sql = "select * from dept10 where deptno=?"
+			pstmt.setInt(1, deptno);
+			Dept d = null;
+			if(rs.next){
+				d = new Dept(
+					rs.getInt("deptno"),
+					rs.getString("dname"),
+					rs.getString("loc")
+				)
+			}
+		}
+	4) 데이터베이스 호출 처리(import)
+		Dept sch = dao.getDept(deptno);
+	5) 화면에 상세 내용 출력
+		<input name="deptno" value="<%=sch.getDeptno()%>"/>	
+		<input name="dname" value="<%=sch.getDname()%>"/>	
+		<input name="loc" value="<%=sch.getLoc()%>"/>	
+			
+			
+
+
+
+4. 부서정보 수정
+5. 부서정보 삭제
+	1) 삭제버튼 클릭시, proc ==> del
+	2) dao 삭제 메서드
+	3) 요청값 proc
+		조건에 삭제 처리 script처리
+   	
+   	
+   			

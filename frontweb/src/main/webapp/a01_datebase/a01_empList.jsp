@@ -1,46 +1,51 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8" import="frontweb.database.PreparedStmtDao"
 	import="frontweb.Emp"%>
+<%
+
+%>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link href = "/frontweb/com/a01_common.css">
+<script src="/frontweb/com/jquery-3.6.0.js">
+</script> 
+<script>
+<%
+PreparedStmtDao dao = new PreparedStmtDao();
+%>
+
+<%
+String ename = request.getParameter("ename");
+if (ename == null) {
+	ename = "";
+}
+%>
+<%
+String job = request.getParameter("job");
+if (job == null) {
+	job = "";
+}
+%>
+<%
+String deptnoStr = request.getParameter("deptno");
+int deptno = 0; 
+if (deptnoStr != null) {
+	deptno = Integer.parseInt(deptnoStr);
+}
+%>
+	// $ : jquery
+	$(document).ready(function(){
+		$("[name=deptno]").val("<%=deptno%>")
+	});
+</script>
+
 </head>
 <body>
-	<%
-	PreparedStmtDao dao = new PreparedStmtDao();
-	%>
-	<%--  
-	<h3 align="center">
-		사원명 :
-		<%=request.getParameter("ename") == null ? "" : request.getParameter("ename")%></h3>
-		<!-- http://localhost:7080/frontweb/a01_datebase/a01_empList.jsp?ename=홍길동&job=사원&deptno=10 -->
-	<h3 align="center">
-		직책명 :
-		<%=request.getParameter("job") == null ? "" : request.getParameter("job")%></h3>
-	<h3 align="center">
-		부서 :
-		<%=request.getParameter("deptno") == null ? "0" : request.getParameter("deptno")%></h3>--%>
-	<%
-	String ename = request.getParameter("ename");
-	if (ename == null) {
-		ename = "";
-	}
-	%>
-	<%
-	String job = request.getParameter("job");
-	if (job == null) {
-		job = "";
-	}
-	%>
-	<%
-	String deptnoStr = request.getParameter("deptno");
-	int deptno = 10; // 10인이유? 초기화면에 10으로 기본 출력하기 위해서
-	if (deptnoStr != null) {
-		deptno = Integer.parseInt(deptnoStr);
-	}
-	%>
+	
 	<h2 align="center">사원 정보 조회</h2>
 	<form>
 		<table width="40%" border align="center">
@@ -56,11 +61,19 @@
 			</tr>
 			<tr>
 				<th>부서</th>
-				<td><input type="text" name="deptno" value="<%=deptno%>" /></td>
+				<td><select name = "deptno" style="width:85%">
+					<option value="0">전체</option>
+					<option value="10">인사</option>
+					<option value="20">재무</option>
+					<option value="30">회계</option>
+					<option value="40">기획</option>
+				</select></td>
 			</tr>
 			<tr>
 
-				<th colspan="2"><input type="submit" value="검색" /></th>
+				<th colspan="2"><input type="submit" value="검색" />
+				<input type="button" value="이동화면" onclick = "location.href = 'a01_empinsert.jsp'";/>
+				</th>
 			</tr>
 		</table>
 	</form>
@@ -81,7 +94,7 @@
 		<%
 		for (Emp emp : dao.getEmpList(new Emp(ename,job,deptno))) {
 		%>
-		<tr>
+		<tr ondblclick = "goPage(<%=emp.getEmpno()%>)">
 			<th><%=emp.getEmpno()%></th>
 			<th><%=emp.getEname()%></th>
 			<th><%=emp.getJob()%></th>
@@ -94,5 +107,11 @@
 		}
 		%>
 	</table>
+	<script type= "text/javascript">
+	function goPage(empno){
+			//alert(empno)
+			location.href = "a01_empDetail.jsp?empno="+empno;
+	}
+	</script>
 </body>
 </html>

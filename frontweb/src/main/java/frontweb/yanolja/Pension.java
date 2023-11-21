@@ -1,23 +1,25 @@
 package frontweb.yanolja;
 
+import java.util.Date;
 
 public class Pension {
 	private int no;
 	private String name;
 	private int numberOfPeople;
 	private int price;
-	private String emptyOfDate;
+	private Date checkIn;
+	private Date checkOut;
 	private String loc;
 	public Pension() {
 		// TODO Auto-generated constructor stub
 	}
-	public Pension(int no, String name, int numberOfPeople,
-			int price, String emptyOfDate, String loc) {
+	public Pension(int no, String name, int numberOfPeople, int price, Date checkIn, Date checkOut, String loc) {
 		this.no = no;
 		this.name = name;
 		this.numberOfPeople = numberOfPeople;
 		this.price = price;
-		this.emptyOfDate = emptyOfDate;
+		this.checkIn = checkIn;
+		this.checkOut = checkOut;
 		this.loc = loc;
 	}
 	public int getNo() {
@@ -44,11 +46,17 @@ public class Pension {
 	public void setPrice(int price) {
 		this.price = price;
 	}
-	public String getEmptyOfDate() {
-		return emptyOfDate;
+	public Date getCheckIn() {
+		return checkIn;
 	}
-	public void setEmptyOfDate(String emptyOfDate) {
-		this.emptyOfDate = emptyOfDate;
+	public void setCheckIn(Date checkIn) {
+		this.checkIn = checkIn;
+	}
+	public Date getCheckOut() {
+		return checkOut;
+	}
+	public void setCheckOut(Date checkOut) {
+		this.checkOut = checkOut;
 	}
 	public String getLoc() {
 		return loc;
@@ -56,6 +64,5 @@ public class Pension {
 	public void setLoc(String loc) {
 		this.loc = loc;
 	}
-	
 	
 }

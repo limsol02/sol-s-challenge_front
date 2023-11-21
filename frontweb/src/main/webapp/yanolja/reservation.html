@@ -11,13 +11,14 @@
     #back {
         width: 20px;
         height: 20px;
-        margin-left: 400px;
+        margin-left: 30px;
+        margin-top: 10px;
     }
 
     #bD01 {
         background-color: white;
         border-radius: 0px;
-        margin-left: 30%;
+        margin-left: 28%;
         padding-top: 10px;
         height: 600px;
         width: 750px;
@@ -26,7 +27,7 @@
     #bD02 {
         background-color: white;
         border-radius: 0px;
-        margin-left: 30%;
+        margin-left: 28%;
         width: 750px;
         height: 250px;
         padding-top: 10px;
@@ -35,7 +36,7 @@
     #bD03 {
         background-color: white;
         border-radius: 0px;
-        margin-left: 30%;
+        margin-left: 28%;
         width: 750px;
         padding-top: 10px;
         height: 350px;
@@ -44,7 +45,7 @@
     #bD04 {
         background-color: white;
         border-radius: 0px;
-        margin-left: 30%;
+        margin-left: 28%;
         width: 750px;
         padding-top: 10px;
         height: 430px;
@@ -53,7 +54,7 @@
     #bD05 {
         background-color: white;
         border-radius: 0px;
-        margin-left: 30%;
+        margin-left: 28%;
         width: 750px;
         padding-top: 10px;
         height: 400px;
@@ -69,7 +70,7 @@
 
     #d03 {
         display: flex;
-        border: 2px solid pink;
+        border: 2px solid #DE2E5F;
         border-radius: 10px;
         width: 180px;
         height: 40px;
@@ -80,7 +81,7 @@
 
     #d04 {
         display: flex;
-        border: 2px solid pink;
+        border: 2px solid #DE2E5F;
         border-radius: 10px;
         width: 680px;
         height: 20px;
@@ -113,14 +114,14 @@
         padding: auto;
         width: 550px;
         height: 50px;
-        background-color: pink;
-        border-color: pink;
+        background-color: #DE2E5F;
+        border-color: #DE2E5F;
         color:white;
         font-size: 18px;
     }
 </style>
 
-<body style="background-color: rgb(243, 236, 236);">
+<body style="background-color:#F2F2F2;">
 
     <script>
         $(document).ready(function () {
@@ -130,10 +131,17 @@
             $(".in01").focus(function () {
                 $(this).val("");
             });
+
             $("#bD04 #ta02 th").click(function () {
-                $("#bD04 #ta02 th").css("background", "");
-                $(this).css("background", "skyblue")
+                $("#bD04 #ta02 th").css("border", "1px solid black");
+            $("#bD04 #ta02 th").css("background", "none");
+
+
+                $(this).css("border", "1px solid #0152CC");
+                $(this).css("background","#F2F6FC");
+            
             })
+
             $("#c01").change(function () {
                 if ($("#c01").prop("checked")) {
                     $(".c02").prop("checked", true);
@@ -149,10 +157,10 @@
     </script>
 
 
-    <div id="d01">
+    <div id="d01" style="background-color: white; width:750px ; margin-left: 28%;">
         <a href="HellPension.html"><img src="back.png" id="back" /></a>
-        <h2 style=" margin-left: 300px;"> 예약 </h2>
-    </div><br><br>
+        <h2 style=" margin-left: 290px;"> 예약 </h2>
+    </div>
     <div id="bD01">
         <h4 style=" margin-left: 30px;">숙소</h4>
         <div style="background-color:rgb(246, 245, 245); margin-left: 30px; width:700px;

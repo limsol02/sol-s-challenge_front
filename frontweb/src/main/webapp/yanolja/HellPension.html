@@ -11,22 +11,22 @@
     #mainPaint{
         background-color: white;
         border-radius: 0px;
-        margin-left: 30%;
+        margin-left: 28%;
         width: 770px;
         padding-top: 10px;
         height: 5000px;
     }
     #pImg {
-        margin-left: 20px;
+        margin-left: 30px;
         width: 700px;
         padding-top: 30px;
     }
 
     #h3 {
         border-radius: 0%;
-        border: 2px solid rgb(183, 176, 177);
+        border: 2px solid #DE2E5F(183, 176, 177);
         width: 120px;
-        background: rgb(183, 176, 177);
+        background: #DE2E5F(183, 176, 177);
         width: 150px;
         height: 40px;
         padding-top: 10px;
@@ -38,20 +38,21 @@
         border: 2px solid rgb(183, 176, 177);
         width: 400px;
         height: 260px;
-        /* margin-left:; */
+        margin-left:0%;
+        padding-left: 2%;
     }
 
     #reser {
         margin-left: 20px;
         width: 170px;
         height: 50px;
-        background-color: pink;
+        background-color: #DE2E5F;
         border-color: white;
         color: white
     }
 </style>
 
-<body style="background-color: rgb(243, 236, 236);">
+<body style="background-color: #F2F2F2;">
 
     <div id="mainPaint">
     <div>
@@ -59,29 +60,33 @@
     </div>
     <h2 style="margin-left: 20px;">가평 지옥펜션</h2>
     <p style="margin-left: 20px; color:rgb(47, 47, 243)">
-        <a href="https://place.map.kakao.com/17434480" target="_blank"><img scr="gps.png">숙소 위치보기</a><br>★4.0
+        <a href="https://place.map.kakao.com/17434480" target="_blank">
+            <img scr="gps.png">숙소 위치보기</a><br>★4.0
     </p>
     <hr>
 
     <div style="margin-left: 20px;"><br><br>
-        <h3 style="margin-left: 300px;" id="h3">숙소 예약하기</h3><br><br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        날짜 확인<input type="text" value="1110~1112">
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;인원 수 확인<input type="number" value="6">
+        <h3 style="margin-left: 40%;" id="h3">숙소 예약하기</h3><br><br>
+       <p style="margin-left: 20%;">
+        체크인 날짜<input type="date" value="2023-11-10">
+        체크아웃 날짜<input type="date" value="2023-11-12"></p>
+        <p style="margin-left: 32%;">인원 수 확인<input type="number" value="6"></p>
     </div>
     <br><br><br>
     <div id="d02" style="margin-left: 20px; display: flex; align-items: center;">
         <img src="지옥.png" style="margin-right: 20px; width: 300px;">
         <h4 id="h401"><br> &nbsp;&nbsp;&nbsp;&nbsp; 숙박<br><br><br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;체크인 : 14:00 <br><br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;체크아웃 : 11:00 <br><br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 150,000원 <br>
-            <a href="reservation.html"><input type="button" value="예약하기" id="reser" style="margin-left:200px;"></a>
+           체크인 : 14:00 <br><br>
+            체크아웃 : 11:00 <br><br>
+            150,000원 <br>
+
+            <a href="reservation.html">
+                <input type="button" value="예약하기" 
+                id="reser" style="margin-left:200px;"></a>
         </h4>
     </div>
     <br><br>
-    <div style="margin-left: 20px;">
+    <div style="margin-left: 35px;">
         <h3>숙소 소개</h3>
         <p>눈앞에서 바로 펼쳐지는 아름다운 남이섬, 길 따라 유유히 흐르는 북한강.<br>
             지옥펜션 객실 어디서나 만나실 수 있는 특별한 풍경입니다.<br>

@@ -11,7 +11,7 @@
     #mainPaint {
         background-color: white;
         border-radius: 0px;
-        margin-left: 30%;
+        margin-left: 28%;
         width: 750px;
         padding-top: 0px;
         height: 880px;
@@ -19,7 +19,7 @@
 
     .oval-text {
         border-radius: 20px;
-        border: 2px solid pink;
+        border: 2px solid #DE2E5F;
         width: 40px;
         text-align: center;
         margin: 0 auto;
@@ -39,26 +39,20 @@
         margin: 0 auto
     }
 
-    #back {
-        margin-left: 30%;
-        padding-left: 450px;
-    }
+    /* #back {
+        /* margin-left: 30%; */
+        /* padding-left: 450px; */
+    
 </style>
-<header style="background-color: white; height: 50px; width: 2000px; ">
-    <div style="display: flex;">
-        <a href="main.html"><img src="back.png" id="back" /></a>
-        <h3 style="margin-left: 21%; padding-top: 10px;">펜션/풀빌라</h3>
-    </div>
-</header>
 
-<body style="background-color: rgb(243, 236, 236);">
+<body style="background-color: #F2F2F2;">
     <script>
-
-
+        
+        
         $(document).ready(function () {
             $("#back").css({ width: "30px", height: "30px" })
             $(".mainName").css("text-align", "center")
-            $("[name=schLoc]").css({ width: 400, height: 40, border: '3px solid pink' })
+            $("[name=schLoc]").css({ width: 400, height: 40, border: '3px solid #DE2E5F' })
             $("#sch").click(function () {
                 var isTrue = $("#schLoc").val();
                 if (isTrue=="가평") {
@@ -74,10 +68,14 @@
             $("[name=schLoc]").focus(function () {
                 $(this).val("");
             });
-            $("[name=sch]").css({ background: "pink", border: "pink", width: 40, height: 40 })
+            $("[name=sch]").css({ background: "#DE2E5F", border: "#DE2E5F", width: 40, height: 40 })
         })
-    </script>
+        </script>
     <div id="mainPaint">
+        <div style="display: flex;">
+            <a href="main.html"><img src="back.png" id="back" /></a>
+            <h3 style="padding-top: 10px; align-content: center;">펜션/풀빌라</h3>
+        </div>
 
         <br><br><br>
         <div class="mainName">

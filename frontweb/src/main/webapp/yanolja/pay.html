@@ -24,8 +24,8 @@ input[type=button]{
     margin-left: 20px;
     width: 200px;
     height: 50px;
-    background-color: pink;
-    border-color: pink;
+    background-color: #DE2E5F;
+    border-color: #DE2E5F;
     color: white;
 }
 </style>
@@ -35,6 +35,9 @@ input[type=button]{
             var textInfo = $("[type=text]").val();
             if(textInfo!=""){
             window.location.href="ShowInfo.html"}
+            else{alert("정보를 입력해주세요")
+                return false;
+        }
         })
     })
 

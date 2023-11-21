@@ -112,3 +112,56 @@ to_char(CHECKIN,'YYYY-MM-DD')='2023-11-10';
 SELECT deptno, avg(sal) avsal FROM emp WHERE deptno=30 group by deptno;
 
 SELECT deptno ,count(*) cnt , AVG(sal) FROM emp group by deptno;
+
+
+SELECT e.*, to_date(hiredate,'YYYY-MM-DD') hiredateStr
+		           FROM emp01 e
+		           WHERE empno=7499; 
+		          
+SELECT * FROM  emp01;
+
+UPDATE emp01 
+SET 
+EMPNO = 1000,
+ename ='김영희',
+job = '대리',
+mgr = 9999,
+hiredate = TO_DATE('2023-11-01','YYYY-MM-DD') ,
+sal = 3500,
+comm = 200,
+deptno =10 WHERE empno=6555;
+
+/*
+UPDATE emp01 
+SET 
+ename =?,
+job =?,
+mgr = ?,
+hiredate = TO_DATE(?,'YYYY-MM-DD') ,
+sal = ?,
+comm = ?,
+deptno =? 
+WHERE empno=?
+ * */
+
+SELECT * FROM dept WHERE DEPTNO =10;
+/*SELECT * FROM dept WHERE DEPTNO =?*/
+
+CREATE TABLE dept01
+AS SELECT * FROM dept;
+SELECT * FROM dept01;
+
+INSERT INTO dept01 VALUES(10, '홍길동', '서울');
+/*INSERT INTO dept01 VALUES(?, ?, ?) */
+
+	            
+SELECT * FROM MEMBER01 ;
+
+/* SELECT * FROM MEMBER01 WHERE mno=? */
+
+INSERT INTO MEMBER01 VALUES (3,'최길동','heyee','7777','일반',2000);
+/*INSERT INTO MEMBER01 VALUES (?,?,?,?,?,?)*/
+
+UPDATE MEMBER01
+SET 
+name = '박길동', id='himan2', pwd='8888', auth='관리자', point=2500  WHERE mno=1;

@@ -1,0 +1,212 @@
+# 사원정보관리는
+0. 주요 파일 및 기능 메서드
+	1) Dao 
+		frontweb.datebase.PerparedStmtDao
+			getEmpList(Emp sch) (전체조회)
+			insertEmp01(EmpDTO ins) (등록)
+			getEmp(int empno) (상세조회)
+			update(EmpDTO upt) (수정)
+			deleteEmp(int empno) (삭제)
+			
+	2) DTO
+		frontweb.vo.EmpDTO
+		vo
+		frontweb.Emp
+		
+	3) 화면단
+		webapp\a01_datebase\a01_empList.jsp (전체조회리스트)	
+		webapp\a01_datebase\a01_empinsert.jsp (등록화면)	
+		webapp\a01_datebase\a01_empDetail.jsp (상세화면)	
+		webapp\a01_datebase\a01_empProc.jsp (수정처리프로세스)	
+			
+
+
+1. 초기화면은 사원정보 전체 검색 리스트에서 
+
+2. 검색벝츤 클릭, 검색 처리가 되고
+
+3. 입력버튼 클릭시, 입력화면으로 전환
+	입력 화면이 나타나고, a01_empInsert.jsp
+	입력항목으로 사원번호, 사원명, 직책명, 관리자번호, 입사일, 급여, 보너스, 부서번호가 있고, 
+	여기서 등록시, 등록 처리를 하여
+	Dao(preparedStmtDao.java)의 
+	public int insertEmp01(EmpDTO ins)
+	기능 메서드를 호출하여 등록 처리가 된후 
+	계쏙 등록하시겠습니까? 여부를 확인 후, 다시 등록하던지 메인화면으로 이동처리 하게 한다.
+	
+4. 리스트 항목 중에서 특정한 항목을 클릭하면, empno키를 전송하여 상세조회화면(a02_empDetail.jsp)로
+	이동하게 하고 입력된 항목을 만약에 여기서 볼 수 있다면
+
+5. 여기서 데이터를 수정 클릭하면 Dao에서 updateEmp01(EmpDTO upt)를 처리하여 수정이된다.
+
+6. 상세화묜에서, 삭제 버튼을 클릭하면 dao에서 deleteEmp01(int deptno)를 처리하여 삭제 후,
+	메인 리스트 화면이 처리한다. 
+	
+# 등록처리
+1. 리스트 화면에서 사원정보등록 버튼 추가
+
+2. 버튼 클릭시, onclick = "location.href = 'a01_empinsert.jsp'"; 이동처리
+
+3. 등록화면 form 화면 만들기
+	등록 목록을 <input type = "text" name = "enpno"/>
+	부터 시작해서 항목을 테이블 안에 리스트로 만든다.
+	
+	<form>
+	<input type = "number" name = "empno"/>
+	<input type = "text" name = "ename"/>
+	<input type = "text" name = "job"/>
+	<input type = "number" name = "mgr"/>
+	<input type = "text" name = "hiredate"/>
+	<input type = "number" name = "sal"/>
+	<input type = "number" name = "comm"/>
+	<input type = "number" name = "deptno"/>
+	<input type = "submit" value = "등록"/>
+	<input type = "button" value = "메인리스트화면" onclick="location.href='a01_empList.jsp'/>
+	</form>
+	
+	<form>으로 만든다.
+	
+4. 요청값처리 : 위 등록 항목들을 요청값을 선언한다.
+
+	String empnoStr = request.getParameter("empno");
+	String ename = request.getParameter("ename");
+	String job = request.getParameter("job");
+	String mgrStr = request.getParameter("mgr");
+	String hiredateStr = request.getParameter("hiredate");
+	String salStr = request.getParameter("sal");
+	String commStr = request.getParameter("comm");
+	String deptnoStr = request.getParameter("deptno");
+	
+5. 데이터 DTO 처리
+	import = "frontweb.datebase.PerparedStmtDao"
+	import = "frontweb.vo.EmpDTO"
+	empnoStr 기준으로 null이 아니면 등록처리가 되게 한다.
+	null은 메인화면에서 넘어올 때 처리
+	
+	boolean isInsert = false;
+	
+	if(empnoStr != null){
+		int empno = Integer.parseInt("empnoStr");
+		int mgr = Integer.parseInt("mgrStr");
+		double sal = Double.parseDouble("salStr");
+		double comm = Double.parseDouble("commStr");
+		int deptno = Integer.parseInt("deptnoStr");
+		PreparedStmtDao dao = new PreparedStmtDao();
+		dao.insertEmp01(new EmpDTO(
+			empno, ename, job, mgr, hiredate, sal, comm, deptno
+		));
+		isInsert = true;
+	}
+	<script>
+		var isInsert = <%=isInsert%>; // java코드가 javascript코드로 변환
+		if(isInsert){
+			if(!confirm("등록성공\n계속 하시겠습니까?")){
+				location.href = "a01_empList.jsp"
+			}
+		}
+	</script>
+	
+	
+# 상세화면 처리
+1. 사원 리스트 화면에서 특정 컬럼 클릭시, 사원번호를 key로 해서 상세회면을 이동하면서
+	상세데이터를 form 화면에서 처리된다.
+
+2. 상세화면 이동 처리
+	<tr onclick = "gePage(<%=emp.getEmpno()%>)"<th><%=emp.getEmpno()%>...
+		function goPage(empno){
+			location.href = "a01_empDetail.jsp?empno="+empno;
+		}
+	
+3. 상세화면에서 데이터 처리하기
+	1) dao 상세데이터 기능 메서드 추가
+		public EmpgetEmp(int empno){
+			Emp emp = null;
+		
+			String sql = "select e.* to_char(hiredate,'YYYY-MM-DD') hiredateStr
+			 from emp01 e where empno=? ";
+			
+			pstmt.setInt(1,empno);
+			
+			if(rs.next()){
+				emp = new Emp(
+				rs.getInt("empno"),
+				rs.getString("ename"),
+				rs.getString("job"),
+				rs.getInt("mgr"),
+				rs.getString("hiredate"),
+				rs.getDouble("sal"),
+				rs.getDouble("comm"),
+				rs.getInt("deptno"));
+			}
+		}
+	
+4. 상세화면 처리(a01_empDetail.jsp)
+	1) 요청값 처리
+		String empnoStr = request.getParameter("empno");
+		int empno=0;
+		Emp emp = new Emp();
+	
+	2) Dao, vo import
+		import = "frontweb.datebase.PerparedStmtDao"
+		import = "frontweb.vo.Emp"
+	
+	3) Dao, 요청값 처리 객체 생성..
+		if(empnoStr != null){
+			empno = Integet.parseInt(empnoStr);
+			PerparedStmtDao dao = new PerparedStmtDao();
+			emp = dao.getEmp(empno;) 
+		}	
+		
+	4) DB 입력된 화면 처리
+		<input type = "text" name = "empno" value="<%=emp.getEmpno()%>"/>
+		<input type = "text" name = "ename" value="<%=emp.getEname()%>"/>
+		<input type = "text" name = "job" value="<%=emp.getJob()%>"/>
+		<input type = "text" name = "mgr" value="<%=emp.getMgr()%>"/>
+		<input type = "text" name = "hiredateStr" value="<%=emp.getHiredateStr()%>"/>
+		<input type = "text" name = "sal" value="<%=emp.getSal()%>"/>
+		<input type = "text" name = "comm" value="<%=emp.getComm()%>"/>
+		<input type = "text" name = "deptno" value="<%=emp.getDeptno()%>"/>
+	
+5. 수정 처리
+	1) 요구사항 : 상세화면에서 데이터를 변경 후, 수정 버튼을 클릭시, 요청값을 전송하여 수정할 데이터를 넘기고, 
+		수정 dao 메서드에서 수정처리 후, 수정 계속 여부를 확인하여 처리한다. 
+		
+	2) 처리 순서 
+		1] dao 기능메서드 처리
+		- sql 작성
+		- dto 확인/ 작성
+		- 기능메서드 선언
+		
+		2] 요청값 처리(수정 클릭시, form action 을 a01_empProc.jsp를 submit 처리)
+		- a01_empProc.jsp 에 요청값 전달.
+		- Dto 객체 생성
+		- 수정 dao 메서드 호출
+		- 수정완료 script 처리
+			=> 상세화면 이동/전체화면 이동 선택해서 이동처리..
+	
+6. 삭제처리
+	1) 요구사항 : 삭제버튼 클릭시, 삭제하시겠습니까? 확인 후, 삭제 처리후 메인화면 이동
+	
+	2) dao 삭제 기능 메서드 처리
+		sql 작성 delete from emp01 where empno=?
+		public int deleteEmp01(int empno){}
+			
+	3) 상세화면에서 삭제 버튼 클릭, 삭제하시겠습니까?
+		proc hidden 으로 삭제 요청값 del 전송
+		
+	4) a01_empProc.jsp 페이지에서 proc.equals("del")시 삭제 메서드 처리..
+	
+	5) 삭제완료 alert() 후 메인페이지 이동처 리..
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

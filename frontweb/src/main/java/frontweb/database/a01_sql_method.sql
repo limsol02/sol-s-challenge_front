@@ -733,3 +733,4 @@ SELECT to_char(hiredate,'Q') 입사분기 FROM emp;
 -- EMP 테이블을 사용하여 @@@@/@@/@@ 부터 @@@@/@@/@@ 사이에 입사한 직원들의 목록을 조회하는 쿼리 작성
 SELECT * FROM emp WHERE to_char(HIREDATE,'YYYY/MM/DD') BETWEEN '1980/12/17' AND '1981/04/02'; 
 
+CREATE SEQUENCE mem_seq;

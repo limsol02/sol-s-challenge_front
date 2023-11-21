@@ -1,0 +1,48 @@
+[1단계:확인] 1. member01 테이블 기준(회원관리)으로 리스트 화면, 등록 처리,
+	상세화면, 수정, 삭제 처리 해서 (dao기능메서), VO, DTO, 화면리스트) 출력하세요.
+1. 파일 구조
+	1) vo 
+		frontweb.vo.Member
+	2) dao 기능메서드
+		frontweb.database.MemberDao
+		
+		public List<Member> getMemberList(String name, String auth)
+		public int insertMember(Member ins)
+		public Member getMember(String id)
+		public int updateMember(Member upt)
+		public int deleteMember(String id)
+		
+		
+	3) 화면 출력 
+		a07_memberList.jsp
+		a07_memberInsert.jsp
+		a07_memberDetail.jsp
+		a07_memberProc.jsp
+	
+1. 조회 리스트
+	1) sql
+		select * from member01 
+		where name like '%%'
+		and auth like '%%'
+		;
+	2) vo
+		Member
+	3) 기능메서드 처리
+		List<Member> getMemberList(String name, String auth)
+		String sql = "		select * from member01 
+							where name like ?
+							and auth like ?";
+		pstmt.setString(1,"%"+name+"%");					
+		pstmt.setString(2,"%"+auth+"%");					
+		
+	4) 화면 구성
+		조회 form  name="name"
+		          name="auth"
+		테이블
+			회원번호  아이디  이름   권한   포인트
+			
+			
+		          
+	
+	
+	
